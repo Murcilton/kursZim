@@ -48,8 +48,8 @@ body {
 
 .headernav button {
     flex: 1;
-    max-width: 200px; /* Минимальная ширина для кнопок */
-    margin: 5px; /* Отступы между кнопками */
+    max-width: 200px; 
+    margin: 5px; 
     border-radius: 20px;
     white-space: nowrap;
 }
@@ -84,6 +84,15 @@ right: 2%;
     }
 }
 
+.owl1 {
+top: -180px;
+width: 100%;
+transition: 0.4s ease;
+}
+
+/* .owl1 .item {
+
+} */
 
 
 
