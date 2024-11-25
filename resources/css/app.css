@@ -1,0 +1,44 @@
+body {
+    background-color: #96D2D9;
+    height: 2700px;
+}
+
+.header {
+    z-index: 100;
+    position: fixed;
+    top: -65px;
+    width: 100%;
+}
+
+.logo {
+    position: absolute;
+    bottom: -10px;
+    left: 4%;
+    width: 160px;
+    z-index: 1000;
+}
+
+.headernav {
+    position: relative;
+    top: 93px;
+
+}
+
+.burgerMenuButton {
+    width: 30px;
+}
+
+.SearchButton {
+    width: 30px;
+}
+
+.btnnav {
+    background-color: white;
+    color: #012840;
+    width: 160px;
+}
+
+.col {
+    display: flex;
+    
+}
