@@ -3,14 +3,19 @@
     outline-offset: -1px;
 } */
 
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100..700;1,100..700&display=swap');
+
 body {
     background-color: #96D2D9;
     height: 2700px;
+    font-family: "Josefin Sans", sans-serif;
 }
 
 .header {
     z-index: 100;
     position: fixed;
+    display: flex;
+    justify-content: center;
     top: -65px;
     width: 100%;
     height: 65px; 
@@ -20,7 +25,7 @@ body {
     width: 100%; 
     position: fixed;
     /* top: -65px; */
-    height: 18vh;
+    height: 160px;
     object-fit: cover; 
     z-index: -1; 
 }
@@ -42,11 +47,13 @@ body {
     flex-wrap: nowrap; 
     justify-content: space-between; 
     position: relative;
-    width: 100%;
-    top: 70px;
+    width: 80%;
+    top: 80px;
 }
 
 .headernav button {
+    background:none;
+    border:none;
     flex: 1;
     max-width: 200px; 
     margin: 5px; 
@@ -54,9 +61,10 @@ body {
     white-space: nowrap;
 }
 
-/* .burger-button, .search-button {
+.burger-button, .search-button {
+position: relative;
 
-} */
+}
 
 .cabinetButton {
 position: relative;
@@ -68,35 +76,149 @@ right: 2%;
 } */
 
 .btnnav {
-    background-color: white;
-    color: #012840;
+    background-color: #012840;
+    border-color: #012840;
+    color: white;
+    transition: 0.5s ease;
+    padding: 8px;
     width: 100%;
 }
+
+.btnnav:hover {
+    background-color: #012840;
+    border-color: #012840;
+    box-shadow: 2px 2px;
+}
+
+.btnnav:active {
+    position: relative;
+    transform: translateY(1px);
+    background-color: #012840; /* или любое другое значение */
+    border-color: #012840; /* или любое другое значение */
+
+    color: white; /* или любое другое значение */
+}
+
 
 .col {
     display: flex;
     
 }
 
-@media (max-width: 976px) {
+@media (max-width: 1208px) {
     .logo {
         left: 20%;
     }
 }
 
 .owl1 {
-top: -180px;
-width: 100%;
+position: relative;
+top: -165px;
+display: flex;
 transition: 0.4s ease;
 }
 
-/* .owl1 .item {
+.owl1 .item img {
+    width: 100%;
+    height: 110vh;
+    object-fit: cover;
+    border-radius: 0% 0% 50% 50% / 95% 95% 5% 5%;
+}
 
-} */
+.owl1 .owl-dots {
+    position: relative;
+    bottom: 120px;
+}
 
+.cards-container {
+    position: relative;
+    bottom: 100px;
+    display: flex;
+    justify-content: center; 
+}
 
+.cards {
+    width: 75%;
+}
 
+.card {
+    overflow: hidden;
+    height: 30vh;
+    width: 100%;
+    background-color: #03738C;
+    border-color: #03738C;
+    /* border-radius: 10%/12%; */
+    color: #012840;
+    border: none; 
+}
 
+.card-title {
+    white-space: nowrap;
+    font-weight: 800;
+    font-size: 40px;
+}
 
+.card-img {
+    height: 100%;
+    object-fit: cover;
+}
 
+.card4 {
+    color: white;
+}
+
+.sbackground {
+    position: absolute;
+    width: 100%;
+    object-fit: cover; 
+    z-index: -1; 
+}
+
+.ships {
+    position: absolute;
+    display: flex;
+    justify-content: center;
+}
+
+.ships .card {
+    position: relative;
+    overflow: hidden;
+    height: 50vh;
+    width: 50vh;
+    background: none;
+    border-color: none;
+    color: #ffffff;
+    border: none; 
+}
+
+.ships .card-title {
+    white-space: nowrap;
+    font-weight: 800;
+    font-size: 40px;
+}
+.ships .card-text {
+    font-size: 20px;
+}
+
+.ship {
+    position: relative;
+    width: 500px;
+}
+
+.ships-row {
+position: relative;
+top: 16vh;
+z-index: 10;
+}
+
+.owl-carousel2 {
+position: relative;
+z-index: 100;
+right: 20%;
+}
+
+.owl-carousel2 img {
+height: 45vh;
+object-fit: cover;
+}
 
