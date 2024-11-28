@@ -6,7 +6,7 @@
             <img src="{{ url('storage/img/6d.jpeg') }}" alt="">
         </div>
         <div class="item item2">
-            <img src="{{ url('storage/img/royal-caribbean-wonder-of-the-seas.jpeg') }}" alt="">
+            <img src="{{ url('storage/img/Wonder of the Seas_1645411198_WN22-DroneCadiz218R.webp') }}" alt="">
         </div>
         <div class="item item3">
             <img src="{{ url('storage/img/Union.png') }}" alt="">
@@ -90,16 +90,45 @@
             <div class="col-md-6 d-flex justify-content-center">
                 <div class="owl-carousel owl-carousel2 owl-theme">
                     <div class="item item1">
-                        <img src="{{ url('storage/img/6d.jpeg') }}" alt="">
+                        <img src="{{ url('storage/img/image.png') }}" alt="">
                     </div>
                     <div class="item item2">
-                        <img src="{{ url('storage/img/royal-caribbean-wonder-of-the-seas.jpeg') }}" alt="">
+                        <img src="{{ url('storage/img/RCI-Icon-of-the-Seas-Exterior-Ship-view-1200x700.jpg') }}" alt="">
                     </div>
                     <div class="item item3">
-                        <img src="{{ url('storage/img/Union.png') }}" alt="">
+                        <img src="{{ url('storage/img/image3.png') }}" alt="">
+                    </div>
+                    <div class="item item4">
+                        <img src="{{ url('storage/img/a83622c50647cfdd40b092c3aeb23992.jpg') }}" alt="">
+                    </div>
+                    <div class="item item5">
+                        <img src="{{ url('storage/img/low_1701726981_RCI-ST-Aerial-Aft-Night-CGI01-RT-crop-LR.jpg') }}" alt="">
                     </div>
                 </div>
             </div>
         </div>
     </div>
+
+
+    <div class="gallery-container">
+        <img class="gbackground" src="{{ url('storage/GUI/Gallery Background.svg') }}" alt="">
+        <div class="gallery-grid">
+            <div id="item-0" class="gallery-item" style="background-image: url('{{ url('storage/img/Italy.png') }}');">
+                <p>Италия</p>
+            </div>
+            <div id="item-1" class="gallery-item" style="background-image: url('{{ url('storage/img/Georgia.png') }}');">
+                <p>Грузия</p>
+            </div>
+            <div id="item-2" class="gallery-item" style="background-image: url('{{ url('storage/img/Greece.png') }}');">
+                <p>Греция</p>
+            </div>
+            <div id="item-3" class="gallery-item" style="background-image: url('{{ url('storage/img/Bahamas.png') }}');">
+                <p>Багамы</p>
+            </div>
+            <div id="item-4" class="gallery-item" style="background-image: url('{{ url('storage/img/Caribs.png') }}');">
+                <p>Карибы</p>
+            </div>
+        </div>
+    </div>
+    
 @endsection

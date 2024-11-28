@@ -16,8 +16,6 @@ $(document).ready(function(){
     $(".owl-carousel2").owlCarousel({
         items: 3,
         margin: 20,
-        loop: true,
-        autoplayHoverPause: true,
         dots: true, 
         smartSpeed: 1000
     });

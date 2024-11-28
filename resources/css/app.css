@@ -7,7 +7,7 @@
 
 body {
     background-color: #96D2D9;
-    height: 2700px;
+    height: 4000px;
     font-family: "Josefin Sans", sans-serif;
 }
 
@@ -28,6 +28,7 @@ body {
     height: 160px;
     object-fit: cover; 
     z-index: -1; 
+    filter: drop-shadow(7px 8px 40px #000000);
 }
 
 .logo {
@@ -49,6 +50,7 @@ body {
     position: relative;
     width: 80%;
     top: 80px;
+    transition: 0.4s ease;
 }
 
 .headernav button {
@@ -116,13 +118,16 @@ position: relative;
 top: -165px;
 display: flex;
 transition: 0.4s ease;
+background-color: #012840;
+border-radius: 0% 0% 50% 50% / 95% 95% 5% 5%;
 }
 
 .owl1 .item img {
     width: 100%;
-    height: 110vh;
+    height: 108vh;
     object-fit: cover;
     border-radius: 0% 0% 50% 50% / 95% 95% 5% 5%;
+
 }
 
 .owl1 .owl-dots {
@@ -175,14 +180,13 @@ transition: 0.4s ease;
 }
 
 .ships {
-    position: absolute;
+    position: relative;
     display: flex;
     justify-content: center;
 }
 
 .ships .card {
     position: relative;
-    overflow: hidden;
     height: 50vh;
     width: 50vh;
     background: none;
@@ -198,6 +202,7 @@ transition: 0.4s ease;
 }
 .ships .card-text {
     font-size: 20px;
+    
 }
 
 .ship {
@@ -220,5 +225,189 @@ right: 20%;
 .owl-carousel2 img {
 height: 45vh;
 object-fit: cover;
+transition: 0.4s ease;
 }
 
+@media (max-width: 1361px) {
+    .ships .card-title {
+        white-space: nowrap;
+        font-weight: 800;
+        font-size: 30px;
+    }
+    .ships .card-text {
+        font-size: 18px;
+    }
+    .owl-carousel2 img {
+        height: 40vh;
+        object-fit: cover;
+    }
+    .logo {
+        position: relative;
+        left: 0%;
+        width: 160px;
+        z-index: 1000;
+        transition: left 0.4s ease;
+    }
+}
+
+@media (max-width: 1035px) {
+    .headernav {
+        scale: 0.9;
+    }
+}
+
+@media (max-width: 1175px) {
+    .ships {
+        top: -5vh;
+        width: 35vh;
+    }
+    .sbackground {
+        position: absolute;
+        width: 100%;
+        height: 70vh;
+        object-fit: cover; 
+        z-index: -1; 
+    }
+}
+
+@media (max-width: 767px) {
+    .owl-carousel2 {
+        position: relative;
+        padding: 2vh;
+        z-index: 100;
+        right: 0%;
+    }
+    .owl-carousel2 img {
+        height: 35vh;
+        object-fit: cover;
+    }
+    .ships .card {
+        position: relative;
+        height: 35vh;
+        width: 60vh;
+        background: none;
+        border-color: none;
+        color: #ffffff;
+        border: none; 
+    }
+    .ships {
+        top: -2vh;
+        width: 65vh;
+    }
+    .sbackground {
+        position: absolute;
+        width: 100%;
+        height: 94vh;
+        object-fit: cover; 
+        z-index: -1; 
+    }
+    .card4 .card-title {
+        font-size: 30px;
+    }
+}
+
+.gallery-container {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    top: 70vh;
+}
+
+.divide {
+position: relative;
+
+}
+
+.gbackground {
+    position: absolute;
+    width: 100%;
+    object-fit: cover; 
+    height: 30vh;
+    z-index: -1;
+}
+
+.gallery-grid {
+    position: relative;
+    bottom: 120px;
+   display: grid; 
+    width: 80%;
+    height: 550px;
+   grid-template-rows: 1fr 1fr;
+   grid-template-columns: 1fr 1fr 1fr 1fr;
+   gap: 25px;
+}
+
+.gallery-item {
+    background-size: cover;
+    background-position: center;
+    border-radius: 18px;
+
+}
+
+.gallery-item:not(#item-3) {
+    display: flex; 
+    justify-content: center; 
+    align-items: center; 
+}
+
+.gallery-item p {
+    margin: 20px;
+    font-weight: 600;
+    font-size: 32px;
+    text-align: center;
+    color: #fff;
+    text-align: center;
+}
+
+#item-0 {
+
+   background-color: #67DC56; 
+   grid-row-start: 1;
+   grid-column-start: 1;
+
+   grid-row-end: 3;
+   grid-column-end: 2;
+   
+}
+
+#item-1 {
+
+   background-color: #5D9F7B; 
+   grid-row-start: 1;
+   grid-column-start: 2;
+
+   grid-row-end: 2;
+   grid-column-end: 4;
+   
+}
+#item-2 {
+
+   background-color: #ECCC57; 
+   grid-row-start: 1;
+   grid-column-start: 4;
+
+   grid-row-end: 2;
+   grid-column-end: 5;
+   
+}
+#item-3 {
+
+   background-color: #D8EB9C; 
+   grid-row-start: 2;
+   grid-column-start: 3;
+
+   grid-row-end: 3;
+   grid-column-end: 5;
+   
+}
+#item-4 {
+
+   background-color: #77DCDD; 
+   grid-row-start: 2;
+   grid-column-start: 2;
+
+   grid-row-end: 3;
+   grid-column-end: 3;
+   
+}

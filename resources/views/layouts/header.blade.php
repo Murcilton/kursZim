@@ -8,7 +8,7 @@
         <button class="btnnav" data-toggle="button" aria-pressed="true">КРУИЗЫ</button> 
         <button class="btnnav">КОРАБЛИ</button> 
         <button class="btnnav">ПРИБЫТИЯ</button> 
-        <button class="btnnav create-cruise-btn">СОЗДАТЬ СВОЙ КРУИЗ</button> 
+        <button class="btnnav create-cruise-btn">СОЗДАТЬ КРУИЗ</button> 
         <button class="search-button"><img src="{{ url('storage/GUI/Search Button.svg') }}" class="SearchButton" alt="" title=""/></button> 
         <button class="btn-primary btnnav cabinetButton" style="">КАБИНЕТ</button> 
     </div> 
