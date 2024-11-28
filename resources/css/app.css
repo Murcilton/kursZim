@@ -140,10 +140,12 @@ border-radius: 0% 0% 50% 50% / 95% 95% 5% 5%;
     bottom: 100px;
     display: flex;
     justify-content: center; 
+    
 }
 
 .cards {
     width: 75%;
+    
 }
 
 .card {
@@ -155,6 +157,10 @@ border-radius: 0% 0% 50% 50% / 95% 95% 5% 5%;
     /* border-radius: 10%/12%; */
     color: #012840;
     border: none; 
+}
+
+.card-item {
+    transition: 0.4s ease;
 }
 
 .card-title {
@@ -170,6 +176,10 @@ border-radius: 0% 0% 50% 50% / 95% 95% 5% 5%;
 
 .card4 {
     color: white;
+    transition: 0.4s ease;
+}
+.card4:hover {
+    transform: translateY(-3px);
 }
 
 .sbackground {
@@ -177,6 +187,7 @@ border-radius: 0% 0% 50% 50% / 95% 95% 5% 5%;
     width: 100%;
     object-fit: cover; 
     z-index: -1; 
+    transition: 0.4s ease;
 }
 
 .ships {
@@ -228,6 +239,118 @@ object-fit: cover;
 transition: 0.4s ease;
 }
 
+
+
+.gallery-container {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    top: 72vh;
+    transition: 0.4s ease;
+}
+
+.divide {
+position: absolute;
+top: -230px;
+}
+
+.divide h1 {
+    color: #012840;
+}
+
+.divideSVG {
+width: 100%;
+}
+
+.gbackground {
+    position: absolute;
+    width: 100%;
+    object-fit: cover; 
+    height: 30vh;
+    z-index: -1;
+}
+
+.gallery-grid {
+    position: relative;
+    bottom: 120px;
+   display: grid; 
+    width: 80%;
+    height: 550px;
+   grid-template-rows: 1fr 1fr;
+   grid-template-columns: 1fr 1fr 1fr 1fr;
+   gap: 25px;
+}
+
+.gallery-item {
+    background-size: cover;
+    background-position: center;
+    border-radius: 18px;
+
+}
+
+.gallery-item:not(#item-3) {
+    display: flex; 
+    justify-content: center; 
+    align-items: center; 
+}
+
+.gallery-item p {
+    margin: 20px;
+    font-weight: 600;
+    font-size: 32px;
+    text-align: center;
+    color: #fff;
+    text-align: center;
+}
+
+#item-0 {
+    transition: 0.4s ease;
+   grid-row-start: 1;
+   grid-column-start: 1;
+
+   grid-row-end: 3;
+   grid-column-end: 2;
+   
+}
+
+#item-1 {
+    transition: 0.4s ease;
+   grid-row-start: 1;
+   grid-column-start: 2;
+
+   grid-row-end: 2;
+   grid-column-end: 4;
+   
+}
+#item-2 {
+    transition: 0.4s ease;
+   grid-row-start: 1;
+   grid-column-start: 4;
+
+   grid-row-end: 2;
+   grid-column-end: 5;
+   
+}
+#item-3 {
+    transition: 0.4s ease;
+   grid-row-start: 2;
+   grid-column-start: 3;
+
+   grid-row-end: 3;
+   grid-column-end: 5;
+   
+}
+#item-4 {
+    transition: 0.4s ease;
+   grid-row-start: 2;
+   grid-column-start: 2;
+
+   grid-row-end: 3;
+   grid-column-end: 3;
+
+}
+
 @media (max-width: 1361px) {
     .ships .card-title {
         white-space: nowrap;
@@ -247,6 +370,13 @@ transition: 0.4s ease;
         width: 160px;
         z-index: 1000;
         transition: left 0.4s ease;
+    }
+    .gallery-container {
+        position: relative;
+        display: flex;
+        justify-content: center;
+        width: 100%;
+        top: 50vh;
     }
 }
 
@@ -304,110 +434,4 @@ transition: 0.4s ease;
     .card4 .card-title {
         font-size: 30px;
     }
-}
-
-.gallery-container {
-    position: relative;
-    display: flex;
-    justify-content: center;
-    width: 100%;
-    top: 70vh;
-}
-
-.divide {
-position: relative;
-
-}
-
-.gbackground {
-    position: absolute;
-    width: 100%;
-    object-fit: cover; 
-    height: 30vh;
-    z-index: -1;
-}
-
-.gallery-grid {
-    position: relative;
-    bottom: 120px;
-   display: grid; 
-    width: 80%;
-    height: 550px;
-   grid-template-rows: 1fr 1fr;
-   grid-template-columns: 1fr 1fr 1fr 1fr;
-   gap: 25px;
-}
-
-.gallery-item {
-    background-size: cover;
-    background-position: center;
-    border-radius: 18px;
-
-}
-
-.gallery-item:not(#item-3) {
-    display: flex; 
-    justify-content: center; 
-    align-items: center; 
-}
-
-.gallery-item p {
-    margin: 20px;
-    font-weight: 600;
-    font-size: 32px;
-    text-align: center;
-    color: #fff;
-    text-align: center;
-}
-
-#item-0 {
-
-   background-color: #67DC56; 
-   grid-row-start: 1;
-   grid-column-start: 1;
-
-   grid-row-end: 3;
-   grid-column-end: 2;
-   
-}
-
-#item-1 {
-
-   background-color: #5D9F7B; 
-   grid-row-start: 1;
-   grid-column-start: 2;
-
-   grid-row-end: 2;
-   grid-column-end: 4;
-   
-}
-#item-2 {
-
-   background-color: #ECCC57; 
-   grid-row-start: 1;
-   grid-column-start: 4;
-
-   grid-row-end: 2;
-   grid-column-end: 5;
-   
-}
-#item-3 {
-
-   background-color: #D8EB9C; 
-   grid-row-start: 2;
-   grid-column-start: 3;
-
-   grid-row-end: 3;
-   grid-column-end: 5;
-   
-}
-#item-4 {
-
-   background-color: #77DCDD; 
-   grid-row-start: 2;
-   grid-column-start: 2;
-
-   grid-row-end: 3;
-   grid-column-end: 3;
-   
 }

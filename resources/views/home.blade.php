@@ -17,7 +17,7 @@
         <div class="cards">
             <div class="row row-cols-1 row-cols-md-3">
                 <div class="col mb-4">
-                    <div class="card">
+                    <div class="card card-item">
                         <img class="card-img" src="{{ url('storage/img/Screenshot 2024-11-26 174422.png') }}"
                             alt="Card image">
                         <div class="card-img-overlay">
@@ -28,7 +28,7 @@
                     </div>
                 </div>
                 <div class="col mb-4">
-                    <div class="card">
+                    <div class="card card-item">
                         <img class="card-img" src="{{ url('storage/img/Famous-Landmarks-In-Alaska-cover.jpg') }}"
                             alt="Card image">
                         <div class="card-img-overlay">
@@ -39,7 +39,7 @@
                     </div>
                 </div>
                 <div class="col mb-4">
-                    <div class="card">
+                    <div class="card card-item">
                         <img class="card-img"
                             src="{{ url('storage/img/jw-marriott_plant-riverside-savannah-c-credit-jw-marriott-plant-riverside-savannah.jpg') }}"
                             alt="Card image">
@@ -68,8 +68,6 @@
             </div>
         </div>
     </div>
-
-
 
     <div class="ships-container">
         <img class="sbackground" src="{{ url('storage/GUI/Ships Background.svg') }}" alt="" title=""
@@ -110,7 +108,13 @@
     </div>
 
 
+
     <div class="gallery-container">
+        <div class="divide">
+            <h1>Взгляните на мир с его лучшей стороны</h1>
+            <img class="divideSVG" src="{{ url('storage/GUI/Divide.svg') }}" alt="">
+        </div>
+        
         <img class="gbackground" src="{{ url('storage/GUI/Gallery Background.svg') }}" alt="">
         <div class="gallery-grid">
             <div id="item-0" class="gallery-item" style="background-image: url('{{ url('storage/img/Italy.png') }}');">
