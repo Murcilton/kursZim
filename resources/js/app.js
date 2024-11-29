@@ -3,6 +3,11 @@ import './bootstrap';
 import 'owl.carousel/dist/assets/owl.carousel.css';
 import 'owl.carousel';
 
+window.scrollTo({
+  top: 100,
+  behavior: 'smooth'
+});
+
 $(document).ready(function(){
     $(".owl-carousel1").owlCarousel({
         items: 1,
@@ -62,3 +67,4 @@ items2.forEach(item => {
     });
   });
 });
+

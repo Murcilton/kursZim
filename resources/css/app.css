@@ -1,14 +1,28 @@
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100..700;1,100..700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+
 /* * {
     outline: 1px solid red;
     outline-offset: -1px;
 } */
 
-@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100..700;1,100..700&display=swap');
+*, html {
+    scroll-behavior: smooth !important;
+}
 
 body {
     background-color: #96D2D9;
     height: 4000px;
-    font-family: "Josefin Sans", sans-serif;
+    font-family: "Montserrat", sans-serif;
+    overflow-x: hidden;
+    overflow-y: scroll !important;
+    padding-right: 0px !important;
+}
+
+button {
+    background:none;
+    border:none;
+    border-radius: 20px;
 }
 
 .header {
@@ -95,10 +109,10 @@ right: 2%;
 .btnnav:active {
     position: relative;
     transform: translateY(1px);
-    background-color: #012840; /* или любое другое значение */
-    border-color: #012840; /* или любое другое значение */
+    background-color: #012840; 
+    border-color: #012840;
 
-    color: white; /* или любое другое значение */
+    color: white;
 }
 
 
@@ -145,7 +159,6 @@ border-radius: 0% 0% 50% 50% / 95% 95% 5% 5%;
 
 .cards {
     width: 75%;
-    
 }
 
 .card {
@@ -180,6 +193,120 @@ border-radius: 0% 0% 50% 50% / 95% 95% 5% 5%;
 }
 .card4:hover {
     transform: translateY(-3px);
+}
+
+.booking-container {
+    display: flex;
+    justify-content: center;
+    flex-wrap: nowrap; 
+    position: relative;
+    height: 100px;
+    bottom: 2vh;
+}
+
+.bbackground {
+    position: absolute;
+    object-fit: cover;
+    z-index: -1;
+    width: 75%;
+    height: 15vh;
+    bottom: 2vh;
+    border-radius: 28px;
+}
+
+.modals {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 3vw;
+}
+
+.btnmodal {
+    position: relative;
+    background-color: white;
+    color: #012840;
+    width: 13vw;
+    min-width: 190px;
+    bottom: 5px;
+    height: 50px;
+    padding: 15px;
+    white-space: nowrap;
+    transition: 0.2s ease;
+}
+
+.btnsubmit {
+    background-color: #03738C;
+    margin-left: 8vh;
+    color: white;
+    width: auto;
+}
+
+.btnsubmit i {
+    margin-left: 10px;
+}
+
+.btnmodal img {
+position: relative;
+left: 10%;
+}
+
+.btnmodal:hover {
+
+    transform: translateY(1px);
+}
+
+.btnmodal:active {
+    box-shadow: 2px 2px;
+    position: relative;
+    transform: translateY(2px);
+    background-color: #012840; 
+    border-color: #012840;
+    color: white !important;
+}
+
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes slideOut {
+    from {
+        opacity: 1;
+    }
+    to {
+        opacity: 0;
+    }
+}
+
+.modal-backdrop {
+    display: none;
+}
+
+/* .modal.fade {
+    transform:none;
+    transition: 0.3s ease !important;
+    animation: slideOut 0.3s ease;
+} */
+
+/* .modal.fade:not(.show) {
+
+} */
+
+.modal.show {
+    animation: slideIn 0.3s ease;
+    backdrop-filter: blur(4px);
+}
+
+.btnmodalLabel {
+    color: white;
+    position: absolute;
+    margin-left: 8px;
+    bottom: 110px;
 }
 
 .sbackground {
@@ -435,3 +562,6 @@ width: 100%;
         font-size: 30px;
     }
 }
+
+
+  
