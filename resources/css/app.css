@@ -227,6 +227,26 @@ border-radius: 0% 0% 50% 50% / 95% 95% 5% 5%;
     gap: 3vw;
 }
 
+.modal-dialog {
+    bottom: 20vh;
+}
+
+.modal-content {
+    border-radius: 18px;
+}
+
+.modal-body button {
+    width: auto;
+    margin: 10px;
+    border-color: #012840;
+    border: solid 1px;
+}
+
+.btnmodal.selected {
+    transition: 0.9s ease !important;
+    font-weight: 700;
+}
+
 .btnmodal {
     position: relative;
     background-color: white;

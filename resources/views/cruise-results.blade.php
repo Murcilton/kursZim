@@ -14,6 +14,7 @@
                         <th>Название</th>
                         <th>Описание</th>
                         <th>Направление</th>
+                        <th>Пункт отправки</th>
                         <th>Дата</th>
                         <th>Корабль</th>
                         <th>Длительность</th>
@@ -25,6 +26,7 @@
                             <td>{{ $cruise->title }}</td>
                             <td>{{ $cruise->description }}</td>
                             <td>{{ $cruise->destination->name }}</td> 
+                            <td>{{ $cruise->departure->name }}</td> 
                             <td>{{ $cruise->date->date }}</td> 
                             <td>{{ $cruise->ship->name }}</td> 
                             <td>{{ $cruise->nights }} ночей</td>

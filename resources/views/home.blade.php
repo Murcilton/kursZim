@@ -76,21 +76,24 @@
             {{-- Первое окно --}}
             <div class="first-modal">
                 <label for="b1" class="btnmodalLabel">Круиз в</label>
-                <button type="button" class="btnmodal b1" data-bs-toggle="modal" data-bs-target="#destinationModal">
+                <button type="button" id="modalButton" class="btnmodal b1" data-bs-toggle="modal" data-bs-target="#destinationModal">
                     Куда угодно
                     <img class="btnmodalArrow" src="{{ url('storage/GUI/Arrow Down.svg') }}" alt="" />
                 </button>
                 <div class="modal fade" id="destinationModal" tabindex="-1" aria-labelledby="destinationModalLabel" aria-hidden="true">
-                    <div class="modal-dialog">
+                    <div class="modal-dialog modal-dialog-centered">
                         <div class="modal-content">
                             <div class="modal-header">
                                 <h1 class="modal-title fs-5" id="destinationModalLabel">Выберите направление</h1>
                                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                             </div>
                             <div class="modal-body">
+                                <button type="button" class="btnmodal destination-option" data-id="">
+                                    Куда угодно
+                                </button>
                                 @foreach($destinations as $destination)
-                                    <button type="button" class="btn btn-outline-primary destination-option" data-id="{{ $destination->id }}">
-                                        {{ $destination->name }}
+                                    <button type="button" class="btnmodal destination-option" data-id="{{ $destination->id }}">
+                                            {{ $destination->name }}
                                     </button>
                                 @endforeach
                             </div>
@@ -103,21 +106,24 @@
             {{-- Второе окно --}}
             <div class="second-modal">
                 <label for="b2" class="btnmodalLabel">Отправка из</label>
-                <button type="button" class="btnmodal b2" data-bs-toggle="modal" data-bs-target="#departureModal">
+                <button type="button" id="modalButton2" class="btnmodal b2" data-bs-toggle="modal" data-bs-target="#departureModal">
                     Откуда угодно
                     <img class="btnmodalArrow" src="{{ url('storage/GUI/Arrow Down.svg') }}" alt="" />
                 </button>
                 <div class="modal fade" id="departureModal" tabindex="-1" aria-labelledby="departureModalLabel" aria-hidden="true">
-                    <div class="modal-dialog">
+                    <div class="modal-dialog modal-dialog-centered">
                         <div class="modal-content">
                             <div class="modal-header">
                                 <h1 class="modal-title fs-5" id="departureModalLabel">Выберите отправление</h1>
                                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                             </div>
                             <div class="modal-body">
+                                <button type="button" class="btnmodal departure-option" data-id="">
+                                    Откуда угодно
+                                </button>
                                 @foreach($departures as $departure)
-                                    <button type="button" class="btn btn-outline-primary departure-option" data-id="{{ $departure->id }}">
-                                        {{ $departure->name }}
+                                    <button type="button" class="btnmodal departure-option" data-id="{{ $departure->id }}">
+                                            {{ $departure->name }}
                                     </button>
                                 @endforeach
                             </div>
@@ -130,21 +136,24 @@
             {{-- Третье окно --}}
             <div class="third-modal">
                 <label for="b3" class="btnmodalLabel">Отправка в</label>
-                <button type="button" class="btnmodal b3" data-bs-toggle="modal" data-bs-target="#dateModal">
+                <button type="button" id="modalButton3" class="btnmodal b3" data-bs-toggle="modal" data-bs-target="#dateModal">
                     В любое время
                     <img class="btnmodalArrow" src="{{ url('storage/GUI/Arrow Down.svg') }}" alt="" />
                 </button>
                 <div class="modal fade" id="dateModal" tabindex="-1" aria-labelledby="dateModalLabel" aria-hidden="true">
-                    <div class="modal-dialog">
+                    <div class="modal-dialog modal-dialog-centered">
                         <div class="modal-content">
                             <div class="modal-header">
                                 <h1 class="modal-title fs-5" id="dateModalLabel">Выберите дату</h1>
                                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                             </div>
                             <div class="modal-body">
+                                <button type="button" class="btnmodal date-option" data-id="">
+                                    В любое время
+                                </button>
                                 @foreach($dates as $date)
-                                    <button type="button" class="btn btn-outline-primary date-option" data-id="{{ $date->id }}">
-                                        {{ $date->date }}
+                                    <button type="button" class="btnmodal date-option" data-id="{{ $date->id }}">
+                                            {{ $date->date }}
                                     </button>
                                 @endforeach
                             </div>

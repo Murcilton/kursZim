@@ -76,6 +76,9 @@ document.addEventListener('DOMContentLoaded', () => {
           document.getElementById('destinationInput').value = destinationId;
           document.querySelector('.b1').innerText = button.innerText;
 
+          const modalButton = document.getElementById('modalButton');
+          modalButton.classList.add('selected');
+
           const modal = bootstrap.Modal.getInstance(document.getElementById('destinationModal'));
           modal.hide();
       });
@@ -86,6 +89,9 @@ document.addEventListener('DOMContentLoaded', () => {
           const departureId = button.getAttribute('data-id');
           document.getElementById('departureInput').value = departureId;
           document.querySelector('.b2').innerText = button.innerText;
+
+          const modalButton2 = document.getElementById('modalButton2');
+          modalButton2.classList.add('selected');
 
           const modal = bootstrap.Modal.getInstance(document.getElementById('departureModal'));
           modal.hide();
@@ -98,6 +104,9 @@ document.addEventListener('DOMContentLoaded', () => {
           const dateId = button.getAttribute('data-id');
           document.getElementById('dateInput').value = dateId;
           document.querySelector('.b3').innerText = button.innerText;
+
+          const modalButton3 = document.getElementById('modalButton3');
+          modalButton3.classList.add('selected');
 
           const modal = bootstrap.Modal.getInstance(document.getElementById('dateModal'));
           modal.hide();

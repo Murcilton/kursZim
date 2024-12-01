@@ -37,11 +37,11 @@ class CruiseController extends Controller
         }
     
         if ($validated['departure_id']) {
-            $query->orWhere('departure_id', $validated['departure_id']);
+            $query->where('departure_id', $validated['departure_id']);
         }
     
         if ($validated['date_id']) {
-            $query->orWhere('date_id', $validated['date_id']);
+            $query->where('date_id', $validated['date_id']);
         }
     
         $cruises = $query->get();
