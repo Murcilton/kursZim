@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\CruiseController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -17,6 +18,8 @@ Route::get('/home', function () {
     return view('welcome');
 });
 
-Route::get('/home2', function () {
-    return view('home');
-});
+Route::get('/home2', [CruiseController::class, 'showBookingForm'])->name('home');
+
+Route::get('/booking-form', [CruiseController::class, 'showBookingForm'])->name('booking.form');
+Route::get('/cruise-search', [CruiseController::class, 'searchCruise'])->name('cruise.search');
+Route::get('/cruise-results', [CruiseController::class, 'searchCruise'])->name('cruise.results');

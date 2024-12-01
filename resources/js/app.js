@@ -68,3 +68,42 @@ items2.forEach(item => {
   });
 });
 
+document.addEventListener('DOMContentLoaded', () => {
+
+  document.querySelectorAll('.destination-option').forEach(button => {
+      button.addEventListener('click', () => {
+          const destinationId = button.getAttribute('data-id');
+          document.getElementById('destinationInput').value = destinationId;
+          document.querySelector('.b1').innerText = button.innerText;
+
+          const modal = bootstrap.Modal.getInstance(document.getElementById('destinationModal'));
+          modal.hide();
+      });
+  });
+
+  document.querySelectorAll('.departure-option').forEach(button => {
+      button.addEventListener('click', () => {
+          const departureId = button.getAttribute('data-id');
+          document.getElementById('departureInput').value = departureId;
+          document.querySelector('.b2').innerText = button.innerText;
+
+          const modal = bootstrap.Modal.getInstance(document.getElementById('departureModal'));
+          modal.hide();
+      });
+  });
+
+
+  document.querySelectorAll('.date-option').forEach(button => {
+      button.addEventListener('click', () => {
+          const dateId = button.getAttribute('data-id');
+          document.getElementById('dateInput').value = dateId;
+          document.querySelector('.b3').innerText = button.innerText;
+
+          const modal = bootstrap.Modal.getInstance(document.getElementById('dateModal'));
+          modal.hide();
+      });
+  });
+});
+
+
+

@@ -115,7 +115,6 @@ right: 2%;
     color: white;
 }
 
-
 .col {
     display: flex;
     
@@ -204,13 +203,20 @@ border-radius: 0% 0% 50% 50% / 95% 95% 5% 5%;
     bottom: 2vh;
 }
 
+.results-container {
+    display: flex;
+    justify-content: center;
+    position: relative;
+    top: 200px;
+}
+
 .bbackground {
     position: absolute;
     object-fit: cover;
     z-index: -1;
     width: 75%;
-    height: 15vh;
-    bottom: 2vh;
+    height: 9rem;
+    bottom: 20px;
     border-radius: 28px;
 }
 
@@ -563,5 +569,3 @@ width: 100%;
     }
 }
 
-
-  

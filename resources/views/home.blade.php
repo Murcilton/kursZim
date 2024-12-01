@@ -69,88 +69,95 @@
         </div>
     </div>
 
-    <div class="booking-container" style="">
-        <img class="bbackground" src="{{ url('storage/GUI/Booking Background.svg') }}" alt="" title="" style=""/>
-        <form action="" class="modals">
+    <div class="booking-container">
+        <img class="bbackground" src="{{ url('storage/GUI/Booking Background.svg') }}" alt="" title="" />
+        <form action="{{ route('cruise.search') }}" method="GET" class="modals">
+            @csrf
             {{-- Первое окно --}}
             <div class="first-modal">
                 <label for="b1" class="btnmodalLabel">Круиз в</label>
-                <button type="button" class="btnmodal b1" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                <button type="button" class="btnmodal b1" data-bs-toggle="modal" data-bs-target="#destinationModal">
                     Куда угодно
-                    <img class="btnmodalArrow" src="{{ url('storage/GUI/Arrow Down.svg') }}" alt="" title="" style=""/>
+                    <img class="btnmodalArrow" src="{{ url('storage/GUI/Arrow Down.svg') }}" alt="" />
                 </button>
-                <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal fade" id="destinationModal" tabindex="-1" aria-labelledby="destinationModalLabel" aria-hidden="true">
                     <div class="modal-dialog">
                         <div class="modal-content">
                             <div class="modal-header">
-                                <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
+                                <h1 class="modal-title fs-5" id="destinationModalLabel">Выберите направление</h1>
                                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                             </div>
                             <div class="modal-body">
-                                ...
-                            </div>
-                            <div class="modal-footer">
-                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                                <button type="button" class="btn btn-primary">Save changes</button>
+                                @foreach($destinations as $destination)
+                                    <button type="button" class="btn btn-outline-primary destination-option" data-id="{{ $destination->id }}">
+                                        {{ $destination->name }}
+                                    </button>
+                                @endforeach
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
+            <input type="hidden" name="destination_id" id="destinationInput">
+    
             {{-- Второе окно --}}
             <div class="second-modal">
                 <label for="b2" class="btnmodalLabel">Отправка из</label>
-                <button type="button" class="btnmodal b2" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                <button type="button" class="btnmodal b2" data-bs-toggle="modal" data-bs-target="#departureModal">
                     Откуда угодно
-                    <img class="btnmodalArrow" src="{{ url('storage/GUI/Arrow Down.svg') }}" alt="" title="" style=""/>
+                    <img class="btnmodalArrow" src="{{ url('storage/GUI/Arrow Down.svg') }}" alt="" />
                 </button>
-                <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal fade" id="departureModal" tabindex="-1" aria-labelledby="departureModalLabel" aria-hidden="true">
                     <div class="modal-dialog">
                         <div class="modal-content">
                             <div class="modal-header">
-                                <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
+                                <h1 class="modal-title fs-5" id="departureModalLabel">Выберите отправление</h1>
                                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                             </div>
                             <div class="modal-body">
-                                ...
-                            </div>
-                            <div class="modal-footer">
-                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                                <button type="button" class="btn btn-primary">Save changes</button>
+                                @foreach($departures as $departure)
+                                    <button type="button" class="btn btn-outline-primary departure-option" data-id="{{ $departure->id }}">
+                                        {{ $departure->name }}
+                                    </button>
+                                @endforeach
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-            
+            <input type="hidden" name="departure_id" id="departureInput">
+    
             {{-- Третье окно --}}
             <div class="third-modal">
                 <label for="b3" class="btnmodalLabel">Отправка в</label>
-                <button type="button" class="btnmodal b3" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                <button type="button" class="btnmodal b3" data-bs-toggle="modal" data-bs-target="#dateModal">
                     В любое время
-                    <img class="btnmodalArrow" src="{{ url('storage/GUI/Arrow Down.svg') }}" alt="" title="" style=""/>
+                    <img class="btnmodalArrow" src="{{ url('storage/GUI/Arrow Down.svg') }}" alt="" />
                 </button>
-                <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal fade" id="dateModal" tabindex="-1" aria-labelledby="dateModalLabel" aria-hidden="true">
                     <div class="modal-dialog">
                         <div class="modal-content">
                             <div class="modal-header">
-                                <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
+                                <h1 class="modal-title fs-5" id="dateModalLabel">Выберите дату</h1>
                                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                             </div>
                             <div class="modal-body">
-                                ...
-                            </div>
-                            <div class="modal-footer">
-                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                                <button type="button" class="btn btn-primary">Save changes</button>
+                                @foreach($dates as $date)
+                                    <button type="button" class="btn btn-outline-primary date-option" data-id="{{ $date->id }}">
+                                        {{ $date->date }}
+                                    </button>
+                                @endforeach
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
+            <input type="hidden" name="date_id" id="dateInput">
+    
             <button type="submit" class="btnmodal btnsubmit">Найти круиз<i class="fa-solid fa-check" style="color: #ffffff;"></i></button>
         </form>
     </div>
+    
 
     <div class="ships-container">
         <img class="sbackground" src="{{ url('storage/GUI/Ships Background.svg') }}" alt="" title=""
