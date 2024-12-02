@@ -114,5 +114,15 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 });
 
+window.addEventListener('load', () => {
+  const preloader = document.getElementById('preloader');
 
+  setTimeout(() => {
+    preloader.style.opacity = '0';
+    setTimeout(() => {
+      preloader.style.display = 'none';
+      document.querySelector('.main-container').style.display = 'block'; 
+    }, 500); 
+  }, 200); 
+});
 

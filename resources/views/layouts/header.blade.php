@@ -2,7 +2,8 @@
     <img class="hbackground" src="{{ url('storage/GUI/Header Background.svg') }}" alt="" title="" style=""/> 
     <div class="headernav d-flex align-items-center"> 
         <div class="logo-container">
-            <button class="btn logo"><img src="{{ url('storage/GUI/Logo.svg') }}" alt="" title="" style="width: 130px"/></button> 
+            <a href="{{ route('home') }}"><button class="btn logo"><img src="{{ url('storage/GUI/Logo.svg') }}" alt="" title="" style="width: 130px"/></button></a>
+             
         </div> 
         <button class="btn burger-button"><img src="{{ url('storage/GUI/Burger Menu.svg') }}" class="burgerMenuButton" alt="" title=""/></button> 
         <button class="btnnav" data-toggle="button" aria-pressed="true">КРУИЗЫ</button> 

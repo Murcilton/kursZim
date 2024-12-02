@@ -12,11 +12,14 @@
     </div>
 @endif
 
-<div class="content-wrapper d-flex align-items-center justify-content-center" style="height: 50vh; width: 100vh">
-    <div class="card" style="width: 400px;">
-        <div class="card-header">
-            <h3 class="card-title">Авторизация</h3>
-          </div>
+<div class="register-wrapper content-wrapper d-flex align-items-center justify-content-center">
+    <div class="register-card">
+        <div class="register-logo">
+            <ul class="register-logo-banner">
+                <li><img src="{{ url('storage/GUI/Logo Auth.svg') }}" alt=""></li>
+                <li><p>Авторизация пользователя <span class="custom">Superbia Maris</span></p></li>
+            </ul>
+        </div>
         <form action="{{ route('login') }}" method='post'>
             @csrf
             <div class="card-body">
@@ -25,7 +28,7 @@
                     <input type="email" class="form-control" placeholder="Email" name="email"
                         value="{{ old('email') }}">
                     <div class="input-group-append">
-                        <div class="input-group-text">
+                        <div class="input-group-text" style="height: 100%">
                             <span class="fas fa-envelope"></span>
                         </div>
                     </div>
@@ -34,15 +37,15 @@
                 <div class="input-group mb-3">
                     <input type="password" class="form-control" placeholder="Пароль" name="password">
                     <div class="input-group-append">
-                        <div class="input-group-text">
+                        <div class="input-group-text" style="height: 100%">
                             <span class="fas fa-lock"></span>
                         </div>
                     </div>
                 </div>
 
                 <div class="row">
-                    <div class="col-4">
-                        <button type="submit" class="btn btn-primary btn-blok">Авторизоваться</button>
+                    <div class="col register-submit">
+                        <button type="submit" class="btnmodal btn-blok">Авторизоваться</button>
                     </div>
                 </div>
                 <a href="{{ route('password.request') }}" class="ms-2">Забыли пароль?</a>

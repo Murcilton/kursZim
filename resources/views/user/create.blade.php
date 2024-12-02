@@ -16,8 +16,8 @@
     <div class="register-card">
         <div class="register-logo">
             <ul class="register-logo-banner">
-                <li><img src="{{ url('storage/GUI/Logo Full.svg') }}" alt=""></li>
-                <li><p>Регистрация пользователя Superbia Maris</p></li>
+                <li><img src="{{ url('storage/GUI/Logo Auth.svg') }}" alt=""></li>
+                <li><p>Регистрация пользователя <span class="custom">Superbia Maris</span></p></li>
             </ul>
         </div>
         <form action="{{ route('register.store') }}" method='post'>
@@ -27,7 +27,7 @@
                     <input type="text" class="form-control" placeholder="Name" name="name"
                         value="{{ old('name') }}">
                     <div class="input-group-append">
-                        <div class="input-group-text">
+                        <div class="input-group-text" style="height: 100%">
                             <span class="fas fa-user"></span>
                         </div>
                     </div>
@@ -37,7 +37,7 @@
                     <input type="email" class="form-control" placeholder="Email" name="email"
                         value="{{ old('email') }}">
                     <div class="input-group-append">
-                        <div class="input-group-text">
+                        <div class="input-group-text" style="height: 100%">
                             <span class="fas fa-envelope"></span>
                         </div>
                     </div>
@@ -46,7 +46,7 @@
                 <div class="input-group mb-3">
                     <input type="password" class="form-control" placeholder="Пароль" name="password">
                     <div class="input-group-append">
-                        <div class="input-group-text">
+                        <div class="input-group-text" style="height: 100%">
                             <span class="fas fa-lock"></span>
                         </div>
                     </div>
@@ -56,7 +56,7 @@
                     <input type="password" class="form-control" placeholder="Повторите пароль"
                         name="password_confirmation">
                     <div class="input-group-append">
-                        <div class="input-group-text">
+                        <div class="input-group-text" style="height: 100%">
                             <span class="fas fa-lock"></span>
                         </div>
                     </div>

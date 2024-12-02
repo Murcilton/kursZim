@@ -58,3 +58,13 @@ Route::post('/email/verification-notification', function (Request $request) {
     $request->user()->sendEmailVerificationNotification();
     return back()->with('message', 'Verification link sent!');
 })->middleware(['auth', 'throttle:3,1'])->name('verification.send');
+
+Route::group(['middleware' => 'admin'], function () {
+    Route::get('/admin/{slug}', [\App\Http\Controllers\Admin\CruiseController::class, 'show'])->name('admin.show');
+    Route::get('/admin', [\App\Http\Controllers\Admin\CruiseController::class, 'index'])->name('admin');
+    Route::get('/admin/create', [\App\Http\Controllers\Admin\CruiseController::class, 'create'])->name('admin.create');
+    Route::post('/admin/store', [\App\Http\Controllers\Admin\CruiseController::class, 'store'])->name('admin.store');
+    Route::post('/admin/update/{product}', [\App\Http\Controllers\Admin\CruiseController::class, 'update'])->name('admin.update');
+    Route::post('/admin/delete/{product}', [\App\Http\Controllers\Admin\CruiseController::class, 'destroy'])->name('admin.destroy');
+});
+

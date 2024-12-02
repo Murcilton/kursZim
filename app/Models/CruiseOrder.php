@@ -9,7 +9,7 @@ class CruiseOrder extends Model
 {
     use HasFactory;
     protected $table = 'cruise_order';
-    protected $fillable = ['title', 'description', 'image', 'nights', 'date_id', 'nights', 'departure_id', 'destination_id', 'ship_id'];
+    protected $fillable = ['title', 'description', 'image', 'nights', 'date_id', 'nights', 'departure_id', 'destination_id', 'ship_id', 'hit', 'sale', 'price', 'status'];
 
     public function destination()
     {
@@ -29,5 +29,21 @@ class CruiseOrder extends Model
     public function ship()
     {
         return $this->belongsTo(Ship::class);
+    }
+
+    public function sluggable(){
+        return [
+            'slug' => [
+                'source' => 'title'
+            ]
+        ];
+    }
+
+    public function getImage(){
+        if (!$this->img) {
+            return asset('assets\front\img\no-image.png');
+        } else {
+            return asset("storage/{$this->img}");
+        }
     }
 }
