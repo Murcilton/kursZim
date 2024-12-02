@@ -12,11 +12,16 @@
 
 body {
     background-color: #96D2D9;
-    height: 4000px;
+
     font-family: "Montserrat", sans-serif;
     overflow-x: hidden;
     overflow-y: scroll !important;
     padding-right: 0px !important;
+}
+
+.main-container {
+    position: relative;
+    top: 80px;
 }
 
 button {
@@ -67,7 +72,7 @@ button {
     transition: 0.4s ease;
 }
 
-.headernav button {
+.headernav button:not(.cabinetButton, .leave) {
     background:none;
     border:none;
     flex: 1;
@@ -77,6 +82,20 @@ button {
     white-space: nowrap;
 }
 
+.buttons-container {
+    display: flex;
+    align-items: stretch;
+}
+
+.buttons-container a {
+width: auto;
+}
+
+.buttons-container button:hover{
+    background-color: green;
+    height: auto;
+}
+
 .burger-button, .search-button {
 position: relative;
 
@@ -84,7 +103,8 @@ position: relative;
 
 .cabinetButton {
 position: relative;
-right: 2%;
+color: #012840;
+background-color: white;
 }
 
 /* .create-cruise-btn {
@@ -128,7 +148,7 @@ right: 2%;
 
 .owl1 {
 position: relative;
-top: -165px;
+top: -245px;
 display: flex;
 transition: 0.4s ease;
 background-color: #012840;
@@ -171,17 +191,17 @@ border-radius: 0% 0% 50% 50% / 95% 95% 5% 5%;
     border: none; 
 }
 
-.card-item {
+.cards-container .card-item {
     transition: 0.4s ease;
 }
 
-.card-title {
+.cards-container .card-title {
     white-space: nowrap;
     font-weight: 800;
     font-size: 40px;
 }
 
-.card-img {
+.cards-container .card-img {
     height: 100%;
     object-fit: cover;
 }
@@ -192,6 +212,32 @@ border-radius: 0% 0% 50% 50% / 95% 95% 5% 5%;
 }
 .card4:hover {
     transform: translateY(-3px);
+}
+
+.plan-card {
+position: relative;
+border-radius: 18px;
+padding: 12px;
+margin: 1vw;
+width: 100%;
+background-color: #012840;
+color: white;
+}
+
+.plan-item {
+    color: white;
+    background-color: #03738C;
+}
+
+.plan-title {
+    font-size: 40px;
+    font-weight: 700;
+}
+
+.plan-list {
+    border-radius: 18px;
+    color: white;
+    background-color: #03738C;
 }
 
 .booking-container {
@@ -207,7 +253,6 @@ border-radius: 0% 0% 50% 50% / 95% 95% 5% 5%;
     display: flex;
     justify-content: center;
     position: relative;
-    top: 200px;
 }
 
 .bbackground {
@@ -502,6 +547,50 @@ width: 100%;
    grid-row-end: 3;
    grid-column-end: 3;
 
+}
+
+.register-card {
+    width: 30vw;
+    min-width: 430px;
+    border-radius: 18px;
+    background-color: white;
+    padding: 13px;
+}
+
+.register-logo {
+    border-radius: 18px;
+    height: 200px;
+    margin: -13px -13px 13px -13px;
+    background-color: #012840;
+}
+
+.register-logo-banner {
+position: relative;
+top: 20px;
+text-align: center;
+}
+
+.register-logo-banner li {
+    display: block;
+}
+
+.register-logo img {
+    position: relative;
+    height: 130px;
+}
+
+.register-logo p {
+    font-size: 20px;
+    color: #ffffff;
+}
+
+.register-submit button {
+    width: 100%;
+    border: solid 1px #012840;
+}
+
+.register-wrapper {
+    width: 100%;
 }
 
 @media (max-width: 1361px) {

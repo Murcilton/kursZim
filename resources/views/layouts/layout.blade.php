@@ -20,7 +20,7 @@
 
 <body>
     @include('layouts.header')
-    <div class="wrapper mt-5">
+    <div class="wrapper mt-5 main-container">
         @yield('content')
     </div>
 

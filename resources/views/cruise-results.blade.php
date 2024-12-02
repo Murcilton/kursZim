@@ -8,32 +8,22 @@
         @if($cruises->isEmpty())
             <p>Извините, нет доступных круизов по выбранным параметрам.</p>
         @else
-            <table class="table table-results">
-                <thead>
-                    <tr>
-                        <th>Название</th>
-                        <th>Описание</th>
-                        <th>Направление</th>
-                        <th>Пункт отправки</th>
-                        <th>Дата</th>
-                        <th>Корабль</th>
-                        <th>Длительность</th>
-                    </tr>
-                </thead>
-                <tbody>
                     @foreach($cruises as $cruise)
-                        <tr>
-                            <td>{{ $cruise->title }}</td>
-                            <td>{{ $cruise->description }}</td>
-                            <td>{{ $cruise->destination->name }}</td> 
-                            <td>{{ $cruise->departure->name }}</td> 
-                            <td>{{ $cruise->date->date }}</td> 
-                            <td>{{ $cruise->ship->name }}</td> 
-                            <td>{{ $cruise->nights }} ночей</td>
-                        </tr>
+                    <div class="plan-card">
+                        <img class="card-img-top" src="..." alt="Card image cap">
+                        <div class="card-body">
+                          <h5 class="card-title plan-title">{{ $cruise->title }}</h5>
+                          <p class="card-text">{{ $cruise->description }}</p>
+                          <ul class="list-group list-group-flush plan-list">
+                            <li class="list-group-item plan-item">Отправка из: {{ $cruise->departure->name }}</li>
+                            <li class="list-group-item plan-item">Пункт назначения: {{ $cruise->destination->name }}</li>
+                            <li class="list-group-item plan-item">Круизный лайнер: {{ $cruise->ship->name }}</li>
+                            <li class="list-group-item plan-item">Ночей в круизе: {{ $cruise->nights }}</li>
+                            <li class="list-group-item plan-item">Дата отбытия: {{ $cruise->date->date }}</li>
+                          </ul>
+                        </div>
+                      </div>
                     @endforeach
-                </tbody>
-            </table>
         @endif
     </div>
 </div>

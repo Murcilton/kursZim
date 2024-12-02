@@ -10,6 +10,20 @@
         <button class="btnnav">ПРИБЫТИЯ</button> 
         <button class="btnnav create-cruise-btn">СОЗДАТЬ КРУИЗ</button> 
         <button class="search-button"><img src="{{ url('storage/GUI/Search Button.svg') }}" class="SearchButton" alt="" title=""/></button> 
-        <button class="btn-primary btnnav cabinetButton" style="">КАБИНЕТ</button> 
+        @if(Auth::check())
+        <div class="user" style="color: white">
+            <button class="cabinetButton">{{ Auth::user()->name }}</button>
+        </div>
+            <a href="{{ route('logout') }}"><button type="button" class="btn btn-danger leave" style="scale: 0.8; border-radius: 20px"><i class="fa-solid fa-arrow-right-from-bracket"></i></button></a>
+            @else
+            <div class="row buttons-container">
+                <a href="{{ route('login') }}">
+                    <button type="button" class="btnnav auth-button"><i class="fa-solid fa-arrow-right-from-bracket"></i>Войти</button>
+                </a>
+                <a href="{{ route('register.create') }}">
+                    <button type="button" class="btnnav auth-button"><i class="fa-solid fa-arrow-right-from-bracket"></i> Регистрация</button>
+                </a>
+            </div>
+            @endif
     </div> 
 </div>
