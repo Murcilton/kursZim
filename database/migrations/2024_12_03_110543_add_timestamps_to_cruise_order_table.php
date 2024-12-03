@@ -11,10 +11,8 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('departures', function (Blueprint $table) {
-            $table->id();
+        Schema::table('cruise_order', function (Blueprint $table) {
             $table->timestamps();
-            $table->foreign('ship_id')->references('id')->on('ships')->onDelete('cascade');
         });
     }
 
@@ -23,6 +21,8 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('departures');
+        Schema::table('cruise_order', function (Blueprint $table) {
+            $table->dropTimestamps();
+        });
     }
 };

@@ -29,13 +29,13 @@
         </div>
 
         <div class="mb-3">
-            <label for="content" class="form-label">Содержание</label>
-            <textarea class="form-control" id="content" name="content" rows="5" required></textarea>
+            <label for="description" class="form-label">Содержание</label>
+            <textarea class="form-control" id="description" name="description" rows="5" required></textarea>
         </div>
 
         <div class="mb-3">
             <label for="sale" class="form-label">Распродажа</label>
-            <select style="" class="custom-select" name="sale" id="sale">
+            <select class="custom-select" name="sale" id="sale">
                 <option value="0">Нет</option>
                 <option value="1">Да</option>
             </select>

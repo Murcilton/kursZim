@@ -220,7 +220,7 @@ position: relative;
 border-radius: 18px;
 padding: 12px;
 margin: 1vw;
-width: 100%;
+max-width: 700px;
 background-color: #012840;
 color: white;
 }
@@ -241,6 +241,12 @@ color: white;
     background-color: #03738C;
 }
 
+.plan-thumb {
+    object-fit: cover;
+    border-radius: 18px;
+    margin-bottom: 10px;
+}
+
 .booking-container {
     display: flex;
     justify-content: center;
@@ -252,7 +258,13 @@ color: white;
 
 .results-container {
     display: flex;
+    text-align: center;
+    flex-wrap: wrap;
     justify-content: center;
+}
+
+.results {
+    text-align: center;
     position: relative;
 }
 
@@ -633,6 +645,121 @@ text-align: center;
   .custom {
     font-family: "Josefin Sans", serif;
   }
+
+  .aproduct-card {
+    position: relative;
+    display: block;
+    
+    height: 340px;
+    margin: 10px;
+  }
+
+  .aproduct-cards h2 {
+    text-align: center;
+  }
+
+  .acard-title {
+    height: auto;
+    bottom: 40px;
+  }
+
+    .collapsing {
+        transition-property: height, visibility;
+        transition-duration: .35s;
+    }
+
+
+  .acard-thumb img {
+    max-width: 400px;
+    height: 300px;
+    border-radius: 18px;
+    object-fit: cover;
+  }
+
+  .aproduct-card button {
+    width: 40px;
+  }
+
+  .acard-caption {
+    position: relative;
+    bottom: 46px;
+    left: 6px;
+  }
+
+  .trash {
+    position: relative;
+    background-color: red;
+    right: 334px;
+    top: 274px;
+    width: 40px;
+    border-radius: 0px 20px 20px 0px;
+  }
+
+  #editButton {
+    position: absolute;
+    background-color: lime;
+    left: 40px;
+    border-radius: 0;
+  }
+
+  #settingsButton {
+    border-radius: 20px 0px 0px 20px;
+  }
+
+  .cruise-title {
+    position: absolute;
+    z-index: 100;
+    margin: 10px;
+    font-weight: 600;
+    color: #012840;
+  }
+
+  .acard-title {
+    position: relative;
+    border-radius: 12px;
+    max-width: 325px;
+    z-index: 9999;
+  }
+
+  .acard-title .form-control {
+    border-radius: 0;
+  }
+
+  .atable {
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    align-content: stretch;
+    align-items: normal;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .add-button {
+    max-width: 400px;
+  }
+
+.acard-title input,
+.acard-title select,
+.acard-title textarea {
+    transition: filter 0.3s ease, opacity 0.3s ease;
+}
+
+.acard-title input:focus,
+.acard-title select:focus,
+.acard-title textarea:focus {
+    filter: none;
+}
+
+.acard-title:has(input:focus) input:not(:focus),
+.acard-title:has(select:focus) select:not(:focus),
+.acard-title:has(textarea:focus) textarea:not(:focus),
+.acard-title:has(input:focus) select,
+.acard-title:has(select:focus) input,
+.acard-title:has(textarea:focus) input,
+.acard-title:has(textarea:focus) select {
+    filter: blur(2px);
+}
 
 @media (max-width: 1361px) {
     .ships .card-title {

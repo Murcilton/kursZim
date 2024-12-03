@@ -4,6 +4,10 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Models\CruiseOrder;
+use App\Models\Date;
+use App\Models\Departure;
+use App\Models\Destination;
+use App\Models\Ship;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
@@ -13,9 +17,13 @@ class CruiseController extends Controller
     public function index()
     {
         $title = "Admin Panel";
+        $availableDates = Date::all();
+        $availableShips = Ship::all();
+        $availableDest = Destination::all();
+        $availableDep = Departure::all();
         $cruises = CruiseOrder::orderBy("id")->paginate(10);
 
-        return view('admin.index', compact('title', 'cruises'));
+        return view('admin.index', compact('title', 'cruises', 'availableDates', 'availableShips', 'availableDest', 'availableDep'));
     }
 
     /**
@@ -41,14 +49,14 @@ class CruiseController extends Controller
             'title' => 'required|string|max:255',
             'description' => 'required|string|max:255',
             'nights' => 'required|numeric',
-            'date_id' => 'required|numeric',
+            'date_id' => 'required|exists:dates,id',
             'ship_id' => 'required|numeric',
             'hit' => 'required|boolean',
             'sale' => 'nullable|numeric',
             'price' => 'required|numeric',
             'status' => 'required|string|max:255',
-            'departure_id' => 'required|exists:departure,id',
-            'destination_id' => 'required|exists:destination,id',
+            'departure_id' => 'required|exists:departures,id',
+            'destination_id' => 'required|exists:destinations,id',
             'image' => 'nullable|image', 
         ]);
 
@@ -104,15 +112,17 @@ class CruiseController extends Controller
             'nights' => 'required|numeric',
             'date_id' => 'required|numeric',
             'ship_id' => 'required|numeric',
-            'hit' => 'required|boolean',
-            'sale' => 'nullable|numeric',
-            'price' => 'required|numeric',
+            'hit' => 'nullable|boolean',
+            'sale' => 'nullable|boolean',
+            'price' => 'nullable|numeric',
             'status' => 'required|string|max:255',
-            'departure_id' => 'required|exists:departure,id',
-            'destination_id' => 'required|exists:destination,id',
+            'departure_id' => 'required|exists:departures,id',
+            'destination_id' => 'required|exists:destinations,id',
             'image' => 'nullable|image', 
         ]);
-
+        // if(isset($cruise)) {
+        //     $cruise->update($request->all());
+        // }
         $cruise->update($request->all());
 
         if ($request->hasFile('img')) {
@@ -122,6 +132,9 @@ class CruiseController extends Controller
             $path = $request->file('img')->store('img/cruises', 'public');
             $cruise->img = $path;
         }
+        // if(isset($cruise)) {
+        //     $cruise->save();
+        // }
         $cruise->save();
 
 

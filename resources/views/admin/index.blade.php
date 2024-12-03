@@ -1,121 +1,121 @@
-@extends('layouts.layout')
+@extends('layouts.layout') 
+ 
+@section('content') 
+    @if ($errors->any()) 
+        <div class="alert alert-danger"> 
+            <ul> 
+                @foreach ($errors->all() as $error) 
+                    <li>{{ $error }}</li> 
+                @endforeach 
+            </ul> 
+        </div> 
+    @endif 
+ 
+    <div class="aproduct-cards"> 
+        <h2>Доступные круизы</h2> 
+        <div class="atable g-3"> 
+            @foreach ($cruises as $cruise) 
+                <form action="{{ route('admin.update', $cruise) }}" class="aproduct-card" method="POST" enctype="multipart/form-data"> 
+                    @csrf 
+                    <div class="aproduct-card"> 
+                        <div class="acard-thumb"> 
+                            <a href=""> 
+                                <h5 class="cruise-title">{{ $cruise->title }}</h5> 
+                                <img src="{{ $cruise->getImage() }}" alt=""> 
+                            </a> 
+                        </div> 
+ 
+                        <div class="acard-caption"> 
+                            <button id="settingsButton" class="btnnav" type="button" data-bs-toggle="collapse" 
+                                data-bs-target="#at{{ $cruise->id }}" aria-expanded="true" aria-controls="acard-title"> 
+                                <i class="fa fa-cog" aria-hidden="true"></i> 
+                            </button> 
+                            <button type="submit" id="editButton" class="btnnav">
+                                <i class="fa fa-check" aria-hidden="true"></i>
+                            </button> 
+                        </div> 
+                        <div class="acard-title card collapse h-30" id="at{{ $cruise->id }}"> 
+                            <input class="form-control" value="{{ $cruise->title }}" type="text" id="title" name="title">
+                            <input type="text" value="{{ $cruise->description }}" class="form-control description" name="description" id="description" placeholder="Контент">
+                            <input class="form-control" value="{{ $cruise->status }}" type="text" id="status" name="status">
+                            <input class="form-control" value="{{ $cruise->nights }}" type="text" id="nights" name="nights">
 
-{{-- @section('title')
-    @parent :: {{ $title }}
-@endsection --}}
-@section('content')
+                            <select class="form-control" id="date_id" name="date_id" required> 
+                                <option value="{{ $cruise->date_id }}">{{ $cruise->date->date }}</option> 
+                                @foreach ($availableDates as $date) 
+                                    @if ($date->id !== $cruise->date_id) 
+                                        <option value="{{ $date->id }}">{{ $date->date }}</option> 
+                                    @endif 
+                                @endforeach 
+                            </select> 
+                            <select class="form-control" id="ship_id" name="ship_id" required> 
+                                <option value="{{ $cruise->ship_id }}">{{ $cruise->ship->name }}</option> 
+                                @foreach ($availableShips as $ship) 
+                                    @if ($ship->id !== $cruise->ship_id) 
+                                        <option value="{{ $ship->id }}">{{ $ship->name }}</option> 
+                                    @endif 
+                                @endforeach 
+                            </select> 
+                            <select class="form-control" id="destination_id" name="destination_id" required> 
+                                <option value="{{ $cruise->destination_id }}">{{ $cruise->destination->name }}</option> 
+                                @foreach ($availableDest as $dest) 
+                                    @if ($dest->id !== $cruise->destination_id)
+                                    <option value="{{ $dest->id }}">{{ $dest->name }}</option> 
+                                    @endif 
+                                @endforeach 
+                            </select> 
+                            <select class="form-control" id="departure_id" name="departure_id" required> 
+                                <option value="{{ $cruise->departure_id }}">{{ $cruise->departure->name }}</option> 
+                                @foreach ($availableDep as $dep) 
+                                    @if ($dep->id !== $cruise->departure_id) 
+                                        <option value="{{ $dep->id }}">{{ $dep->name }}</option> 
+                                    @endif 
+                                @endforeach 
+                            </select> 
 
-@if ($errors->any())
-    <div class="alert alert-danger">
-        <ul>
-            @foreach ($errors->all() as $error)
-                <li>{{ $error }}</li>
-            @endforeach
-        </ul>
-    </div>
-@endif
+                            <select class="form-control custom-select" name="hit" id="hit"> 
+                                @if ($cruise->hit == 1) 
+                                    <option value="1">Хит</option> 
+                                    <option value="0">Не хит</option> 
+                                @else 
+                                    <option value="0">Не хит</option> 
+                                    <option value="1">Хит</option> 
+                                @endif 
+                            </select> 
+                            <select class="form-control custom-select" name="sale" id="sale"> 
+                                @if ($cruise->sale == 1) 
+                                    <option value="1">Скидка</option> 
+                                    <option value="0">Не скидка</option> 
+                                @else 
+                                    <option value="0">Не скидка</option> 
+                                    <option value="1">Скидка</option> 
+                                @endif 
+                            </select> 
 
-    <div class="aproduct-cards mb-5">
+                            <input class="form-control" type="file" id="img" name="img"> 
 
-        <div class="col-md-12e atable g-3">
-            @foreach ($cruises as $cruise)
-            <form action="{{ route('admin.update', $cruise) }}" class="aproduct-card" method="POST" enctype="multipart/form-data">
-                @csrf
-                <div class="aproduct-card">
-
-                    {{-- <div class="offer">
-                        @if ($cruise->hit)
-                            <div class="offer-hit">Hit</div>
-                        @endif
-                        @if ($cruise->sale)
-                            <div class="offer-sale">Sale</div>
-                        @endif
-                    </div> --}}
-                    <div class="acard-thumb">
-                        <a href="">
-                            <img src="{{ $cruise->getImage() }}" alt="">
-                        </a>
+                            <div class="acard-price" style="z-index: 1"> 
+                                <input class="form-control" value="{{ $cruise->price }}" type="text" id="price" name="price">
+                            </div> 
+                        </div> 
                     </div>
-                    <div class="acard-caption">
+                </form> 
 
-                        <button style="min-width: 140px" class="btn btn-secondary" type="button" data-bs-toggle="collapse" data-bs-target="#at{{ $cruise->id }}" aria-expanded="true" aria-controls="acard-title">
-                            <i class="fa fa-cog" aria-hidden="true"></i>
-                            Настроить 
-                        </button>
+                <form action="{{ route('admin.destroy', $cruise->id) }}" method="POST"> 
+                    @csrf 
+                    <button class="btnnav trash" type="submit"><i class="fa fa-trash" aria-hidden="true"></i></button> 
+                </form> 
+            @endforeach 
+        </div> 
+    </div> 
 
-                        <div class="acard-title card collapse h-30" id="at{{ $cruise->id }}" style="max-width: 205px; padding: 8px; height: 400px">
+    <a href="{{ route('admin.create') }}">
+        <button class="btnnav add-button">Добавить запись</button>
+    </a> 
 
-                            <input class="form-control" style="" value="{{ $cruise->title }}" type="text" id="title" name="title" href=""></input>
-                            <input type="text" value="{{ $cruise->description }}" style="" class="form-control content" name="content" id="content" placeholder="Контент"></input>
-                            
-                            {{-- <select style="" class="custom-select" name="category_id" id="category_id">
-
-                                @if($product->category_id == 1)
-                                <option value="1">Категория 1</option>
-                                <option value="2">Категория 2</option>
-                                @else
-                                <option value="2">Категория 2</option>
-                                <option value="1">Категория 1</option>
-                                @endif
-                            </select> --}}
-                            {{-- <select style="" class="custom-select" name="status_id" id="status_id">
-                                
-                                @if($cruise->status->id == 1)
-                                <option value="1">В наличии</option>
-                                <option value="2">Ожидается</option>
-                                @else
-                                <option value="2">Ожидается</option>
-                                <option value="1">В наличии</option>
-                                @endif
-                            </select> --}}
-                            <select style="" class="custom-select" name="hit" id="hit">
-                                @if($cruise->hit == 1)
-                                <option value="1">Хит</option>
-                                <option value="0">Не хит короче</option>
-                                @else
-                                <option value="0">Не хит короче</option>
-                                <option value="1">Хит</option>
-                                @endif
-                            </select>
-                            <select style="" class="custom-select" name="sale" id="sale">
-                                @if($cruise->sale == 1)
-                                <option value="1">Скидка</option>
-                                <option value="0">Не скидка короче</option>
-                                @else
-                                <option value="0">Не скидка короче</option>
-                                <option value="1">Скидка</option>
-                                @endif
-                            </select>
-
-                                <label for="formFile" class="form-label"></label>
-                                <input style="position: relative; z-index: 10; bottom: 5px" class="form-control" type="file" id="img" name="img">
-
-                                <div class="acard-price" style="z-index: 1">
-                                    <input class="form-control" style="position:relative; top: 17px" value="{{ $cruise->price }}" type="text" id="price" name="price"></input>
-                                </div>
-                            </div>
-
-                        <div class="aitem-status editableStatus">{{ $cruise->status }}</div>
-                        <button type="submit" id="editButton" class="btn btn-success settings" style=" "><i class="fa fa-check" aria-hidden="true"></i></button>
-                    </form>
-                    <form action="{{ route('admin.destroy', $cruise->id) }}" method="POST">
-                        @csrf
-                        <button class="btn btn-danger trash" type="submit"><i class="fa fa-trash" aria-hidden="true"></i></button>
-                    </form>
-                    </div>
-                </div>
-            
-            @endforeach
-        </div>
-
-    </div><!-- /product-cards -->
-
-    <a href="{{ route('admin.create') }}" style="width: 1000px; margin: 10px; position: relative; bottom: 15px"><button class="btn btn-primary add" style="z-index: 100; width: 100%">Добавить запись</button></a>
-
-    <div class="col-md-12">
-        <nav aria-label="Page navigation example" style="z-index: 1">
-            {{ $cruises->links() }}
-        </nav>
-    </div>
-
+    <div class="col-md-12"> 
+        <nav aria-label="Page navigation example" style="z-index: 1"> 
+            {{ $cruises->links() }} 
+        </nav> 
+    </div> 
 @endsection
