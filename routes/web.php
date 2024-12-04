@@ -21,7 +21,7 @@ Route::get('/home', function () {
     return view('welcome');
 });
 
-Route::get('/home2', [CruiseController::class, 'showBookingForm'])->name('home');
+Route::get('/home', [CruiseController::class, 'showBookingForm'])->name('home');
 
 Route::get('/booking-form', [CruiseController::class, 'showBookingForm'])->name('booking.form');
 Route::get('/cruise-search', [CruiseController::class, 'searchCruise'])->name('cruise.search');
@@ -67,4 +67,3 @@ Route::group(['middleware' => 'admin'], function () {
     Route::post('/admin/update/{cruise}', [\App\Http\Controllers\Admin\CruiseController::class, 'update'])->name('admin.update');
     Route::post('/admin/delete/{cruise}', [\App\Http\Controllers\Admin\CruiseController::class, 'destroy'])->name('admin.destroy');
 });
-

@@ -14,7 +14,7 @@
 </head>
 <body>
 
-@include('admin.navbar')
+{{-- @include('admin.navbar') --}}
 
 <div class="wrapper mt-5">
     <div class="container">

@@ -1,4 +1,4 @@
-@extends('admin.layout')
+@extends('layouts.layout')
 
 @section('content')
 
@@ -12,7 +12,7 @@
     </div>
 @endif
 
-<div class="container">
+<div class="container create-container">
     <h1>Создать новый пост</h1>
 
     <form action="{{ route('admin.store') }}" method="POST" enctype="multipart/form-data">
@@ -33,40 +33,20 @@
             <textarea class="form-control" id="description" name="description" rows="5" required></textarea>
         </div>
 
-        <div class="mb-3">
-            <label for="sale" class="form-label">Распродажа</label>
-            <select class="custom-select" name="sale" id="sale">
-                <option value="0">Нет</option>
-                <option value="1">Да</option>
-            </select>
-        </div>
+        <label for="status" class="form-label">Статус</label>
+        <input class="form-control" value="" type="text" id="status" name="status">
+        <label for="status" class="form-label">Ночей</label>
+        <input class="form-control" value="" type="text" id="nights" name="nights">
 
-        <div class="mb-3">
-            <label for="hit" class="form-label">Хит продаж</label>
-            <select class="custom-select" id="hit" name="hit">
-                <option value="0">Нет</option>
-                <option value="1">Да</option>
-            </select>
-        </div>
-
-        <div class="mb-3">
-            <label for="category_id" class="form-label">Категория</label>
-            <select class="custom-select" id="category_id" name="category_id" required>
-                @foreach($categories as $category)
-                    <option value="{{ $category->id }}">{{ $category->title }}</option>
-                @endforeach
-            </select>
-        </div>
-
-        <div class="mb-3">
-            <label for="status_id" class="form-label">Статус</label>
-            <select class="custom-select" id="status_id" name="status_id" required>
-                <option value="">Выберите статус</option>
-                @foreach($statuses as $status)
-                    <option value="{{ $status->id }}">{{ $status->title }}</option>
-                @endforeach
-            </select>
-        </div>
+        
+        <select class="form-control custom-select" name="hit" id="hit"> 
+                <option value="0">Не хит</option> 
+                <option value="1">Хит</option> 
+        </select> 
+        <select class="form-control custom-select" name="sale" id="sale"> 
+                <option value="0">Не скидка</option> 
+                <option value="1">Скидка</option> 
+        </select>
 
         <div class="mb-3">
             <label for="img" class="form-label">Изображение</label>

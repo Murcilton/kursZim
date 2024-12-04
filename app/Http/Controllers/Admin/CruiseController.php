@@ -31,10 +31,13 @@ class CruiseController extends Controller
      */
     public function create()
     {
-        // $categories = Category::all();
-        // $statuses = Status::all();
+        $availableDates = Date::all();
+        $availableShips = Ship::all();
+        $availableDest = Destination::all();
+        $availableDep = Departure::all();
+        $cruises = CruiseOrder::orderBy("id")->paginate(10);
 
-        return view('admin.create');
+        return view('admin.create', compact('cruises', 'availableDates', 'availableShips', 'availableDest', 'availableDep'));
     }
 
     /**

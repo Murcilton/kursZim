@@ -22,12 +22,12 @@ body {
 .main-container {
     position: relative;
     top: 80px;
-    transition: 0.6s ease;
+    transition: 0.5s ease;
 }
 
 button {
-    background:none;
-    border:none;
+    background: none;
+    border: none;
     border-radius: 20px;
 }
 
@@ -38,16 +38,16 @@ button {
     justify-content: center;
     top: -65px;
     width: 100%;
-    height: 65px; 
+    height: 65px;
 }
 
 .hbackground {
-    width: 100%; 
+    width: 100%;
     position: fixed;
     /* top: -65px; */
     height: 160px;
-    object-fit: cover; 
-    z-index: -1; 
+    object-fit: cover;
+    z-index: -1;
     filter: drop-shadow(7px 8px 40px #000000);
 }
 
@@ -60,13 +60,13 @@ button {
 }
 
 .logo-container {
-    flex: 0 0 auto; 
+    flex: 0 0 auto;
 }
 
 .headernav {
     display: flex;
-    flex-wrap: nowrap; 
-    justify-content: space-between; 
+    flex-wrap: nowrap;
+    justify-content: space-between;
     position: relative;
     width: 80%;
     top: 80px;
@@ -74,11 +74,11 @@ button {
 }
 
 .headernav button:not(.cabinetButton, .leave) {
-    background:none;
-    border:none;
+    background: none;
+    border: none;
     flex: 1;
-    max-width: 200px; 
-    margin: 5px; 
+    max-width: 200px;
+    margin: 5px;
     border-radius: 20px;
     white-space: nowrap;
 }
@@ -89,23 +89,23 @@ button {
 }
 
 .buttons-container a {
-width: auto;
+    width: auto;
 }
 
-.buttons-container button:hover{
+.buttons-container button:hover {
     background-color: green;
     height: auto;
 }
 
 .burger-button, .search-button {
-position: relative;
+    position: relative;
 
 }
 
 .cabinetButton {
-position: relative;
-color: #012840;
-background-color: white;
+    position: relative;
+    color: #012840;
+    background-color: white;
 }
 
 /* .create-cruise-btn {
@@ -130,7 +130,7 @@ background-color: white;
 .btnnav:active {
     position: relative;
     transform: translateY(1px);
-    background-color: #012840; 
+    background-color: #012840;
     border-color: #012840;
 
     color: white;
@@ -138,7 +138,7 @@ background-color: white;
 
 .col {
     display: flex;
-    
+
 }
 
 @media (max-width: 1208px) {
@@ -148,12 +148,12 @@ background-color: white;
 }
 
 .owl1 {
-position: relative;
-top: -245px;
-display: flex;
-transition: 0.4s ease;
-background-color: #012840;
-border-radius: 0% 0% 50% 50% / 95% 95% 5% 5%;
+    position: relative;
+    top: -245px;
+    display: flex;
+    transition: 0.4s ease;
+    background-color: #012840;
+    border-radius: 0% 0% 50% 50% / 95% 95% 5% 5%;
 }
 
 .owl1 .item img {
@@ -173,8 +173,8 @@ border-radius: 0% 0% 50% 50% / 95% 95% 5% 5%;
     position: relative;
     bottom: 150px;
     display: flex;
-    justify-content: center; 
-    
+    justify-content: center;
+
 }
 
 .cards {
@@ -189,7 +189,7 @@ border-radius: 0% 0% 50% 50% / 95% 95% 5% 5%;
     border-color: #03738C;
     /* border-radius: 10%/12%; */
     color: #012840;
-    border: none; 
+    border: none;
 }
 
 .cards-container .card-item {
@@ -211,18 +211,19 @@ border-radius: 0% 0% 50% 50% / 95% 95% 5% 5%;
     color: white;
     transition: 0.4s ease;
 }
+
 .card4:hover {
     transform: translateY(-3px);
 }
 
 .plan-card {
-position: relative;
-border-radius: 18px;
-padding: 12px;
-margin: 1vw;
-max-width: 700px;
-background-color: #012840;
-color: white;
+    position: relative;
+    border-radius: 18px;
+    padding: 12px;
+    margin: 1vw;
+    max-width: 700px;
+    background-color: #012840;
+    color: white;
 }
 
 .plan-item {
@@ -250,7 +251,7 @@ color: white;
 .booking-container {
     display: flex;
     justify-content: center;
-    flex-wrap: nowrap; 
+    flex-wrap: nowrap;
     position: relative;
     height: 100px;
     bottom: 60px;
@@ -330,8 +331,8 @@ color: white;
 }
 
 .btnmodal img {
-position: relative;
-left: 10%;
+    position: relative;
+    left: 10%;
 }
 
 .btnmodal:hover {
@@ -343,7 +344,7 @@ left: 10%;
     box-shadow: 2px 2px;
     position: relative;
     transform: translateY(2px);
-    background-color: #012840; 
+    background-color: #012840;
     border-color: #012840;
     color: white !important;
 }
@@ -351,8 +352,9 @@ left: 10%;
 @keyframes slideIn {
     from {
         opacity: 0;
-        
+
     }
+
     to {
         opacity: 1;
     }
@@ -362,6 +364,7 @@ left: 10%;
     from {
         opacity: 1;
     }
+
     to {
         opacity: 0;
     }
@@ -396,8 +399,8 @@ left: 10%;
 .sbackground {
     position: absolute;
     width: 100%;
-    object-fit: cover; 
-    z-index: -1; 
+    object-fit: cover;
+    z-index: -1;
     transition: 0.4s ease;
 }
 
@@ -414,7 +417,7 @@ left: 10%;
     background: none;
     border-color: none;
     color: #ffffff;
-    border: none; 
+    border: none;
 }
 
 .ships .card-title {
@@ -422,9 +425,10 @@ left: 10%;
     font-weight: 800;
     font-size: 40px;
 }
+
 .ships .card-text {
     font-size: 20px;
-    
+
 }
 
 .ship {
@@ -433,21 +437,21 @@ left: 10%;
 }
 
 .ships-row {
-position: relative;
-top: 16vh;
-z-index: 10;
+    position: relative;
+    top: 16vh;
+    z-index: 10;
 }
 
 .owl-carousel2 {
-position: relative;
-z-index: 100;
-right: 20%;
+    position: relative;
+    z-index: 100;
+    right: 20%;
 }
 
 .owl-carousel2 img {
-height: 45vh;
-object-fit: cover;
-transition: 0.4s ease;
+    height: 45vh;
+    object-fit: cover;
+    transition: 0.4s ease;
 }
 
 
@@ -462,8 +466,8 @@ transition: 0.4s ease;
 }
 
 .divide {
-position: absolute;
-top: -230px;
+    position: absolute;
+    top: -230px;
 }
 
 .divide h1 {
@@ -471,13 +475,13 @@ top: -230px;
 }
 
 .divideSVG {
-width: 100%;
+    width: 100%;
 }
 
 .gbackground {
     position: absolute;
     width: 100%;
-    object-fit: cover; 
+    object-fit: cover;
     height: 30vh;
     z-index: -1;
 }
@@ -485,12 +489,12 @@ width: 100%;
 .gallery-grid {
     position: relative;
     bottom: 120px;
-   display: grid; 
+    display: grid;
     width: 80%;
     height: 550px;
-   grid-template-rows: 1fr 1fr;
-   grid-template-columns: 1fr 1fr 1fr 1fr;
-   gap: 25px;
+    grid-template-rows: 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    gap: 25px;
 }
 
 .gallery-item {
@@ -501,9 +505,9 @@ width: 100%;
 }
 
 .gallery-item:not(#item-3) {
-    display: flex; 
-    justify-content: center; 
-    align-items: center; 
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .gallery-item p {
@@ -517,48 +521,51 @@ width: 100%;
 
 #item-0 {
     transition: 0.4s ease;
-   grid-row-start: 1;
-   grid-column-start: 1;
+    grid-row-start: 1;
+    grid-column-start: 1;
 
-   grid-row-end: 3;
-   grid-column-end: 2;
-   
+    grid-row-end: 3;
+    grid-column-end: 2;
+
 }
 
 #item-1 {
     transition: 0.4s ease;
-   grid-row-start: 1;
-   grid-column-start: 2;
+    grid-row-start: 1;
+    grid-column-start: 2;
 
-   grid-row-end: 2;
-   grid-column-end: 4;
-   
+    grid-row-end: 2;
+    grid-column-end: 4;
+
 }
+
 #item-2 {
     transition: 0.4s ease;
-   grid-row-start: 1;
-   grid-column-start: 4;
+    grid-row-start: 1;
+    grid-column-start: 4;
 
-   grid-row-end: 2;
-   grid-column-end: 5;
-   
+    grid-row-end: 2;
+    grid-column-end: 5;
+
 }
+
 #item-3 {
     transition: 0.4s ease;
-   grid-row-start: 2;
-   grid-column-start: 3;
+    grid-row-start: 2;
+    grid-column-start: 3;
 
-   grid-row-end: 3;
-   grid-column-end: 5;
-   
+    grid-row-end: 3;
+    grid-column-end: 5;
+
 }
+
 #item-4 {
     transition: 0.4s ease;
-   grid-row-start: 2;
-   grid-column-start: 2;
+    grid-row-start: 2;
+    grid-column-start: 2;
 
-   grid-row-end: 3;
-   grid-column-end: 3;
+    grid-row-end: 3;
+    grid-column-end: 3;
 
 }
 
@@ -579,10 +586,10 @@ width: 100%;
 }
 
 .register-logo-banner {
-position: relative;
-right: 20px;
-top: 20px;
-text-align: center;
+    position: relative;
+    right: 20px;
+    top: 20px;
+    text-align: center;
 }
 
 .register-logo-banner li {
@@ -616,116 +623,148 @@ text-align: center;
     width: 100%;
     height: 100%;
     backdrop-filter: blur(20px);
-    -webkit-backdrop-filter: blur(20px); 
+    -webkit-backdrop-filter: blur(20px);
     display: flex;
     align-items: center;
     justify-content: center;
-    z-index: 9999; 
+    z-index: 9999;
     transition: 0.6s ease;
-  }
-  
-  .spinner {
+}
+
+.spinner {
     width: 50px;
     height: 50px;
-    border: 5px solid #bdbdbd; 
-    border-top: 5px solid #012840; 
-    border-radius: 50%; 
-    animation: spin 1s linear infinite; 
-  }
-  
-  @keyframes spin {
+    border: 5px solid #bdbdbd;
+    border-top: 5px solid #012840;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
     0% {
-      transform: rotate(0deg);
+        transform: rotate(0deg);
     }
+
     100% {
-      transform: rotate(360deg);
+        transform: rotate(360deg);
     }
-  }
+}
 
-  .custom {
+.custom {
     font-family: "Josefin Sans", serif;
-  }
+}
 
-  .aproduct-card {
+.aproduct-card {
     position: relative;
+    margin: 12px;
     display: block;
-    
-    height: 340px;
-    margin: 10px;
-  }
+    height: 300px;
+    transition: 0.5s ease;
+}
 
-  .aproduct-cards h2 {
+.aproduct-cards h2 {
     text-align: center;
-  }
+}
 
-  .acard-title {
-    height: auto;
-    bottom: 40px;
-  }
+.collapsing {
+    transition-property: height, visibility;
+    transition-duration: .35s;
+}
 
-    .collapsing {
-        transition-property: height, visibility;
-        transition-duration: .35s;
-    }
-
-
-  .acard-thumb img {
+.acard-thumb img {
     max-width: 400px;
     height: 300px;
     border-radius: 18px;
     object-fit: cover;
-  }
+    transition: 0.5s ease;
+}
 
-  .aproduct-card button {
+.aproduct-card button {
     width: 40px;
-  }
+}
 
-  .acard-caption {
+.acard-caption {
     position: relative;
     bottom: 46px;
     left: 6px;
-  }
+}
 
-  .trash {
+.trash {
+    z-index: 9999;
     position: relative;
     background-color: red;
-    right: 334px;
-    top: 274px;
+    right: -98px;
     width: 40px;
     border-radius: 0px 20px 20px 0px;
-  }
+    transition: 0.3s ease;
+}
 
-  #editButton {
+.aproduct-card:hover .acard-img{
+    transition: 0.5s ease;
+    max-width: 420px;
+    width: 420px;
+}
+
+.card-hover {
+    height: 300px;
+}
+
+.aproduct-card:hover #editButton{
+    border-radius: 0px 20px 20px 0px;
+}
+
+.card-hover:hover .trash{
+    right: -110px;
+    border-radius: 20px;
+}
+
+.destroyForm {
+    z-index: 1;
+    width: 1px;
+    position: relative;
+    bottom: 57px;
+}
+
+#editButton {
+    z-index: 9999;
     position: absolute;
+    transition: 0.3s ease;
     background-color: lime;
     left: 40px;
     border-radius: 0;
-  }
+}
 
-  #settingsButton {
+.editButton:active {
+    transform: translateY(0px);
+}
+
+#settingsButton {
+    z-index: 9999;
     border-radius: 20px 0px 0px 20px;
-  }
+}
 
-  .cruise-title {
+.cruise-title {
     position: absolute;
     z-index: 100;
     margin: 10px;
     font-weight: 600;
     color: #012840;
-  }
+}
 
-  .acard-title {
+.acard-title {
     position: relative;
     border-radius: 12px;
     max-width: 325px;
     z-index: 9999;
-  }
+    height: auto;
+    bottom: 40px;
+}
 
-  .acard-title .form-control {
+.acard-title .form-control {
     border-radius: 0;
-  }
+}
 
-  .atable {
+.atable {
     position: relative;
     display: flex;
     flex-direction: row;
@@ -733,11 +772,17 @@ text-align: center;
     align-items: normal;
     flex-wrap: wrap;
     justify-content: center;
-  }
+}
 
-  .add-button {
-    max-width: 400px;
-  }
+.add-container {
+    width: 100%;
+}
+
+.add-button {
+    position: relative;
+    width: 400px;
+    margin-top: 40px;
+}
 
 .acard-title input,
 .acard-title select,
@@ -761,19 +806,26 @@ text-align: center;
     filter: blur(2px);
 }
 
+.create-container {
+    max-width: 700px;
+}
+
 @media (max-width: 1361px) {
     .ships .card-title {
         white-space: nowrap;
         font-weight: 800;
         font-size: 30px;
     }
+
     .ships .card-text {
         font-size: 18px;
     }
+
     .owl-carousel2 img {
         height: 40vh;
         object-fit: cover;
     }
+
     .logo {
         position: relative;
         left: 0%;
@@ -781,6 +833,7 @@ text-align: center;
         z-index: 1000;
         transition: left 0.4s ease;
     }
+
     .gallery-container {
         position: relative;
         display: flex;
@@ -801,12 +854,13 @@ text-align: center;
         top: -5vh;
         width: 35vh;
     }
+
     .sbackground {
         position: absolute;
         width: 100%;
         height: 70vh;
-        object-fit: cover; 
-        z-index: -1; 
+        object-fit: cover;
+        z-index: -1;
     }
 }
 
@@ -817,10 +871,12 @@ text-align: center;
         z-index: 100;
         right: 0%;
     }
+
     .owl-carousel2 img {
         height: 35vh;
         object-fit: cover;
     }
+
     .ships .card {
         position: relative;
         height: 35vh;
@@ -828,21 +884,23 @@ text-align: center;
         background: none;
         border-color: none;
         color: #ffffff;
-        border: none; 
+        border: none;
     }
+
     .ships {
         top: -2vh;
         width: 65vh;
     }
+
     .sbackground {
         position: absolute;
         width: 100%;
         height: 94vh;
-        object-fit: cover; 
-        z-index: -1; 
+        object-fit: cover;
+        z-index: -1;
     }
+
     .card4 .card-title {
         font-size: 30px;
     }
 }
-
