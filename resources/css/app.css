@@ -778,10 +778,29 @@ button {
     width: 100%;
 }
 
+.add-container a:nth-child(1) .add-button {
+    border-radius: 20px 0px 0px 20px;
+}
+
+.add-container a:nth-child(2) .add-button {
+    border-radius: 0px 0px 0px 0px;
+    border-left: 2px solid white;
+}
+.add-container a:nth-child(3) .add-button {
+    border-radius: 0px 20px 20px 0px;
+    border-left: 2px solid white;
+}
+
 .add-button {
     position: relative;
-    width: 400px;
+    min-width: 230px;
+    width: 22vw;
     margin-top: 40px;
+    transition: 0.5s ease;
+}
+
+.add-button:hover {
+    transform: translateY(1px);
 }
 
 .acard-title input,
@@ -808,6 +827,15 @@ button {
 
 .create-container {
     max-width: 700px;
+}
+
+@media (max-width: 731px) {
+    .add-container .add-button span {
+        display: none; 
+    }
+    .add-button {
+        min-width: 27vw;
+    }
 }
 
 @media (max-width: 1361px) {

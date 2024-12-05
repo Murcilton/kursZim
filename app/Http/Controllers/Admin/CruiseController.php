@@ -40,14 +40,23 @@ class CruiseController extends Controller
         return view('admin.create', compact('cruises', 'availableDates', 'availableShips', 'availableDest', 'availableDep'));
     }
 
+    public function createData()
+    {
+        $availableDates = Date::all();
+        $availableShips = Ship::all();
+        $availableDest = Destination::all();
+        $availableDep = Departure::all();
+        $cruises = CruiseOrder::orderBy("id")->paginate(10);
+
+        return view('admin.create-data', compact('cruises', 'availableDates', 'availableShips', 'availableDest', 'availableDep'));
+    }
+
     /**
      * Store a newly created resource in storage.
      */
     public function store(Request $request)
     {
-
         // protected $fillable = ['title', 'description', 'image', 'nights', 'date_id', 'nights', 'departure_id', 'destination_id', 'ship_id'];
-        // Валидация входящих данных
         $request->validate([
             'title' => 'required|string|max:255',
             'description' => 'required|string|max:255',
@@ -60,7 +69,7 @@ class CruiseController extends Controller
             'status' => 'required|string|max:255',
             'departure_id' => 'required|exists:departures,id',
             'destination_id' => 'required|exists:destinations,id',
-            'image' => 'nullable|image', 
+            'image' => 'nullable|image',
         ]);
 
         $cruise = new CruiseOrder();
@@ -81,24 +90,103 @@ class CruiseController extends Controller
         return redirect()->route('admin.create')->with('success', 'Круиз успешно создан!');
     }
 
+    // Дата
+
+    public function storeDate(Request $request)
+    {
+        $request->validate([
+            'date' => 'required|date|unique:dates,date',
+        ]);
+
+        $date = new Date();
+        $date->date = $request->date;
+        $date->save();
+
+        return redirect()->route('admin.createData')->with('success', 'Дата успешно добавлена!');
+    }
+
+    // Отправление
+
+    public function storeDep(Request $request)
+    {
+        $request->validate([
+            'name' => 'required|string|max:255|unique:departures,name',
+            'ship_id' => 'required|numeric',
+        ]);
+
+        $departure = new Departure();
+        $departure->name = $request->name;
+        $departure->ship_id = $request->ship_id;
+        $departure->save();
+
+        return redirect()->route('admin.createData')->with('success', 'Пункт отправления успешно добавлен!');
+    }
+
+    // Прибытие
+
+    public function storeDest(Request $request)
+    {
+        $request->validate([
+            'name' => 'required|string|max:255|unique:destinations,name',
+            'ship_id' => 'required|numeric',
+        ]);
+
+        $destination = new Destination();
+        $destination->name = $request->name;
+        $destination->ship_id = $request->ship_id;
+        $destination->save();
+
+        return redirect()->route('admin.createData')->with('success', 'Пункт прибытия успешно добавлен!');
+    }
+
+    // Корабль
+
+    public function storeShip(Request $request)
+    {
+        $request->validate([
+            'name' => 'required|string|max:255|unique:ships,name',
+            'description' => 'required|string|max:255|unique:ships,name',
+            'img' => 'nullable|image',
+        ]);
+
+        $ship = new Ship();
+        $ship->name = $request->name;
+        $ship->description = $request->description;
+
+        $ship->fill($request->except('img'));
+        $ship->slug = Str::slug($request->title);
+
+        if ($request->hasFile('img')) {
+            if ($ship->img && Storage::exists($ship->img)) {
+                Storage::delete($ship->img);
+            }
+            $path = $request->file('img')->store('img/ships', 'public');
+            $ship->img = $path;
+        }
+
+        $ship->save();
+
+        return redirect()->route('admin.createData')->with('success', "Круизный лайнер {$ship->name} успешно добавлен!");
+    }
+
     /**
      * Display the specified resource.
      */
     public function show()
     {
-        // $categories = Category::all();
-        // $statuses = Status::all();
+        $availableDates = Date::all();
+        $availableShips = Ship::all();
+        $availableDest = Destination::all();
+        $availableDep = Departure::all();
+        $cruises = CruiseOrder::orderBy("id")->paginate(10);
 
-        return view('admin.create');
+        return view('admin.create', compact('cruises', 'availableDates', 'availableShips', 'availableDest', 'availableDep'));
     }
 
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(string $id)
-    {
-
-    }
+    public function edit(string $id) {}
 
     /**
      * Update the specified resource in storage.
@@ -121,7 +209,7 @@ class CruiseController extends Controller
             'status' => 'required|string|max:255',
             'departure_id' => 'required|exists:departures,id',
             'destination_id' => 'required|exists:destinations,id',
-            'image' => 'nullable|image', 
+            'image' => 'nullable|image',
         ]);
         // if(isset($cruise)) {
         //     $cruise->update($request->all());

@@ -11,7 +11,7 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::table('cruise_order', function (Blueprint $table) {
+        Schema::table('ships', function (Blueprint $table) {
             $table->timestamps();
         });
     }
@@ -21,7 +21,7 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::table('cruise_order', function (Blueprint $table) {
+        Schema::table('ships', function (Blueprint $table) {
             $table->dropTimestamps();
         });
     }

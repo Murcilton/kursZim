@@ -66,4 +66,10 @@ Route::group(['middleware' => 'admin'], function () {
     Route::post('/admin/store', [\App\Http\Controllers\Admin\CruiseController::class, 'store'])->name('admin.store');
     Route::post('/admin/update/{cruise}', [\App\Http\Controllers\Admin\CruiseController::class, 'update'])->name('admin.update');
     Route::post('/admin/delete/{cruise}', [\App\Http\Controllers\Admin\CruiseController::class, 'destroy'])->name('admin.destroy');
+
+    Route::get('/admin/create/data', [\App\Http\Controllers\Admin\CruiseController::class, 'createData'])->name('admin.createData');
+    Route::post('/admin/dates/store', [\App\Http\Controllers\Admin\CruiseController::class, 'storeDate'])->name('dates.store');
+    Route::post('/admin/departures/store', [\App\Http\Controllers\Admin\CruiseController::class, 'storeDep'])->name('departures.store');
+    Route::post('/admin/destinations/store', [\App\Http\Controllers\Admin\CruiseController::class, 'storeDest'])->name('destinations.store');
+    Route::post('/admin/ships/store', [\App\Http\Controllers\Admin\CruiseController::class, 'storeShip'])->name('ships.store');
 });

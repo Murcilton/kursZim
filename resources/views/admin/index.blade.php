@@ -1,15 +1,6 @@
 @extends('layouts.layout') 
  
 @section('content') 
-    @if ($errors->any()) 
-        <div class="alert alert-danger"> 
-            <ul> 
-                @foreach ($errors->all() as $error) 
-                    <li>{{ $error }}</li> 
-                @endforeach 
-            </ul> 
-        </div> 
-    @endif 
  
     <div class="aproduct-cards"> 
         <h2>Доступные круизы</h2> 
@@ -113,11 +104,15 @@
     </div> 
     <div class="add-container d-flex justify-content-center">
         <a href="{{ route('admin.create') }}">
-            <button class="btnnav add-button">Добавить запись</button>
+            <button class="btnnav add-button"><span>Создать круиз</span><img class="" src="{{ url('storage/GUI/ship-boat-svgrepo-com.svg') }}" alt="" style="width: 20px; position:relative; left:10px"></button>
+        </a> 
+        <a href="{{ route('admin.createData') }}">
+            <button class="btnnav add-button"><span>Добавить данные</span><img class="" src="{{ url('storage/GUI/data-2-svgrepo-com.svg') }}" alt="" style="width: 20px; position:relative; left:10px"></button>
+        </a> 
+        <a href="{{ route('admin.createData') }}">
+            <button class="btnnav add-button"><span>Изменить данные</span><img class="" src="{{ url('storage/GUI/edit-3-svgrepo-com (1).svg') }}" alt="" style="width: 20px; position:relative; left:10px"></button>
         </a> 
     </div>
-
-
 
     <div class="col-md-12"> 
         <nav aria-label="Page navigation example" style="z-index: 1"> 

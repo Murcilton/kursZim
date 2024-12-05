@@ -17,8 +17,4 @@ class Departure extends Model
         return $this->belongsTo(Ship::class);
     }
 
-    public function destinations()
-    {
-        return $this->hasMany(Destination::class);
-    }
 }
