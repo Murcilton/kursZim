@@ -183,10 +183,7 @@ class CruiseController extends Controller
         return view('admin.create', compact('cruises', 'availableDates', 'availableShips', 'availableDest', 'availableDep'));
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(string $id) {}
+// ============================================================ Update ========================================================================================================
 
     /**
      * Update the specified resource in storage.
@@ -211,9 +208,6 @@ class CruiseController extends Controller
             'destination_id' => 'required|exists:destinations,id',
             'image' => 'nullable|image',
         ]);
-        // if(isset($cruise)) {
-        //     $cruise->update($request->all());
-        // }
         $cruise->update($request->all());
 
         if ($request->hasFile('img')) {
@@ -223,9 +217,6 @@ class CruiseController extends Controller
             $path = $request->file('img')->store('img/cruises', 'public');
             $cruise->img = $path;
         }
-        // if(isset($cruise)) {
-        //     $cruise->save();
-        // }
         $cruise->save();
 
 

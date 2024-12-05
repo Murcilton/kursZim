@@ -2,9 +2,24 @@
  
 @section('content') 
  
-    <div class="aproduct-cards"> 
+@if(Auth::check() && Auth::user()->is_admin == 1)
+<div class="aproduct-cards" style="position: relative; top: 60px; margin-bottom: 20px">
+@else
+<div class="aproduct-cards">
+@endif
         <h2>Доступные круизы</h2> 
-        <div class="atable g-3"> 
+        <div class="add-container d-flex justify-content-center">
+            <a href="{{ route('admin.create') }}">
+                <button class="btnnav add-button"><span>Создать круиз</span><img class="" src="{{ url('storage/GUI/ship-boat-svgrepo-com.svg') }}" alt=""></button>
+            </a> 
+            <a href="{{ route('admin.createData') }}">
+                <button class="btnnav add-button"><span>Добавить данные</span><img class="" src="{{ url('storage/GUI/data-2-svgrepo-com.svg') }}" alt=""></button>
+            </a> 
+            <a href="{{ route('admin.editAll') }}">
+                <button class="btnnav add-button"><span>Изменить данные</span><img class="" src="{{ url('storage/GUI/edit-3-svgrepo-com (1).svg') }}" alt=""></button>
+            </a> 
+        </div>
+        <div class="atable"> 
             @foreach ($cruises as $cruise) 
                 <form action="{{ route('admin.update', $cruise) }}" class="" method="POST" enctype="multipart/form-data"> 
                     @csrf 
@@ -102,17 +117,7 @@
             @endforeach 
         </div> 
     </div> 
-    <div class="add-container d-flex justify-content-center">
-        <a href="{{ route('admin.create') }}">
-            <button class="btnnav add-button"><span>Создать круиз</span><img class="" src="{{ url('storage/GUI/ship-boat-svgrepo-com.svg') }}" alt="" style="width: 20px; position:relative; left:10px"></button>
-        </a> 
-        <a href="{{ route('admin.createData') }}">
-            <button class="btnnav add-button"><span>Добавить данные</span><img class="" src="{{ url('storage/GUI/data-2-svgrepo-com.svg') }}" alt="" style="width: 20px; position:relative; left:10px"></button>
-        </a> 
-        <a href="{{ route('admin.createData') }}">
-            <button class="btnnav add-button"><span>Изменить данные</span><img class="" src="{{ url('storage/GUI/edit-3-svgrepo-com (1).svg') }}" alt="" style="width: 20px; position:relative; left:10px"></button>
-        </a> 
-    </div>
+
 
     <div class="col-md-12"> 
         <nav aria-label="Page navigation example" style="z-index: 1"> 

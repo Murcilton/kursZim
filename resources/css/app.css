@@ -38,6 +38,7 @@ button {
     justify-content: center;
     top: -65px;
     width: 100%;
+    z-index: 9999;
     height: 65px;
 }
 
@@ -70,6 +71,7 @@ button {
     position: relative;
     width: 80%;
     top: 80px;
+    z-index: 9999;
     transition: 0.4s ease;
 }
 
@@ -695,8 +697,13 @@ button {
     background-color: red;
     right: -98px;
     width: 40px;
+    bottom: 1px;
     border-radius: 0px 20px 20px 0px;
     transition: 0.3s ease;
+}
+
+.acard-img {
+    transition: 0.5s ease;
 }
 
 .aproduct-card:hover .acard-img{
@@ -726,7 +733,7 @@ button {
 }
 
 #editButton {
-    z-index: 9999;
+    z-index: 100;
     position: absolute;
     transition: 0.3s ease;
     background-color: lime;
@@ -738,9 +745,17 @@ button {
     transform: translateY(0px);
 }
 
-#settingsButton {
-    z-index: 9999;
-    border-radius: 20px 0px 0px 20px;
+#settingsButton { 
+    z-index: 9999; 
+    border-radius: 20px 0px 0px 20px; 
+}
+
+#settingsButton i {
+    transition: transform 0.2s ease; 
+}
+
+#settingsButton:active i { 
+    transform: rotate(30deg); 
 }
 
 .cruise-title {
@@ -776,7 +791,10 @@ button {
 
 .add-container {
     width: 100%;
+    height: auto;
+    margin-bottom: 30px;
 }
+
 
 .add-container a:nth-child(1) .add-button {
     border-radius: 20px 0px 0px 20px;
@@ -795,12 +813,17 @@ button {
     position: relative;
     min-width: 230px;
     width: 22vw;
-    margin-top: 40px;
     transition: 0.5s ease;
 }
 
 .add-button:hover {
     transform: translateY(1px);
+}
+
+.add-button img {
+    width: 20px; 
+    position:relative; 
+    left:10px;
 }
 
 .acard-title input,
@@ -826,7 +849,151 @@ button {
 }
 
 .create-container {
+    position: relative;
     max-width: 700px;
+    background-color: white;
+    border-radius: 18px;
+    padding: 10px;
+
+}
+
+.create-container2 label {
+    display: flex;
+    display: inline-block;
+    text-align: left; 
+}
+
+.create-container label {
+    display: inline-block;
+    justify-content: left;
+    text-align: left;
+    margin-top: 6px;
+    width: auto;
+    padding-left: 8px;
+    padding-right: 8px;
+    border-radius: 18px 18px 0px 0px;
+    color: #012840;
+    font-weight: 700;
+    background-color: white;
+}
+
+.create-container form  {
+ background-color: #012840;
+ color: white;
+ margin: 30px;
+ left: -20px;
+ padding: 13px;
+ border-radius: 18px 18px 18px 70px;
+}
+
+.create-container input  {
+    border-radius: 0px 18px 18px 18px;
+    border: none;
+}
+
+.create-container select  {
+    border-radius: 0px 18px 18px 18px;
+    border: none;
+}
+
+.create-container textarea  {
+    border-radius: 0px 18px 18px 18px;
+    border: none;
+}
+
+.bt {
+    display: flex;
+    justify-content: center;
+}
+
+.create-container button {
+    position: relative;
+    margin-top: 6px;
+    background-color: #00ff0d;
+    width: auto;
+    padding-right: 20px;
+    padding-left: 20px;
+    min-width: 60px;
+    font-weight: 700;
+}
+
+.edit-data-container {
+    width: 100%;
+    background-color: white;
+    padding: 20px;
+    border-radius: 20px;
+}
+
+.tab-content {
+    position: relative;
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.editForm {
+    color: white;
+    padding: 10px;
+    width: 22vw;
+    min-width: 420px;
+    border-radius: 20px;
+    background-color: #012840;
+}
+
+.editForm button {
+    border-radius: 18px;
+}
+
+.editDelete {
+    position: relative;
+    bottom: 48px;
+    left: 175px;
+    width: 40px;
+}
+
+.editDelete button {
+    border-radius: 20px;
+    width: 40px;
+
+    background-color: red;
+}
+
+.ed {
+    background-color: rgb(0, 255, 0);
+    font-weight: 600;
+    width: 200px;
+}
+
+.nav-tabs a {
+    color: #012840;
+}
+
+.editCont:hover {
+    transition: 0.5s ease;
+    transform: translateY(1px);
+}
+
+.admin {
+    display: flex;
+    justify-content: center;
+    position: absolute;
+    top: 70px;
+    width: 100%;
+}
+
+.adminButton {
+    transition: 0.4s ease;
+}
+
+.adminButton:hover {
+    transition: 0.4s ease;
+    scale: 1.1;
+}
+
+.adminButton:active {
+    transition: 0.4s ease;
+    scale: 1;
 }
 
 @media (max-width: 731px) {
@@ -835,6 +1002,10 @@ button {
     }
     .add-button {
         min-width: 27vw;
+    }
+    .add-button img {
+        position: relative;
+        left: 0px;
     }
 }
 

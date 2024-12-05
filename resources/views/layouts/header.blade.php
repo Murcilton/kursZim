@@ -1,10 +1,18 @@
-<div class="header"> 
+<div class="header">
+    @if(Auth::check() && Auth::user()->is_admin == 1)
+    <img class="hbackground" src="{{ url('storage/GUI/Header Background Admin.svg') }}" alt="" title="" style="top: -70px; height:220px"/> 
+    @else
     <img class="hbackground" src="{{ url('storage/GUI/Header Background.svg') }}" alt="" title="" style=""/> 
+    @endif
     <div class="headernav d-flex align-items-center"> 
         <div class="logo-container">
             <a href="{{ route('home') }}"><button class="btn logo"><img src="{{ url('storage/GUI/Logo.svg') }}" alt="" title="" style="width: 130px"/></button></a>
-             
         </div> 
+        @if(Auth::check() && Auth::user()->is_admin == 1)
+        <div class="admin">
+            <a href="{{ route('admin') }}"><button type="button" class="adminButton"><i class="fa-solid fa-user-tie fa-2xl" style="color: #ffffff;"></i></button></a>
+        </div>
+        @endif
         <button class="btn burger-button"><img src="{{ url('storage/GUI/Burger Menu.svg') }}" class="burgerMenuButton" alt="" title=""/></button> 
         <button class="btnnav" data-toggle="button" aria-pressed="true">КРУИЗЫ</button> 
         <button class="btnnav">КОРАБЛИ</button> 

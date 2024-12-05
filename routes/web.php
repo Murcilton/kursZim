@@ -1,6 +1,8 @@
 <?php
 
+use App\Http\Controllers\Admin\DataController as AdminDataController;
 use App\Http\Controllers\CruiseController;
+use App\Http\Controllers\DataController;
 use App\Http\Controllers\UserController;
 use Illuminate\Foundation\Auth\EmailVerificationRequest;
 use Illuminate\Support\Facades\Route;
@@ -66,6 +68,17 @@ Route::group(['middleware' => 'admin'], function () {
     Route::post('/admin/store', [\App\Http\Controllers\Admin\CruiseController::class, 'store'])->name('admin.store');
     Route::post('/admin/update/{cruise}', [\App\Http\Controllers\Admin\CruiseController::class, 'update'])->name('admin.update');
     Route::post('/admin/delete/{cruise}', [\App\Http\Controllers\Admin\CruiseController::class, 'destroy'])->name('admin.destroy');
+
+    Route::get('/admin/data/edit-all', [\App\Http\Controllers\Admin\DataController::class, 'editAll'])->name('admin.editAll');
+    Route::put('/admin/dates/update/{date}', [\App\Http\Controllers\Admin\DataController::class, 'updateDate'])->name('dates.update');
+    Route::put('/admin/departures/update/{departure}', [\App\Http\Controllers\Admin\DataController::class, 'updateDeparture'])->name('departures.update');
+    Route::put('/admin/destinations/update/{destination}', [\App\Http\Controllers\Admin\DataController::class, 'updateDestination'])->name('destinations.update');
+    Route::put('/admin/ships/update/{ship}', [\App\Http\Controllers\Admin\DataController::class, 'updateShip'])->name('ships.update');
+
+    Route::delete('/admin/dates/delete/{date}', [\App\Http\Controllers\Admin\DataController::class, 'deleteDate'])->name('dates.delete');
+    Route::delete('/admin/departures/delete/{departure}', [\App\Http\Controllers\Admin\DataController::class, 'deleteDeparture'])->name('departures.delete');
+    Route::delete('/admin/destinations/delete/{destination}', [\App\Http\Controllers\Admin\DataController::class, 'deleteDestination'])->name('destinations.delete');
+    Route::delete('/admin/ships/delete/{ship}', [\App\Http\Controllers\Admin\DataController::class, 'deleteShip'])->name('ships.delete');
 
     Route::get('/admin/create/data', [\App\Http\Controllers\Admin\CruiseController::class, 'createData'])->name('admin.createData');
     Route::post('/admin/dates/store', [\App\Http\Controllers\Admin\CruiseController::class, 'storeDate'])->name('dates.store');
