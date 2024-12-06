@@ -23,6 +23,7 @@ class CruiseController extends Controller
 
     public function searchCruise(Request $request)
     {
+        // dd($request->all());
         $validated = $request->validate([
             'destination_id' => 'nullable|exists:destinations,id',
             'departure_id' => 'nullable|exists:departures,id',
@@ -43,9 +44,13 @@ class CruiseController extends Controller
         if ($validated['date_id']) {
             $query->where('date_id', $validated['date_id']);
         }
+
+        $dep = Departure::all()->firstWhere('id', $request->departure_id)->name ?? null;
+        $dest = Destination::all()->firstWhere('id', $request->destination_id)->name ?? null;;
+        $date = Date::all()->firstWhere('id', $request->date_id)->date ?? null;;
     
         $cruises = $query->get();
     
-        return view('cruise-results', compact('cruises'));
+        return view('cruise-results', compact('cruises', 'dest', 'date', 'dep'));
     }
 }

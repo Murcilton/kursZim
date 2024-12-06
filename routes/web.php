@@ -36,6 +36,8 @@ Route::post('/register', [UserController::class, 'store'])->name('register.store
 Route::get('/login', [UserController::class, 'loginForm'])->name('login.create');
 Route::post('/login', [UserController::class, 'login'])->name('login');
 Route::get('/logout', [UserController::class, 'logout'])->name('logout');
+Route::get('/cruises', [\App\Http\Controllers\ShowController::class, 'show'])->name('cruises');
+Route::get('/ships', [\App\Http\Controllers\ShowController::class, 'showShips'])->name('ships');
 // Верификация
 
 Route::get('forgot-password', function () {

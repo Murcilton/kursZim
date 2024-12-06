@@ -59,10 +59,20 @@ public function updateDestination(Request $request, Destination $destination)
     $request->validate([
         'name' => 'required|string|max:255|unique:destinations,name,' . $destination->id,
         'ship_id' => 'required|exists:ships,id',
+        'img' => 'nullable|image',
     ]);
 
     $destination->name = $request->name;
     $destination->ship_id = $request->ship_id;
+
+    if ($request->hasFile('img')) {
+        if ($destination->img && Storage::exists($destination->img)) {
+            Storage::delete($destination->img);
+        }
+        $path = $request->file('img')->store('img/destinations', 'public');
+        $destination->img = $path;
+    }
+
     $destination->save();
 
     return redirect()->route('admin.editAll')->with('success', 'Направление успешно обновлено!');
@@ -73,7 +83,7 @@ public function updateShip(Request $request, Ship $ship)
 {
     $request->validate([
         'name' => 'required|string|max:255|unique:ships,name,' . $ship->id,
-        'description' => 'required|string|max:255',
+        'description' => 'required|string|max:9999',
         'img' => 'nullable|image',
     ]);
 

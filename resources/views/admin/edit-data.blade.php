@@ -79,7 +79,7 @@
             <h3>Редактировать направления</h3>
             @foreach ($destinations as $destination)
             <div class="editCont editDest">
-                <form action="{{ route('destinations.update', $destination->id) }}" method="POST" class="editForm">
+                <form action="{{ route('destinations.update', $destination->id) }}" method="POST" class="editForm" enctype="multipart/form-data">
                     @csrf
                     @method('PUT')
                     <div class="mb-3">
@@ -93,6 +93,13 @@
                             <option value="{{ $ship->id }}" {{ $destination->ship_id == $ship->id ? 'selected' : '' }}>{{ $ship->name }}</option>
                             @endforeach
                         </select>
+                    </div>
+                    <div class="mb-3">
+                        <label for="img" class="form-label">Изображение</label>
+                        <input type="file" class="form-control" id="img" name="img">
+                        @if($ship->img)
+                        <img src="{{ Storage::url($destination->img) }}" alt="Изображение" style="object-fit: cover; width: 100%; margin-top: 10px; border-radius: 20px;">
+                        @endif
                     </div>
                     <button type="submit" class="btnnav ed">Обновить<i class="fa-solid fa-pen-to-square" style="position: relative; left: 6px;"></i></button>
                 </form>

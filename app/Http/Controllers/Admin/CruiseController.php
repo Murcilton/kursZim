@@ -129,11 +129,21 @@ class CruiseController extends Controller
         $request->validate([
             'name' => 'required|string|max:255|unique:destinations,name',
             'ship_id' => 'required|numeric',
+            'img' => 'nullable|image',
         ]);
 
         $destination = new Destination();
         $destination->name = $request->name;
         $destination->ship_id = $request->ship_id;
+
+        if ($request->hasFile('img')) {
+            if ($destination->img && Storage::exists($destination->img)) {
+                Storage::delete($destination->img);
+            }
+            $path = $request->file('img')->store('img/destinations', 'public');
+            $destination->img = $path;
+        }
+
         $destination->save();
 
         return redirect()->route('admin.createData')->with('success', 'Пункт прибытия успешно добавлен!');
@@ -145,7 +155,7 @@ class CruiseController extends Controller
     {
         $request->validate([
             'name' => 'required|string|max:255|unique:ships,name',
-            'description' => 'required|string|max:255|unique:ships,name',
+            'description' => 'required|string|max:9999|unique:ships,name',
             'img' => 'nullable|image',
         ]);
 

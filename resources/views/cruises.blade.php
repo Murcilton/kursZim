@@ -2,19 +2,6 @@
 
 @section('content')
     <div class="cruises-container ">
-        <h1>Результаты поиска круизов</h1>
-        <div class="search-tags">
-            @if(isset($dest))
-            <i class="fas fa-chevron-right fa-sm" style="margin-right: 10px"></i><span>{{ $dest }}</span>
-            @endif
-            @if(isset($dep))
-            <i class="fas fa-chevron-right fa-sm" style="margin-right: 10px"></i><span>{{ $dep }}</span>
-            @endif
-            @if(isset($date))
-            <i class="fas fa-chevron-right fa-sm" style="margin-right: 10px"></i><span>{{ $date }}</span>
-            @endif
-        </div>
-
         <div class="cruises">
             @if ($cruises->isEmpty())
                 <p>Извините, нет доступных круизов по выбранным параметрам.</p>

@@ -14,10 +14,10 @@
         </div>
         @endif
         <button class="btn burger-button"><img src="{{ url('storage/GUI/Burger Menu.svg') }}" class="burgerMenuButton" alt="" title=""/></button> 
-        <button class="btnnav" data-toggle="button" aria-pressed="true">КРУИЗЫ</button> 
-        <button class="btnnav">КОРАБЛИ</button> 
+        <a href="{{ route('cruises') }}"><button class="btnnav" data-toggle="button" aria-pressed="true">КРУИЗЫ</button> </a>
+        <a href="{{ route('ships') }}"><button class="btnnav" data-toggle="button" aria-pressed="true">КОРАБЛИ</button> </a>
         <button class="btnnav">ПРИБЫТИЯ</button> 
-        <button class="btnnav create-cruise-btn">СОЗДАТЬ КРУИЗ</button> 
+        <button class="btnnav">О НАС</button> 
         <button class="search-button"><img src="{{ url('storage/GUI/Search Button.svg') }}" class="SearchButton" alt="" title=""/></button> 
         @if(Auth::check())
         <div class="user" style="color: white">

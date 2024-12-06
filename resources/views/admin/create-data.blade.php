@@ -45,6 +45,8 @@
                     <option value="{{ $ship->id }}">{{ $ship->name }}</option> 
             @endforeach 
         </select> 
+        <label for="img" class="">Изображение</label>
+        <input type="file" class="form-control" id="img" name="img">
         <div class="bt">
         <button type="submit" class="btnnav">Добавить пункт назначения<i class="fa-solid fa-pen-to-square" style="position: relative; left: 6px;"></i></button>
         </div>

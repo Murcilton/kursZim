@@ -221,33 +221,56 @@ button {
 .plan-card {
     position: relative;
     border-radius: 18px;
-    padding: 12px;
     margin: 1vw;
-    max-width: 700px;
+    max-width: 500px;
     background-color: #012840;
     color: white;
 }
 
+.card-body {
+    padding: 10px;
+    
+}
+
 .plan-item {
     color: white;
-    background-color: #03738C;
+    background-color: #012840;
 }
 
 .plan-title {
     font-size: 40px;
     font-weight: 700;
+    
 }
 
 .plan-list {
+    position: relative;
     border-radius: 18px;
+    margin: auto;
+    font-size: 14px;
+    max-width: 400px;
     color: white;
-    background-color: #03738C;
+
 }
 
 .plan-thumb {
     object-fit: cover;
     border-radius: 18px;
-    margin-bottom: 10px;
+    width: 100%;
+    padding: -13px;
+}
+
+.plan-ships .plan-thumb {
+    object-fit: cover;
+    height: 300px;
+}
+
+.plan-ships {
+    max-width: 450px;
+}
+
+.plan-ships p {
+    padding: 10px;
 }
 
 .booking-container {
@@ -267,6 +290,31 @@ button {
 }
 
 .results {
+    text-align: center;
+    position: relative;
+}
+
+.cruises-container {
+    text-align: center;
+}
+
+.search-tags {
+    text-align: left;
+    font-size: 26px;
+    margin-left: 10%;
+    width: auto;
+}
+
+.search-tags span{
+background-color: white;
+padding: 5px;
+border-radius: 18px;
+}
+
+.cruises {
+    display: flex;
+    flex-wrap: wrap; 
+    justify-content: center;
     text-align: center;
     position: relative;
 }
