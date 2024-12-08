@@ -57,11 +57,13 @@
                 <option value="0">Не хит</option> 
                 <option value="1">Хит</option> 
         </select> 
-        <label for="sale" class="">Скидка</label>
-        <select class="form-control custom-select" name="sale" id="sale"> 
-                <option value="0">Не скидка</option> 
-                <option value="1">Скидка</option> 
-        </select>
+        <div class="mb-3">
+            <label for="sale" class="">Скидка (%)</label>
+            <input type="number" class="form-control" id="sale" name="sale" required min="0" max="100">
+            @error('price')
+            <div class="text-danger">{{ $message }}</div>
+        @enderror
+        </div>
 
         <div class="mb-3">
             <label for="img" class="">Изображение</label>

@@ -41,11 +41,11 @@
                                     <i class="fa fa-check" aria-hidden="true"></i>
                                 </button> 
                             </div> 
-                            <div class="acard-title card collapse h-30" id="at{{ $cruise->id }}"> 
-                                <input class="form-control" value="{{ $cruise->title }}" type="text" id="title" name="title">
-                                <input type="text" value="{{ $cruise->description }}" class="form-control description" name="description" id="description" placeholder="Контент">
-                                <input class="form-control" value="{{ $cruise->status }}" type="text" id="status" name="status">
-                                <input class="form-control" value="{{ $cruise->nights }}" type="text" id="nights" name="nights">
+                            <div class="acard-title collapse h-30" id="at{{ $cruise->id }}"> 
+                                <input class="form-control" value="{{ $cruise->title }}" type="text" id="title" name="title" placeholder="Введите название" style="font-weight: 600">
+                                <textarea type="text" value="{{ $cruise->description }}" class="form-control description" name="description" id="description" placeholder="Введите описание" rows="2">{{ $cruise->description }}</textarea>
+                                <input class="form-control" value="{{ $cruise->status }}" type="text" id="status" name="status" placeholder="Введите статус">
+                                <input class="form-control" value="{{ $cruise->nights }}" type="text" id="nights" name="nights" placeholder="Введите количесвто ночей">
     
                                 <select class="form-control" id="date_id" name="date_id" required> 
                                     <option value="{{ $cruise->date_id }}">{{ $cruise->date->date }}</option> 
@@ -89,15 +89,10 @@
                                         <option value="1">Хит</option> 
                                     @endif 
                                 </select> 
-                                <select class="form-control custom-select" name="sale" id="sale"> 
-                                    @if ($cruise->sale == 1) 
-                                        <option value="1">Скидка</option> 
-                                        <option value="0">Не скидка</option> 
-                                    @else 
-                                        <option value="0">Не скидка</option> 
-                                        <option value="1">Скидка</option> 
-                                    @endif 
-                                </select> 
+                                <input value="{{ $cruise->sale }}" type="number" class="form-control" id="sale" name="sale" required min="0" max="100" placeholder="Введите скидку в %">
+                                @error('price')
+                                <div class="text-danger">{{ $message }}</div>
+                                @enderror
     
                                 <input class="form-control" type="file" id="img" name="img"> 
     

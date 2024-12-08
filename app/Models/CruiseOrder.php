@@ -41,7 +41,7 @@ class CruiseOrder extends Model
 
     public function getImage(){
         if (!$this->img) {
-            return asset('assets\front\img\no-image.png');
+            return asset('storage/img/no-image.gif');
         } else {
             return asset("storage/{$this->img}");
         }

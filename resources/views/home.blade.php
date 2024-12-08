@@ -81,13 +81,13 @@
                     <img class="btnmodalArrow" src="{{ url('storage/GUI/Arrow Down.svg') }}" alt="" />
                 </button>
                 <div class="modal fade" id="destinationModal" tabindex="-1" aria-labelledby="destinationModalLabel" aria-hidden="true">
-                    <div class="modal-dialog modal-dialog-centered">
-                        <div class="modal-content">
+                    <div class="modal-dialog modal2-dialog modal-dialog-centered">
+                        <div class="modal-content modal2-content">
                             <div class="modal-header">
                                 <h1 class="modal-title fs-5" id="destinationModalLabel">Выберите направление</h1>
                                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                             </div>
-                            <div class="modal-body">
+                            <div class="modal-body modal2-body">
                                 <button type="button" class="btnmodal destination-option" data-id="">
                                     Куда угодно
                                 </button>
@@ -111,13 +111,13 @@
                     <img class="btnmodalArrow" src="{{ url('storage/GUI/Arrow Down.svg') }}" alt="" />
                 </button>
                 <div class="modal fade" id="departureModal" tabindex="-1" aria-labelledby="departureModalLabel" aria-hidden="true">
-                    <div class="modal-dialog modal-dialog-centered">
-                        <div class="modal-content">
+                    <div class="modal-dialog modal2-dialog modal-dialog-centered">
+                        <div class="modal-content modal2-content">
                             <div class="modal-header">
                                 <h1 class="modal-title fs-5" id="departureModalLabel">Выберите отправление</h1>
                                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                             </div>
-                            <div class="modal-body">
+                            <div class="modal-body modal2-body">
                                 <button type="button" class="btnmodal departure-option" data-id="">
                                     Откуда угодно
                                 </button>
@@ -141,13 +141,13 @@
                     <img class="btnmodalArrow" src="{{ url('storage/GUI/Arrow Down.svg') }}" alt="" />
                 </button>
                 <div class="modal fade" id="dateModal" tabindex="-1" aria-labelledby="dateModalLabel" aria-hidden="true">
-                    <div class="modal-dialog modal-dialog-centered">
-                        <div class="modal-content">
+                    <div class="modal-dialog modal2-dialog modal-dialog-centered">
+                        <div class="modal-content modal2-content">
                             <div class="modal-header">
                                 <h1 class="modal-title fs-5" id="dateModalLabel">Выберите дату</h1>
                                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                             </div>
-                            <div class="modal-body">
+                            <div class="modal-body modal2-body">
                                 <button type="button" class="btnmodal date-option" data-id="">
                                     В любое время
                                 </button>

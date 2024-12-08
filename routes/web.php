@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Admin\DataController as AdminDataController;
+use App\Http\Controllers\CartController;
 use App\Http\Controllers\CruiseController;
 use App\Http\Controllers\DataController;
 use App\Http\Controllers\UserController;
@@ -38,6 +39,7 @@ Route::post('/login', [UserController::class, 'login'])->name('login');
 Route::get('/logout', [UserController::class, 'logout'])->name('logout');
 Route::get('/cruises', [\App\Http\Controllers\ShowController::class, 'show'])->name('cruises');
 Route::get('/ships', [\App\Http\Controllers\ShowController::class, 'showShips'])->name('ships');
+Route::get('/cruise/{slug}', [\App\Http\Controllers\ShowController::class, 'showAll'])->name('show');
 // Верификация
 
 Route::get('forgot-password', function () {
@@ -88,3 +90,15 @@ Route::group(['middleware' => 'admin'], function () {
     Route::post('/admin/destinations/store', [\App\Http\Controllers\Admin\CruiseController::class, 'storeDest'])->name('destinations.store');
     Route::post('/admin/ships/store', [\App\Http\Controllers\Admin\CruiseController::class, 'storeShip'])->name('ships.store');
 });
+
+// =========================CART============================================
+
+    Route::post('/cart/add', [CartController::class, 'add'])->name('cart.add');
+    Route::get('/cart/show', [CartController::class, 'show'])->name('cart.show');
+    Route::get('/cart/del-item/{product_id}', [CartController::class, 'delItem'])->name('cart.del_item');
+    Route::get('/cart/clear', [CartController::class, 'clear'])->name('cart.clear');
+
+    Route::get('/cart/qty', function () {
+        $cartQty = array_sum(session('cart', []));
+        return response()->json(['cart_qty' => $cartQty]);
+    })->name('cart.qty');

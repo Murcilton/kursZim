@@ -3,6 +3,142 @@ import './bootstrap';
 import 'owl.carousel/dist/assets/owl.carousel.css';
 import 'owl.carousel';
 
+function showNotification(message, type = 'info') {
+  const notification = document.getElementById('customNotification');
+
+  notification.textContent = message;
+
+  notification.className = `notification ${type}`;
+
+  notification.classList.remove('d-none');
+  notification.classList.add('show');
+
+  setTimeout(() => {
+      notification.classList.remove('show');
+      notification.classList.add('hide'); 
+  }, 3000);
+}
+
+//======================================Корзина=====================================
+
+document.addEventListener('DOMContentLoaded', () => {
+  fetch('{{ route("cart.qty") }}')
+      .then(response => response.json())
+      .then(data => {
+          document.querySelector('.mini-cart-qty').textContent = data.cart_qty;
+      })
+      .catch(error => console.error('Ошибка загрузки количества товаров:', error));
+});
+
+document.addEventListener('DOMContentLoaded', () => {
+  const addToCartBtn = document.querySelector('.add-to-cart-btn');
+  addToCartBtn.addEventListener('click', function (event) {
+      event.preventDefault();
+
+      const cruiseId = this.dataset.id; // Получаем ID из data-атрибута
+      const qty = 1;
+
+      // Отправка AJAX-запроса
+      fetch(this.dataset.url, { // Используем data-url из кнопки
+          method: 'POST',
+          headers: {
+              'Content-Type': 'application/json',
+              'X-CSRF-TOKEN': this.dataset.token // Передаем CSRF-токен
+          },
+          body: JSON.stringify({ cruise_id: cruiseId, qty: qty }) // Передаем cruise_id
+      })
+          .then(response => {
+              if (!response.ok) throw new Error('Ошибка сети');
+              return response.json();
+          })
+          .then(data => {
+              if (data.success) {
+                  // Обновляем количество товаров в бейдже
+                  document.querySelector('.mini-cart-qty').textContent = data.cart_qty;
+                  showNotification('Круиз добавлен в корзину!', 'success');
+              } else {
+                showNotification('Ошибка при добавлении в корзину.', 'error');
+              }
+          })
+          .catch(error => {
+              console.error('Ошибка:', error);
+              showNotification('Ошибка при добавлении в корзину.', 'error');
+          });
+  });
+});
+
+document.addEventListener('DOMContentLoaded', () => {
+  // Открытие модального окна корзины
+  const burgerButton = document.querySelector('.burger-button');
+  burgerButton.addEventListener('click', function () {
+      const modalBody = document.querySelector('.cart-modal .modal-body');
+      const url = this.dataset.url; // Получаем маршрут из data-атрибута
+
+      modalBody.innerHTML = '<p>Загрузка...</p>';
+
+      fetch(url)
+          .then(response => response.text())
+          .then(html => {
+              console.log(html);
+              modalBody.innerHTML = html;
+              const cartModal = new bootstrap.Modal(document.getElementById('cart-modal'));
+              cartModal.show();
+          })
+          .catch(error => {
+              console.error('Ошибка загрузки корзины:', error);
+              modalBody.innerHTML = '<p>Ошибка загрузки корзины. Попробуйте снова позже.</p>';
+          });
+  });
+
+  // Очистка корзины
+  window.clearCart = (clearUrl) => {
+      fetch(clearUrl)
+          .then(response => response.json())
+          .then(data => {
+              if (data.success) {
+                  document.querySelector('.mini-cart-qty').textContent = 0;
+                  document.querySelector('.cart-modal .modal-body').innerHTML = '<p>Корзина пуста.</p>';
+              } else {
+                showNotification(data.message || 'Ошибка при очистке корзины.', 'error');
+              }
+          })
+          .catch(error => {
+              console.error('Ошибка очистки корзины:', error);
+              showNotification('Ошибка при очистке корзины.', 'error');
+          });
+  };
+});
+
+document.addEventListener('click', function (e) {
+  if (e.target.classList.contains('cart-remove-item')) {
+      const itemId = e.target.dataset.id;
+      const delItemUrl = e.target.dataset.url;
+
+      fetch(`${delItemUrl}/${itemId}`)
+          .then(response => response.json())
+          .then(data => {
+              if (data.success) {
+                  document.querySelector('.mini-cart-qty').textContent = data.cart_qty;
+                  e.target.closest('li').remove();
+
+                  if (data.cart_qty === 0) {
+                      document.querySelector('.cart-modal .modal-body').innerHTML = '<p>Корзина пуста.</p>';
+                  }
+              } else {
+                showNotification(data.message || 'Ошибка при удалении элемента.', 'error');
+              }
+          })
+          .catch(error => {
+              console.error('Ошибка при удалении элемента:', error);
+              showNotification('Ошибка при удалении элемента.', 'error');
+          });
+  }
+});
+
+
+
+//====================================</Корзина>====================================
+
 window.scrollTo({
   top: 100,
   behavior: 'smooth'

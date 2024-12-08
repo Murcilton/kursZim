@@ -27,4 +27,9 @@ class ShowController extends Controller
         $cruises = CruiseOrder::orderBy("id")->paginate(10);
         return view('ships', compact('cruises', 'ships'));
     }
+
+    public function showAll($slug) {
+        $show = CruiseOrder::query()->where('slug', $slug)->firstOrFail();
+        return view('show', compact('show'));
+    }
 }

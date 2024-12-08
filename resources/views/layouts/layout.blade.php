@@ -35,6 +35,31 @@
                 {{ session('success') }}
             </div>
         @endif
+        <!-- Modal -->
+        <div class="cart-modal-container">
+            <div class="modal fade cart-modal" id="cart-modal" tabindex="-1" aria-labelledby="cartModalLabel" aria-hidden="true">
+                <div class="modal-dialog modal-lg">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="cartModalLabel">Корзина</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <p>Загрузка...</p>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Закрыть</button>
+                            <button type="button" onclick="clearCart('{{ route('cart.clear') }}')" class="btn btn-danger">Очистить корзину</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    
+<div class="notification d-none" id="customNotification">
+</div>
+
+
         @yield('content')
     </div>
 

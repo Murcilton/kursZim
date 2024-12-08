@@ -19,6 +19,58 @@ body {
     padding-right: 0px !important;
 }
 
+.notification {
+    position: fixed;
+    top: 20%;
+    left: 82%;
+    transition: 0.5s ease;
+    transform: translate(-50%, -50%);
+    background-color: rgba(255, 255, 255, 0.9);
+    border-radius: 18px;
+    padding: 10px;
+    z-index: 9999;
+    width: fit-content;
+    min-width: 200px;
+    opacity: 0;
+    visibility: hidden;
+}
+
+.notification.show {
+    opacity: 1;
+    margin: 10px;
+    visibility: visible;
+    transition: 0.5s ease;
+}
+
+/* Анимация для исчезновения */
+.notification.hide {
+    opacity: 0;
+    visibility: hidden; 
+    transition: 0.5s ease, visibility 0s linear 0.5s;
+}
+
+.notification.success {
+    background-color: rgba(40, 167, 69, 0.9);
+    color: white;
+    border-color: #28a745;
+}
+
+.notification.error {
+    background-color: rgba(220, 53, 69, 0.9);
+    color: white;
+    border-color: #dc3545;
+}
+
+.notification.info {
+    background-color: rgba(0, 123, 255, 0.9);
+    color: white;
+    border-color: #007bff;
+}
+
+#cart-modal {
+    z-index: 9999; 
+}
+
 .main-container {
     position: relative;
     top: 80px;
@@ -40,6 +92,10 @@ button {
     width: 100%;
     z-index: 9999;
     height: 65px;
+}
+
+.mini-cart-qty {
+    transition: all 0.5s ease;
 }
 
 .hbackground {
@@ -79,7 +135,7 @@ button {
     background: none;
     border: none;
     flex: 1;
-    max-width: 200px;
+    max-width: 150px;
     margin: 5px;
     border-radius: 20px;
     white-space: nowrap;
@@ -101,7 +157,7 @@ button {
 
 .burger-button, .search-button {
     position: relative;
-
+    width: 50px;
 }
 
 .cabinetButton {
@@ -143,6 +199,8 @@ button {
 
 }
 
+
+
 @media (max-width: 1208px) {
     .logo {
         left: 20%;
@@ -173,7 +231,7 @@ button {
 
 .cards-container {
     position: relative;
-    bottom: 150px;
+    bottom: 180px;
     display: flex;
     justify-content: center;
 
@@ -220,32 +278,42 @@ button {
 
 .plan-card {
     position: relative;
+    transition: 0.4s ease;
     border-radius: 18px;
     margin: 1vw;
     max-width: 500px;
-    background-color: #012840;
-    color: white;
+    background-color: #ffffff;
+    color: #012840;
 }
 
 .card-body {
     padding: 10px;
-    
 }
 
 .plan-item {
     color: white;
     background-color: #012840;
+    display: flex;
+    justify-content: space-between;
+}
+
+.plan-item i {
+position: relative;
+top: 4px;
 }
 
 .plan-title {
+    position: relative;
     font-size: 40px;
     font-weight: 700;
-    
+    z-index: 100;
 }
+
 
 .plan-list {
     position: relative;
     border-radius: 18px;
+    text-align: left;
     margin: auto;
     font-size: 14px;
     max-width: 400px;
@@ -254,10 +322,18 @@ button {
 }
 
 .plan-thumb {
+    position: relative;
     object-fit: cover;
     border-radius: 18px;
     width: 100%;
     padding: -13px;
+    z-index: 2;
+    height: 300px;
+}
+
+.plan-card:hover {
+    box-shadow: 4px 4px;
+    transform: translateY(1px);
 }
 
 .plan-ships .plan-thumb {
@@ -273,13 +349,252 @@ button {
     padding: 10px;
 }
 
+.plan-price {
+    position: absolute;
+    top: 0px;
+    z-index: 100;
+    font-weight: 900;
+    padding: 5px;
+    padding-right: 10px;
+    border-radius: 18px 0px 18px 0px;
+    transition: 0.5s ease;
+    background-color: #00ff0d;
+}
+
+.plan-card:hover .plan-price {
+    padding-left: 20px;
+    font-size: 19px;
+}
+
+.plan-hit {
+    position: absolute;
+    z-index: 100;
+    top: 75px;
+    left: 0px;
+    font-weight: 900;
+    padding: 5px;
+    padding-right: 10px;
+    border-radius: 0px 18px 18px 0px;
+    transition: 0.5s ease;
+    background: linear-gradient(90deg, rgba(255,0,0,1) 0%, rgba(200,82,0,1) 100%);
+}
+
+.sale .plan-hit {
+    top: 75px !important;
+}
+.hit .plan-hit {
+    top: 38px;
+}
+
+.plan-card.hit:hover {
+    box-shadow: 4px 4px rgba(255,0,0,1) !important;
+    transform: translateY(1px);
+}
+
+.plan-card.hit:hover .plan-hit {
+    transform: translateY(5px);
+}
+
+.plan-fade {
+    position: absolute;
+    z-index: 1;
+    top: 287px;
+    height: 80px;
+    width: 100%;
+    transition: 0.5s ease;
+    background: linear-gradient(to bottom, rgba(255, 0, 0, 0.315), rgba(255, 255, 255, 0));
+}
+
+.plan-card.hit:hover .plan-fade {
+    opacity: 0;
+}
+
+.plan-sale {
+    position: absolute;
+    z-index: 100;
+    top: 38px;
+    left: -10px;
+    font-weight: 900;
+    padding: 5px;
+    padding-right: 10px;
+    padding-left: 16px;
+    border-radius: 8px 18px 18px 8px;
+    transition: 0.5s ease;
+    background: yellow;
+}
+
+.plan-card.sale:hover .plan-sale {
+    transform: translateY(5px);
+}
+
+/* ============SHOW============ */
+.plan-card-show {
+    position: relative;
+    display: flex;
+    align-items: flex-start;
+    flex-direction: row;
+    transition: 0.4s ease;
+    border-radius: 18px;
+    margin: 1vw;
+    max-width: 1500px;
+    background-color: #ffffff;
+    color: #012840;
+}
+
+.card-text-show {
+    max-width: 700px;
+    height: 245px;
+}
+
+.plan-thumb-container-show {
+    width: 100%;
+}
+
+.card-body-show {
+    padding: 10px;
+    text-align: left;
+    
+}
+
+.plan-item-show {
+    color: #012840;
+    background-color: #ffffff;
+    border: 2px solid #012840;
+    display: flex;
+    justify-content: space-between;
+}
+
+.plan-item-show span {
+position: absolute;
+left: 40%;
+font-weight: 600;
+height: 100%;
+
+}
+
+.plan-item-show i {
+position: relative;
+top: 4px;
+}
+
+.plan-title-show {
+    font-size: 40px;
+    font-weight: 700;
+    text-align: center;
+    margin-bottom: 12px;
+    max-height: 96px;
+}
+
+.plan-list-show {
+    position: relative;
+    
+    bottom: 9px;
+    font-size: 14px;
+    color: white;
+    margin: -10px;    
+    border-radius: 0px 18px 18px 0px;
+    z-index: 99;
+}
+
+.plan-thumb-show {
+    position: relative;
+    object-fit: cover;
+    border-radius: 18px;
+    z-index: 100;
+    width: 100%;
+    padding: -13px;
+    height: 600px;
+    transition: 0.5s ease;
+}
+
+.plan-card-show:hover {
+    transform: translateY(1px);
+}
+
+.plan-ships-show .plan-thumb-show {
+    object-fit: cover;
+    height: 300px;
+}
+
+.plan-ships-show {
+    max-width: 450px;
+}
+
+.plan-ships-show p {
+    padding: 10px;
+}
+
+/* -------------------------- */
+
+.plan-price-show {
+    position: relative;
+    top: 0px;
+    width: fit-content;
+    z-index: 100;
+    font-weight: 900;
+    font-size: 26px;
+    white-space: nowrap;
+    padding: 5px;
+    padding-right: 10px;
+    border-radius: 18px 0px 0px 18px;
+    transition: 0.5s ease;
+    background-color: #00ff0d;
+}
+
+.add-to-cart-btn {
+    position: relative;
+    z-index: 100;
+    height: 100%;
+    transition: 0.5s ease;
+    border-radius: 0px 18px 18px 0px;
+}
+
+.add-to-cart-btn:hover {
+    transform: translateY(1px);
+}
+
+.data-show {
+    position: relative;
+    display: flex;
+    justify-content: center;
+}
+
+.plan-hit-show {
+    position: relative;
+    z-index: 100;
+    width: fit-content;
+    display: flex;
+    align-items: center;
+    font-weight: 900;
+    padding: 5px;
+
+    transition: 0.5s ease;
+    background: linear-gradient(90deg, rgba(255,0,0,1) 0%, rgba(200,82,0,1) 100%);
+}
+
+.plan-sale-show {
+    display: flex;
+    align-items: center;
+    z-index: 100;
+    top: 38px;
+    left: -10px;
+    font-weight: 900;
+    padding: 5px;
+    padding-right: 10px;
+    padding-left: 16px;
+    transition: 0.5s ease;
+    background: yellow;
+}
+
+/* ========================== */
+
 .booking-container {
     display: flex;
     justify-content: center;
     flex-wrap: nowrap;
     position: relative;
     height: 100px;
-    bottom: 60px;
+    bottom: 80px;
 }
 
 .results-container {
@@ -317,6 +632,7 @@ border-radius: 18px;
     justify-content: center;
     text-align: center;
     position: relative;
+    margin-top: 80px;
 }
 
 .bbackground {
@@ -336,15 +652,15 @@ border-radius: 18px;
     gap: 3vw;
 }
 
-.modal-dialog {
+.modal2-dialog {
     bottom: 20vh;
 }
 
-.modal-content {
+.modal2-content {
     border-radius: 18px;
 }
 
-.modal-body button {
+.modal2-body button {
     width: auto;
     margin: 10px;
     border-color: #012840;
@@ -716,11 +1032,6 @@ border-radius: 18px;
     text-align: center;
 }
 
-.collapsing {
-    transition-property: height, visibility;
-    transition-duration: .35s;
-}
-
 .acard-thumb img {
     max-width: 400px;
     height: 300px;
@@ -816,7 +1127,7 @@ border-radius: 18px;
 
 .acard-title {
     position: relative;
-    border-radius: 12px;
+    border-radius: 12px !important;
     max-width: 325px;
     z-index: 9999;
     height: auto;
@@ -1044,6 +1355,12 @@ border-radius: 18px;
     scale: 1;
 }
 
+@media (max-width: 422px) {
+    .add-to-cart-btn span:nth-child(1) {
+        display: none;
+    }
+}
+
 @media (max-width: 731px) {
     .add-container .add-button span {
         display: none; 
@@ -1057,7 +1374,7 @@ border-radius: 18px;
     }
 }
 
-@media (max-width: 1361px) {
+@media (max-width: 1414px) {
     .ships .card-title {
         white-space: nowrap;
         font-weight: 800;
@@ -1081,6 +1398,11 @@ border-radius: 18px;
         transition: left 0.4s ease;
     }
 
+    .add-to-cart-btn span:nth-child(2) {
+        transition: 0.5s ease;
+        display: none;
+    }
+
     .gallery-container {
         position: relative;
         display: flex;
@@ -1093,6 +1415,12 @@ border-radius: 18px;
 @media (max-width: 1035px) {
     .headernav {
         scale: 0.9;
+    }
+    .plan-card-show {
+        flex-direction: column;
+    }
+    .plan-thumb-show {
+        max-height: 400px;
     }
 }
 
