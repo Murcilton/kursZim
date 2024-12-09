@@ -21,6 +21,34 @@ function showNotification(message, type = 'info') {
 
 //======================================Корзина=====================================
 
+document.addEventListener('click', function (e) {
+  if (e.target.classList.contains('cart-order-item')) {
+      const cruiseId = e.target.dataset.id;
+      const url = e.target.dataset.url;
+
+      fetch(url, {
+          method: 'POST',
+          headers: {
+              'Content-Type': 'application/json',
+              'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]').getAttribute('content'),
+          },
+          body: JSON.stringify({ cruise_order_id: cruiseId }),
+      })
+      .then(response => response.json())
+      .then(data => {
+          if (data.success) {
+              showNotification('Круиз!', 'success');
+          } else {
+              showNotification(data.message || 'Ошибка оформления заказа.', 'error');
+          }
+      })
+      .catch(error => {
+          console.error('Ошибка оформления заказа:', error);
+          showNotification('Ошибка оформления заказа.', 'error');
+      });
+  }
+});
+
 document.addEventListener('DOMContentLoaded', () => {
   fetch('{{ route("cart.qty") }}')
       .then(response => response.json())
@@ -31,21 +59,20 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 document.addEventListener('DOMContentLoaded', () => {
-  const addToCartBtn = document.querySelector('.add-to-cart-btn');
-  addToCartBtn.addEventListener('click', function (event) {
+  document.addEventListener('click', function(event) {
+    if (event.target && event.target.classList.contains('add-to-cart-btn')) {
       event.preventDefault();
 
-      const cruiseId = this.dataset.id; // Получаем ID из data-атрибута
-      const qty = 1;
+      const cruiseId = event.target.dataset.id; 
+      const qty = 1;  
 
-      // Отправка AJAX-запроса
-      fetch(this.dataset.url, { // Используем data-url из кнопки
+      fetch(event.target.dataset.url, {
           method: 'POST',
           headers: {
               'Content-Type': 'application/json',
-              'X-CSRF-TOKEN': this.dataset.token // Передаем CSRF-токен
+              'X-CSRF-TOKEN': event.target.dataset.token 
           },
-          body: JSON.stringify({ cruise_id: cruiseId, qty: qty }) // Передаем cruise_id
+          body: JSON.stringify({ cruise_id: cruiseId, qty: qty })
       })
           .then(response => {
               if (!response.ok) throw new Error('Ошибка сети');
@@ -53,33 +80,31 @@ document.addEventListener('DOMContentLoaded', () => {
           })
           .then(data => {
               if (data.success) {
-                  // Обновляем количество товаров в бейдже
                   document.querySelector('.mini-cart-qty').textContent = data.cart_qty;
                   showNotification('Круиз добавлен в корзину!', 'success');
               } else {
-                showNotification('Ошибка при добавлении в корзину.', 'error');
+                  showNotification('Ошибка при добавлении в корзину.', 'error');
               }
           })
           .catch(error => {
               console.error('Ошибка:', error);
               showNotification('Ошибка при добавлении в корзину.', 'error');
           });
+    }
   });
 });
-
 document.addEventListener('DOMContentLoaded', () => {
   // Открытие модального окна корзины
   const burgerButton = document.querySelector('.burger-button');
   burgerButton.addEventListener('click', function () {
       const modalBody = document.querySelector('.cart-modal .modal-body');
-      const url = this.dataset.url; // Получаем маршрут из data-атрибута
+      const url = this.dataset.url; 
 
       modalBody.innerHTML = '<p>Загрузка...</p>';
 
       fetch(url)
           .then(response => response.text())
           .then(html => {
-              console.log(html);
               modalBody.innerHTML = html;
               const cartModal = new bootstrap.Modal(document.getElementById('cart-modal'));
               cartModal.show();

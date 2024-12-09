@@ -38,18 +38,18 @@
         <!-- Modal -->
         <div class="cart-modal-container">
             <div class="modal fade cart-modal" id="cart-modal" tabindex="-1" aria-labelledby="cartModalLabel" aria-hidden="true">
-                <div class="modal-dialog modal-lg">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <h5 class="modal-title" id="cartModalLabel">Корзина</h5>
+                <div class="modal-dialog cart-dialog modal-lg">
+                    <div class="modal-content cart-content">
+                        <div class="modal-header cart-header">
+                            <h5 class="modal-title cart-title" id="cartModalLabel">Корзина</h5>
                             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                         </div>
-                        <div class="modal-body">
+                        <div class="modal-body cart-body">
                             <p>Загрузка...</p>
                         </div>
-                        <div class="modal-footer">
-                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Закрыть</button>
-                            <button type="button" onclick="clearCart('{{ route('cart.clear') }}')" class="btn btn-danger">Очистить корзину</button>
+                        <div class="modal-footer cart-footer">
+                            <button type="button" onclick="clearCart('{{ route('cart.clear') }}')" class="cart-clear"><i class="fa-solid fa-trash" style="color: #ffffff;"></i>Очистить</button>
+                            <button type="button" class="cart-close" data-bs-dismiss="modal">Закрыть</button>
                         </div>
                     </div>
                 </div>

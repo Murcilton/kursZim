@@ -9,23 +9,42 @@ use Illuminate\Support\Facades\DB;
 
 class CartController extends Controller
 {
+    public function order(Request $request)
+{
+    $request->validate([
+        'cruise_order_id' => 'required|exists:cruise_order,id',
+    ]);
+
+    $user = auth()->user();
+
+    if (!$user) {
+        return response()->json(['success' => false, 'message' => 'Необходима авторизация'], 403);
+    }
+
+    $user->cruise_order_id = $request->cruise_order_id;
+    /** @var \App\Models\User $user **/
+    $user->save();
+
+    return response()->json(['success' => true, 'message' => 'Заказ оформлен!']);
+}
+
 
     public function add(Request $request)
     {
-        $cruiseId = $request->input('cruise_id'); // Получаем cruise_id из запроса
-        $qty = (int) $request->input('qty', 1); // Количество (по умолчанию 1)
+        $cruiseId = $request->input('cruise_id'); 
+        $qty = (int) $request->input('qty', 1); 
     
-        $cart = session()->get('cart', []); // Загружаем корзину из сессии
+        $cart = session()->get('cart', []); 
         if (isset($cart[$cruiseId])) {
-            $cart[$cruiseId] += $qty; // Увеличиваем количество
+            $cart[$cruiseId] += $qty; 
         } else {
-            $cart[$cruiseId] = $qty; // Добавляем новый элемент
+            $cart[$cruiseId] = $qty; 
         }
-        session()->put('cart', $cart); // Сохраняем обновленную корзину
+        session()->put('cart', $cart); 
     
         return response()->json([
             'success' => true,
-            'cart_qty' => array_sum($cart), // Суммируем все товары в корзине
+            'cart_qty' => array_sum($cart),
         ]);
     }
 

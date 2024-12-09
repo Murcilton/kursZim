@@ -165,6 +165,13 @@
                                 <li class="list-group-item plan-item">Дата отбытия: {{ $cruise->date->date }}<i
                                         class="fa-solid fa-calendar-days" style="position: relative; left: 1px;"></i></li>
                             </ul>
+                                <button 
+                                    class="add-to-cart-btn add-to-cart-btn2" 
+                                    data-id="{{ $cruise->id }}" 
+                                    data-url="{{ route('cart.add') }}" 
+                                    data-token="{{ csrf_token() }}">
+                                    <i class="fa-solid fa-cart-shopping fa-sm" style="margin-left: 3px">+</i>
+                                </button>
                         </div>
                     </div>
                 @endforeach

@@ -97,6 +97,7 @@ Route::group(['middleware' => 'admin'], function () {
     Route::get('/cart/show', [CartController::class, 'show'])->name('cart.show');
     Route::get('/cart/del-item/{product_id}', [CartController::class, 'delItem'])->name('cart.del_item');
     Route::get('/cart/clear', [CartController::class, 'clear'])->name('cart.clear');
+    Route::post('/cart/order', [CartController::class, 'order'])->name('cart.order');
 
     Route::get('/cart/qty', function () {
         $cartQty = array_sum(session('cart', []));

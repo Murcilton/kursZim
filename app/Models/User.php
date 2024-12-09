@@ -22,7 +22,13 @@ class User extends Authenticatable
         'email',
         'password',
         'is_admin',
+        'cruise_order_id',
     ];
+
+    public function cruise_order()
+    {
+        return $this->belongsTo(CruiseOrder::class);
+    }
 
     /**
      * The attributes that should be hidden for serialization.
