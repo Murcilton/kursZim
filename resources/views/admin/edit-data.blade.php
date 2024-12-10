@@ -95,6 +95,10 @@
                         </select>
                     </div>
                     <div class="mb-3">
+                        <label for="description" class="form-label">Описание</label>
+                        <textarea class="form-control" id="description" name="description" rows="3" required>{{ $destination->description }}</textarea>
+                    </div>
+                    <div class="mb-3">
                         <label for="img" class="form-label">Изображение</label>
                         <input type="file" class="form-control" id="img" name="img">
                         @if($ship->img)

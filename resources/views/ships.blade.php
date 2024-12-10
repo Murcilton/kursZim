@@ -4,7 +4,7 @@
     <div class="cruises-container ">
         <div class="cruises">
             @if ($cruises->isEmpty())
-                <p>Извините, нет доступных круизов по выбранным параметрам.</p>
+                <p>Извините, нет доступных корбалей</p>
             @else
                 @foreach ($ships as $ship)
                     <div class="plan-card plan-ships">

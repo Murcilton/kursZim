@@ -2,15 +2,16 @@
 
 @section('content')
     <div class="owl-carousel owl-carousel1 owl-theme owl1">
+        <div class="item item3">
+            <img src="{{ url('storage/img/Union.png') }}" alt="">
+        </div>
         <div class="item item1">
             <img src="{{ url('storage/img/6d.jpeg') }}" alt="">
         </div>
         <div class="item item2">
             <img src="{{ url('storage/img/Wonder of the Seas_1645411198_WN22-DroneCadiz218R.webp') }}" alt="">
         </div>
-        <div class="item item3">
-            <img src="{{ url('storage/img/Union.png') }}" alt="">
-        </div>
+
     </div>
 
     <div class="cards-container">
@@ -77,7 +78,7 @@
             <div class="first-modal">
                 <label for="b1" class="btnmodalLabel">Круиз в</label>
                 <button type="button" id="modalButton" class="btnmodal b1" data-bs-toggle="modal" data-bs-target="#destinationModal">
-                    Куда угодно
+                    Куда <span>угодно</span>
                     <img class="btnmodalArrow" src="{{ url('storage/GUI/Arrow Down.svg') }}" alt="" />
                 </button>
                 <div class="modal fade" id="destinationModal" tabindex="-1" aria-labelledby="destinationModalLabel" aria-hidden="true">
@@ -107,7 +108,7 @@
             <div class="second-modal">
                 <label for="b2" class="btnmodalLabel">Отправка из</label>
                 <button type="button" id="modalButton2" class="btnmodal b2" data-bs-toggle="modal" data-bs-target="#departureModal">
-                    Откуда угодно
+                    Откуда <span>угодно</span>
                     <img class="btnmodalArrow" src="{{ url('storage/GUI/Arrow Down.svg') }}" alt="" />
                 </button>
                 <div class="modal fade" id="departureModal" tabindex="-1" aria-labelledby="departureModalLabel" aria-hidden="true">
@@ -137,7 +138,7 @@
             <div class="third-modal">
                 <label for="b3" class="btnmodalLabel">Отправка в</label>
                 <button type="button" id="modalButton3" class="btnmodal b3" data-bs-toggle="modal" data-bs-target="#dateModal">
-                    В любое время
+                    <span>В любое</span> Время
                     <img class="btnmodalArrow" src="{{ url('storage/GUI/Arrow Down.svg') }}" alt="" />
                 </button>
                 <div class="modal fade" id="dateModal" tabindex="-1" aria-labelledby="dateModalLabel" aria-hidden="true">
@@ -163,7 +164,7 @@
             </div>
             <input type="hidden" name="date_id" id="dateInput">
     
-            <button type="submit" class="btnmodal btnsubmit">Найти круиз<i class="fa-solid fa-check" style="color: #ffffff;"></i></button>
+            <button type="submit" class="btnmodal btnsubmit"><span>Найти круиз</span><i class="fa-solid fa-check" style="color: #ffffff;"></i></button>
         </form>
     </div>
     

@@ -31,10 +31,10 @@
             </div>
         @endif
         @if (session('success'))
-            <div class="alert alert-success" style="position: fixed">
-                {{ session('success') }}
-            </div>
-        @endif
+        <script>
+            showNotification('{{ session('success') }}', 'success');
+        </script>
+    @endif
         <!-- Modal -->
         <div class="cart-modal-container">
             <div class="modal fade cart-modal" id="cart-modal" tabindex="-1" aria-labelledby="cartModalLabel" aria-hidden="true">

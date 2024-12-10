@@ -28,6 +28,12 @@ class ShowController extends Controller
         return view('ships', compact('cruises', 'ships'));
     }
 
+    public function showDestinations() {
+        $dests = Destination::all();
+        $cruises = CruiseOrder::orderBy("id")->paginate(10);
+        return view('destinations', compact('cruises', 'dests'));
+    }
+
     public function showAll($slug) {
         $show = CruiseOrder::query()->where('slug', $slug)->firstOrFail();
         return view('show', compact('show'));

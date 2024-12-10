@@ -25,7 +25,8 @@
         </a>
         <a href="{{ route('ships') }}"><button class="btnnav" data-toggle="button" aria-pressed="true">КОРАБЛИ</button>
         </a>
-        <button class="btnnav">ПРИБЫТИЯ</button>
+        <a href="{{ route('dests') }}"><button class="btnnav" data-toggle="button" aria-pressed="true">ПРИБЫТИЯ</button>
+        </a>
         <button class="btnnav">О НАС</button>
         <button class="btnnav search-button" onclick="getCart('{{ route('cart.show') }}')"><img
                 src="{{ url('storage/GUI/Search Button.svg') }}" class="SearchButton" alt=""
@@ -49,5 +50,31 @@
                 </a>
             </div>
         @endif
+        
     </div>
+    <nav role="navigation">
+        <div id="menuToggle">
+          <input type="checkbox" id="menuCheckbox" />
+          <span></span>
+          <span></span>
+          <span></span>
+          <ul id="menu" class="list-group">
+            <li class="list-group-item">
+                <a href="{{ route('cruises') }}"><button class="btnnav" data-toggle="button"aria-pressed="true">КРУИЗЫ</button>
+                </a>
+            </li>
+            <li class="list-group-item">
+                <a href="{{ route('ships') }}"><button class="btnnav" data-toggle="button" aria-pressed="true">КОРАБЛИ</button>
+                </a>
+            </li>     
+            <li class="list-group-item">
+            <a href="{{ route('dests') }}"><button class="btnnav" data-toggle="button" aria-pressed="true">ПРИБЫТИЯ</button>
+            </li>
+            </a>
+            <li class="list-group-item">
+                <button class="btnnav">О НАС</button>
+            </li>
+          </ul>
+        </div>
+      </nav>
 </div>

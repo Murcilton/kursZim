@@ -59,10 +59,12 @@ public function updateDestination(Request $request, Destination $destination)
     $request->validate([
         'name' => 'required|string|max:255|unique:destinations,name,' . $destination->id,
         'ship_id' => 'required|exists:ships,id',
+        'description' => 'required|string|max:9999',
         'img' => 'nullable|image',
     ]);
 
     $destination->name = $request->name;
+    $destination->description = $request->description;
     $destination->ship_id = $request->ship_id;
 
     if ($request->hasFile('img')) {

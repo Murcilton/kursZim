@@ -9,11 +9,11 @@ class Destination extends Model
 {
     use HasFactory;
     protected $table = 'destinations';
-    protected $fillable = ['name', 'ship_id', 'img'];
+    protected $fillable = ['name', 'description', 'ship_id', 'img'];
 
     public function ship()
     {
-        return $this->hasOne(Ship::class);
+        return $this->belongsTo(Ship::class, 'ship_id');
     }
     public function getImage(){
         if (!$this->img) {

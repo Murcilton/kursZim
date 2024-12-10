@@ -129,11 +129,13 @@ class CruiseController extends Controller
         $request->validate([
             'name' => 'required|string|max:255|unique:destinations,name',
             'ship_id' => 'required|numeric',
+            'description' => 'required|string|max:9999',
             'img' => 'nullable|image',
         ]);
 
         $destination = new Destination();
         $destination->name = $request->name;
+        $destination->description = $request->description;
         $destination->ship_id = $request->ship_id;
 
         if ($request->hasFile('img')) {

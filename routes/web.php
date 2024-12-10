@@ -39,6 +39,7 @@ Route::post('/login', [UserController::class, 'login'])->name('login');
 Route::get('/logout', [UserController::class, 'logout'])->name('logout');
 Route::get('/cruises', [\App\Http\Controllers\ShowController::class, 'show'])->name('cruises');
 Route::get('/ships', [\App\Http\Controllers\ShowController::class, 'showShips'])->name('ships');
+Route::get('/destinations', [\App\Http\Controllers\ShowController::class, 'showDestinations'])->name('dests');
 Route::get('/cruise/{slug}', [\App\Http\Controllers\ShowController::class, 'showAll'])->name('show');
 // Верификация
 

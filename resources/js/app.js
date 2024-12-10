@@ -3,6 +3,40 @@ import './bootstrap';
 import 'owl.carousel/dist/assets/owl.carousel.css';
 import 'owl.carousel';
 
+document.addEventListener('DOMContentLoaded', () => {
+  const burgerMenuContent = document.querySelector('.burger-menu-content');
+  const burgerToggle = document.querySelector('.burger-menu-toggle');
+  const headerNavItems = Array.from(document.querySelectorAll('.headernav > *:not(.logo-container)'));
+
+  const updateMenu = () => {
+      const isMobile = window.innerWidth <= 820;
+
+      if (isMobile) {
+          headerNavItems.forEach(item => burgerMenuContent.appendChild(item));
+      } else {
+          headerNavItems.forEach(item => {
+              const parent = item.dataset.originalParent || '.headernav';
+              document.querySelector(parent).appendChild(item);
+          });
+      }
+  };
+
+  // Добавляем оригинальные родители для восстановления
+  headerNavItems.forEach(item => {
+      item.dataset.originalParent = item.parentElement.className;
+  });
+
+  // Обновляем меню при загрузке и изменении размера окна
+  updateMenu();
+  window.addEventListener('resize', updateMenu);
+
+  // Открытие/закрытие бургер-меню
+  burgerToggle.addEventListener('click', () => {
+      burgerMenuContent.classList.toggle('active');
+  });
+});
+
+
 function showNotification(message, type = 'info') {
   const notification = document.getElementById('customNotification');
 
@@ -177,7 +211,9 @@ $(document).ready(function(){
         autoplayTimeout: 10000,
         autoplayHoverPause: true,
         dots: true, 
-        smartSpeed: 1000
+        smartSpeed: 1000,
+        animateIn: 'fadeIn',
+        animateOut: 'fadeOut',
     });
     $(".owl-carousel2").owlCarousel({
         items: 3,
