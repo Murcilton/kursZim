@@ -32,12 +32,13 @@
                 src="{{ url('storage/GUI/Search Button.svg') }}" class="SearchButton" alt=""
                 title="" /></button>
         @if (Auth::check())
-            <div class="user" style="color: white">
+            <div class="user d-flex align-items-center" style="color: white">
                 <button class="cabinetButton">{{ Auth::user()->name }}</button>
-            </div>
-            <a href="{{ route('logout') }}"><button type="button" class="btn btn-danger leave"
+                <a href="{{ route('logout') }}"><button type="button" class="btn btn-danger leave"
                     style="scale: 0.8; border-radius: 20px"><i
                         class="fa-solid fa-arrow-right-from-bracket"></i></button></a>
+            </div>
+            
         @else
             <div class="row buttons-container">
                 <a href="{{ route('login') }}">
@@ -58,23 +59,40 @@
           <span></span>
           <span></span>
           <span></span>
+
           <ul id="menu" class="list-group">
             <li class="list-group-item">
-                <a href="{{ route('cruises') }}"><button class="btnnav" data-toggle="button"aria-pressed="true">КРУИЗЫ</button>
+                <a href="{{ route('cruises') }}"><button class="btnnav" data-toggle="button"aria-pressed="true">КРУИЗЫ<i
+                    class="fa-solid fa-clipboard-list" style="position: relative; margin-left: auto; color:#ffffff"></i></button>
                 </a>
             </li>
             <li class="list-group-item">
-                <a href="{{ route('ships') }}"><button class="btnnav" data-toggle="button" aria-pressed="true">КОРАБЛИ</button>
+                <a href="{{ route('ships') }}"><button class="btnnav" data-toggle="button" aria-pressed="true">КОРАБЛИ<i
+                    class="fa-solid fa-ship" style="position: relative; left: 5px;"></i></button>
                 </a>
             </li>     
             <li class="list-group-item">
-            <a href="{{ route('dests') }}"><button class="btnnav" data-toggle="button" aria-pressed="true">ПРИБЫТИЯ</button>
+            <a href="{{ route('dests') }}"><button class="btnnav" data-toggle="button" aria-pressed="true">ПРИБЫТИЯ<i
+                class="fa-solid fa-location-dot" style="position: relative; left: 5px;"></i></li></button>
             </li>
             </a>
             <li class="list-group-item">
-                <button class="btnnav">О НАС</button>
+                <button class="btnnav">О НАС<i class="fa-solid fa-circle-info" style="color: #ffffff; position: relative; left: 5px;"></i></button>
             </li>
           </ul>
         </div>
+        <style>
+            #menu button {
+                position: relative;
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                margin: 10px;
+            }
+
+            #menu button i {
+                margin-right: 10px
+            }
+          </style>
       </nav>
 </div>
