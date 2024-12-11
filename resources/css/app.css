@@ -678,7 +678,10 @@ border-radius: 18px;
     justify-content: space-between;
     flex-wrap: nowrap;
     gap: 3vw;
-    
+}
+
+.modals .btnmodal {
+    width: auto;
 }
 
 .modal-dialog {
@@ -897,6 +900,7 @@ border-radius: 18px;
 }
 
 .gallery-item {
+    position: relative;
     background-size: cover;
     background-position: center;
     border-radius: 18px;
@@ -1524,6 +1528,10 @@ border-radius: 18px;
     left: 30px;
     position: relative;
     }
+
+    .ships-row {
+        max-width: 375px;
+    }
 }
 
 @media (max-width: 731px) {
@@ -1642,7 +1650,8 @@ border-radius: 18px;
     .ships .card {
         position: relative;
         height: 35vh;
-        width: 60vh;
+        width: 80vw;
+        max-width: 375px;
         background: none;
         border-color: none;
         color: #ffffff;
@@ -1668,6 +1677,92 @@ border-radius: 18px;
     .headernav {
         scale: 0.8;
         width: 100%;
+    }
+
+    .gallery-grid {
+        position: relative;
+        display: flex;
+        bottom: 120px;
+        display: grid;
+        width: 80%;
+        height: 550px;
+        grid-template-rows: 1fr 1fr 1fr 1fr;
+        grid-template-columns: 1fr 1fr;
+        gap: 20px;
+    }
+    
+    .gallery-item {
+        position: relative;
+        background-size: cover;
+        background-position: center;
+        border-radius: 18px;
+        min-height: 140px;
+    }
+    
+    .gallery-item:not(#item-3) {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    
+    .gallery-item p {
+        margin: 20px;
+
+        font-weight: 600;
+        font-size: 32px;
+        text-align: center;
+        color: #fff;
+        text-align: center;
+    }
+    
+    #item-0 {
+        transition: 0.4s ease;
+        grid-row-start: 1;
+        grid-column-start: 1;
+    
+        grid-row-end: 3;
+        grid-column-end: 2;
+    
+    }
+    
+    #item-1 {
+        transition: 0.4s ease;
+        grid-row-start: 1;
+        grid-column-start: 2;
+    
+        grid-row-end: 2;
+        grid-column-end: 4;
+    
+    }
+    
+    #item-2 {
+        transition: 0.4s ease;
+        grid-row-start: 5;
+        grid-column-start: 4;
+    
+        grid-row-end: 4;
+        grid-column-end: 1;
+    
+    }
+    
+    #item-3 {
+        transition: 0.4s ease;
+        grid-row-start: 2;
+        grid-column-start: 2;
+    
+        grid-row-end: 4;
+        grid-column-end: 4;
+    
+    }
+    
+    #item-4 {
+        transition: 0.4s ease;
+        grid-row-start: 3;
+        grid-column-start: 1;
+    
+        grid-row-end: 3;
+        grid-column-end: 2;
+    
     }
 }
 
