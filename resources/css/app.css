@@ -1690,6 +1690,7 @@ right: -3%;
 
 .owl-carousel2 img {
 height: 35vh;
+max-width: 300px;
 object-fit: cover;
 }
 
@@ -1818,6 +1819,8 @@ grid-column-end: 2;
 .card4 .card-title {
 white-space: wrap;
 }
+
+
 }
 
 

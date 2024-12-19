@@ -217,6 +217,17 @@ $(document).ready(function(){
     });
     $(".owl-carousel2").owlCarousel({
         items: 3,
+        responsive: {
+          0: {
+            items: 1 // Для экранов меньше 522px
+        },
+        522: {
+            items: 2 // Для экранов от 522px
+        },
+        768: {
+            items: 3 // Для экранов от 768px
+        },
+        },
         margin: 20,
         dots: true, 
         smartSpeed: 1000
