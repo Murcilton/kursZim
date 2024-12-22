@@ -20,14 +20,15 @@
         <button class="btnnav burger-button" data-url="{{ route('cart.show') }}" data-token="{{ csrf_token() }}">
             <i class="fa-solid fa-cart-shopping fa-xl" style="color: #ffffff;"></i>
             <span class="badge badge-light mini-cart-qty">{{ array_sum(session('cart', [])) }}</span>
-        </button> 
+        </button>
         <a href="{{ route('cruises') }}"><button class="btnnav" data-toggle="button"aria-pressed="true">КРУИЗЫ</button>
         </a>
         <a href="{{ route('ships') }}"><button class="btnnav" data-toggle="button" aria-pressed="true">КОРАБЛИ</button>
         </a>
-        <a href="{{ route('dests') }}"><button class="btnnav" data-toggle="button" aria-pressed="true">ПРИБЫТИЯ</button>
+        <a href="{{ route('dests') }}"><button class="btnnav" data-toggle="button"
+                aria-pressed="true">ПРИБЫТИЯ</button>
         </a>
-        <button class="btnnav">О НАС</button>
+        <a href="{{ route('about-us') }}"><button class="btnnav">О НАС</button></a>
         <button class="btnnav search-button" onclick="getCart('{{ route('cart.show') }}')"><img
                 src="{{ url('storage/GUI/Search Button.svg') }}" class="SearchButton" alt=""
                 title="" /></button>
@@ -35,51 +36,55 @@
             <div class="user d-flex align-items-center" style="color: white">
                 <button class="cabinetButton">{{ Auth::user()->name }}</button>
                 <a href="{{ route('logout') }}"><button type="button" class="btn btn-danger leave"
-                    style="scale: 0.8; border-radius: 20px"><i
-                        class="fa-solid fa-arrow-right-from-bracket"></i></button></a>
+                        style="scale: 0.8; border-radius: 20px"><i
+                            class="fa-solid fa-arrow-right-from-bracket"></i></button></a>
             </div>
-            
         @else
             <div class="row buttons-container">
                 <a href="{{ route('login') }}">
-                    <button type="button" class="btnnav auth-button"><i
-                            class="fa-solid fa-arrow-right-from-bracket"></i>Войти</button>
+                    <button type="button" class="btnnav auth-button1"><i
+                            class="fa-solid fa-arrow-right-from-bracket"></i> Войти</button>
                 </a>
                 <a href="{{ route('register.create') }}">
-                    <button type="button" class="btnnav auth-button"><i
+                    <button type="button" class="btnnav auth-button2"><i
                             class="fa-solid fa-arrow-right-from-bracket"></i> Регистрация</button>
                 </a>
             </div>
         @endif
-        
+
     </div>
     <nav role="navigation">
         <div id="menuToggle">
-          <input type="checkbox" id="menuCheckbox" />
-          <span></span>
-          <span></span>
-          <span></span>
+            <input type="checkbox" id="menuCheckbox" />
+            <span></span>
+            <span></span>
+            <span></span>
 
-          <ul id="menu" class="list-group">
-            <li class="list-group-item">
-                <a href="{{ route('cruises') }}"><button class="btnnav" data-toggle="button"aria-pressed="true">КРУИЗЫ<i
-                    class="fa-solid fa-clipboard-list" style="position: relative; margin-left: auto; color:#ffffff"></i></button>
+            <ul id="menu" class="list-group">
+                <li class="list-group-item">
+                    <a href="{{ route('cruises') }}"><button class="btnnav"
+                            data-toggle="button"aria-pressed="true">КРУИЗЫ<i class="fa-solid fa-clipboard-list"
+                                style="position: relative; margin-left: auto; color:#ffffff"></i></button>
+                    </a>
+                </li>
+                <li class="list-group-item">
+                    <a href="{{ route('ships') }}"><button class="btnnav" data-toggle="button"
+                            aria-pressed="true">КОРАБЛИ<i class="fa-solid fa-ship"
+                                style="position: relative; left: 5px;"></i></button>
+                    </a>
+                </li>
+                <li class="list-group-item">
+                    <a href="{{ route('dests') }}"><button class="btnnav" data-toggle="button"
+                            aria-pressed="true">ПРИБЫТИЯ<i class="fa-solid fa-location-dot"
+                                style="position: relative; left: 5px;"></i>
+                </li></button>
+                </li>
                 </a>
-            </li>
-            <li class="list-group-item">
-                <a href="{{ route('ships') }}"><button class="btnnav" data-toggle="button" aria-pressed="true">КОРАБЛИ<i
-                    class="fa-solid fa-ship" style="position: relative; left: 5px;"></i></button>
-                </a>
-            </li>     
-            <li class="list-group-item">
-            <a href="{{ route('dests') }}"><button class="btnnav" data-toggle="button" aria-pressed="true">ПРИБЫТИЯ<i
-                class="fa-solid fa-location-dot" style="position: relative; left: 5px;"></i></li></button>
-            </li>
-            </a>
-            <li class="list-group-item">
-                <button class="btnnav">О НАС<i class="fa-solid fa-circle-info" style="color: #ffffff; position: relative; left: 5px;"></i></button>
-            </li>
-          </ul>
+                <li class="list-group-item">
+                    <button class="btnnav">О НАС<i class="fa-solid fa-circle-info"
+                            style="color: #ffffff; position: relative; left: 5px;"></i></button>
+                </li>
+            </ul>
         </div>
         <style>
             #menu button {
@@ -93,6 +98,6 @@
             #menu button i {
                 margin-right: 10px
             }
-          </style>
-      </nav>
+        </style>
+    </nav>
 </div>

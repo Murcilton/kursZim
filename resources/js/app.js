@@ -71,7 +71,7 @@ document.addEventListener('click', function (e) {
       .then(response => response.json())
       .then(data => {
           if (data.success) {
-              showNotification('Круиз!', 'success');
+              showNotification('Круиз успешно забронирован!', 'success');
           } else {
               showNotification(data.message || 'Ошибка оформления заказа.', 'error');
           }

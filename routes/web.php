@@ -25,6 +25,7 @@ Route::get('/home', function () {
 });
 
 Route::get('/home', [CruiseController::class, 'showBookingForm'])->name('home');
+Route::get('/about-us', [CruiseController::class, 'aboutUs'])->name('about-us');
 
 Route::get('/booking-form', [CruiseController::class, 'showBookingForm'])->name('booking.form');
 Route::get('/cruise-search', [CruiseController::class, 'searchCruise'])->name('cruise.search');

@@ -16,6 +16,29 @@ font-family: "Montserrat", sans-serif;
 overflow-x: hidden;
 overflow-y: scroll !important;
 padding-right: 0px !important;
+height: 100%;
+}
+
+.custom-shape-divider-top-1734869968 {
+    position: absolute;
+    z-index: -1;
+    top: 70px;
+    left: 0;
+    width: 100%;
+    overflow: hidden;
+    line-height: 0;
+}
+
+.custom-shape-divider-top-1734869968 svg {
+    position: relative;
+    display: block;
+    width: calc(100% + 1.3px);
+    height: 111px;
+    transform: rotateY(180deg);
+}
+
+.custom-shape-divider-top-1734869968 .shape-fill {
+    fill: #FFFFFF;
 }
 
 .notification {
@@ -72,6 +95,7 @@ z-index: 9999;
 .main-container {
 position: relative;
 top: 80px;
+height: 100%;
 transition: 0.5s ease;
 }
 
@@ -164,6 +188,7 @@ width: 50px;
 
 .cabinetButton {
 position: relative;
+min-width: 100px;
 color: #012840;
 background-color: white;
 }
@@ -246,7 +271,6 @@ width: 75%;
 
 .card {
 overflow: hidden;
-height: 30vh;
 width: 100%;
 background-color: #03738C;
 border-color: #03738C;
@@ -272,6 +296,7 @@ object-fit: cover;
 
 .card4 {
 color: white;
+height: 300px;
 transition: 0.4s ease;
 }
 
@@ -341,12 +366,48 @@ transform: translateY(1px);
 }
 
 .plan-ships .plan-thumb {
+
 object-fit: cover;
 height: 300px;
 }
 
 .plan-ships {
 max-width: 450px;
+}
+
+.plan-ship-thumb {
+    transition: 0.5s ease;
+    border-radius: 18px;
+}
+
+.plan-ship-card {
+    position: relative;
+    flex-direction: column;
+    transition: 0.4s ease;
+    border-radius: 18px;
+    z-index: 100;
+    margin: 1vw;
+    max-width: 1200px;
+    background-color: #ffffff;
+    color: #012840;
+}
+
+.plan-ship-card:hover .blob{
+    padding: 10px;
+}
+
+.blob {
+    transition: 0.5s ease;
+    background-color: #012840;
+    position: absolute;
+    padding: 7px;
+    border-radius: 18px 0px 18px 0px;
+    z-index: 100;
+    left: 0px;
+}
+
+.blob img {
+    width: 40px;
 }
 
 .plan-ships p {
@@ -1542,42 +1603,29 @@ transition: 0.5s ease;
 left: 0px;
 }
 
-@media (max-width: 422px) {
-.add-to-cart-btn span:nth-child(1) {
-display: none;
+.about-us-container {
+    position: relative;
+    border-radius: 18px;
+    padding: 20px;
+    background-color: rgba(255, 255, 255, 0.425);
+    top: 60px;
 }
 
-.gallery-grid {
-width: 96% !important;
+footer {
+     position: absolute;
+
+     right: 0;
+     bottom: 0;
+     text-align: center; 
+     width: 100%;   
+     font-size: 19px;
+    font-weight: bold;
+
 }
 
-.user {
-transition: 0.5s ease;
-position: relative;
-left: 35px !important;
-}
-
-.ships .card-body {
-scale: 0.98;
-max-width: 500px;
-left: 30px;
-position: relative;
-}
-
-.ships-row {
-max-width: 375px;
-}
-
-.burger-button {
-right: 35% !important;
-}
-
-.modals {
-display: flex;
-justify-content: space-between;
-flex-wrap: nowrap;
-gap: 2px;
-}
+.footer-svg {
+    width: 100%; /* Ширина изображения */
+    /* Убедитесь, что у вас нет bottom: 0; */
 }
 
 @media (max-width: 1414px) {
@@ -1652,6 +1700,22 @@ width: 90%;
 }
 
 @media (max-width: 1175px) {
+
+    .buttons-container {
+        bottom: 7px;
+    }
+
+    .buttons-container button {
+        width: 150px !important;
+        margin-bottom: -10px !important;
+    }
+    .auth-button1 {
+        border-radius: 20px 20px 0px 0px !important;
+    }
+    .auth-button2 {
+        border-radius: 0px 0px 20px 20px !important;
+    }
+
 .ships .card{
 top: -30px;
 width: 35vw;
@@ -1666,19 +1730,105 @@ z-index: -1;
 }
 }
 
-@media (max-width: 731px) {
-.add-container .add-button span {
+#menuToggle
+{
 display: none;
-}
-.add-button {
-min-width: 27vw;
-}
-.add-button img {
-position: relative;
-left: 0px;
+position: fixed;
+top: 35px;
+left: 20px;
+transition: 0.3s ease;
+z-index: 9999;
+
+-webkit-user-select: none;
+user-select: none;
 }
 
+#menuToggle .btnnav {
+max-width: 200px;
+width: 100vw;
+height: 40px;
+font-size: 16px;
+margin-bottom: -20px;
 }
+
+@media (max-width: 820px) {
+
+    .bbackground {
+    width: 100%;
+    }
+    
+    .booking-container {
+    width: 100% ;
+    }
+    
+    .btnsubmit {
+    min-width: 50px !important;
+    text-align: center;
+    align-items: center;
+    width: fit-content !important;
+    }
+    
+    .btnsubmit i {
+    margin-left: 0px;
+    }
+    
+    .btnsubmit span {
+    display: none;
+    }
+    
+    .headernav {
+    scale: 0.8;
+    width: 100%;
+    }
+    .adminButton {
+    transform: translateY(20px);
+    }
+    
+    .headernav .btnnav:not(.burger-button) {
+    display: none;
+    opacity: 0;
+    }
+    
+    .auth-button1 {
+    display: block !important;
+    opacity: 1 !important;
+    }
+
+    .auth-button2 {
+        display: block !important;
+        opacity: 1 !important;
+    }
+    
+    .logo {
+    position: relative;
+    left: 115px;
+    width: 160px;
+    z-index: 1000;
+    transition: left 0.4s ease;
+    }
+    
+    .burger-button {
+    position: relative;
+    right: 45%;
+    }
+    
+    .logo-container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    }
+    
+    #menuToggle {
+    display: block;
+    }
+    
+    .modal {
+    top: 70px;
+    overflow-y: unset;
+    overflow-x: unset;
+    }
+    
+    }
 
 @media (max-width: 767px) {
 .owl-carousel2 {
@@ -1686,6 +1836,12 @@ position: relative;
 padding: 2vh;
 z-index: 100;
 right: -3%;
+}
+
+.row.g-0 {
+    display: block;
+    margin: 0; 
+    padding: 0; 
 }
 
 .owl-carousel2 img {
@@ -1815,109 +1971,141 @@ grid-column-end: 2;
 }
 }
 
+@media (max-width: 731px) {
+
+    .owl1 {
+    
+        max-height: 730px;
+    }
+    .owl1 img {
+        max-height: 710px;
+    }
+    
+    .add-container .add-button span {
+    display: none;
+    }
+    .add-button {
+    min-width: 27vw;
+    }
+    .add-button img {
+    position: relative;
+    left: 0px;
+    }
+    
+    }
+
 @media (max-width: 522px) {
-.card4 .card-title {
-white-space: wrap;
+
+    .owl-carousel2 .item img {
+        position: relative;
+        min-width: 300px;
+        
+    }
+
+    .owl-carousel2 {
+        display: flex !important;
+        justify-content: center !important;
+        flex-direction: column;
+    }
+
+    .owl-item {
+        display: flex !important;
+        justify-content: center !important;
+    }
+
+    .card4 .card-title {
+    white-space: wrap;
+    }
+
+    .plan-title-show {
+        font-size: 30px;
+    }
+
+    .plan-title {
+        font-size: 30px;
+    }
+    
 }
 
-
-}
-
+@media (max-width: 422px) {
 
 
-#menuToggle
-{
-display: none;
-position: fixed;
-top: 35px;
-left: 20px;
-transition: 0.3s ease;
-z-index: 9999;
 
--webkit-user-select: none;
-user-select: none;
-}
+    .ships .card {
+        height: 36vh;
+    }
 
-#menuToggle .btnnav {
-max-width: 200px;
-width: 100vw;
-height: 40px;
-font-size: 16px;
-margin-bottom: -20px;
-}
+    .card-body .card-title {
+        font-size: 25px;
+    }
 
-@media (max-width: 820px) {
+    .card-body .card-text {
+        font-size: 16px;
+    }
+    .booking-container {
+        position: relative;
+        top: 20px;
+    }
 
-.bbackground {
-width: 100%;
-}
+    .cards-container {
+        top: -80px;
+    }
 
-.booking-container {
-width: 100% ;
-}
+    .plan-card {
+        scale: 0.9;
+        margin: -20px 0px -20px 0px;
+    }
 
-.btnsubmit {
-min-width: 50px !important;
-text-align: center;
-align-items: center;
-width: fit-content !important;
-}
+    .add-to-cart-btn span:nth-child(1) {
+    display: none;
+    }
+    
+    .gallery-grid {
+    width: 96% !important;
+    }
+    
+    .user {
+    transition: 0.5s ease;
+    position: relative;
+    left: 35px !important;
+    }
+    
+    .ships .card-body {
+    scale: 0.98;
+    max-width: 500px;
+    left: 30px;
+    position: relative;
+    }
+    
+    .ships-row {
+    max-width: 375px;
+    }
+    
+    .burger-button {
+    right: 35% !important;
+    }
+    
+    .modals {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: nowrap;
+    gap: 2px;
+    }
+    
+    .owl1 {
+        top: -100px;
+        max-height: 430px;
+    }
+    .owl1 img {
+        max-height: 410px;
+    }
 
-.btnsubmit i {
-margin-left: 0px;
-}
-
-.btnsubmit span {
-display: none;
-}
-
-.headernav {
-scale: 0.8;
-width: 100%;
-}
-.adminButton {
-transform: translateY(20px);
-}
-
-.headernav .btnnav:not(.burger-button) {
-display: none;
-opacity: 0;
-}
-
-.auth-button {
-display: block !important;
-opacity: 1 !important;
-}
-
-.logo {
-position: relative;
-left: 115px;
-width: 160px;
-z-index: 1000;
-transition: left 0.4s ease;
-}
-
-.burger-button {
-position: relative;
-right: 45%;
-}
-
-.logo-container {
-width: 100%;
-display: flex;
-justify-content: center;
-}
-
-#menuToggle {
-display: block;
-}
-
-.modal {
-top: 70px;
-overflow-y: unset;
-overflow-x: unset;
-}
-}
+    .owl1 .owl-dots {
+        position: relative;
+        bottom: 60px;
+    }
+    
+    }
 
 /* ===================== NAV ========================= */
 
@@ -1931,6 +2119,11 @@ transition: 0.3s ease;
 #menuToggle a:hover
 {
 color: tomato;
+}
+
+#menuToggle span:nth-child(4) {
+    position: relative;
+    left: 1px;
 }
 
 #menuToggle input
@@ -1952,10 +2145,11 @@ z-index: 2;
 */
 #menuToggle span
 {
+    scale: 0.8;
 display: block;
-width: 33px;
+width: 34px;
 height: 4px;
-margin-bottom: 5px;
+margin-bottom: 3px;
 position: relative;
 
 background: #ffffff;
@@ -2018,7 +2212,7 @@ transform: rotate(-45deg) translate(0, -1px);
 position: absolute;
 max-width: 400px;
 width: fit-content;
-max-height: 100vh;
+height: 100vh;
 margin: -80px 0 0 -65px;
 padding: 35px;
 padding-top: 105px;

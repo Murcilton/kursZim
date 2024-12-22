@@ -21,6 +21,10 @@ class CruiseController extends Controller
     return view('home', compact('destinations', 'departures', 'dates', 'ships'));
 }
 
+    public function aboutUs() {
+        return view('about-us');
+    }
+
     public function searchCruise(Request $request)
     {
         // dd($request->all());
