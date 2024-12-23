@@ -76,7 +76,7 @@
             @csrf
             {{-- Первое окно --}}
             <div class="first-modal">
-                <label for="b1" class="btnmodalLabel">Круиз в</label>
+                <label for="b1" class="btnmodalLabel"><span>Круиз в</span> <span>Куда</span></label>
                 <button type="button" id="modalButton" class="btnmodal b1" data-bs-toggle="modal" data-bs-target="#destinationModal">
                     Куда <span>угодно</span>
                     <img class="btnmodalArrow" src="{{ url('storage/GUI/Arrow Down.svg') }}" alt="" />
@@ -106,7 +106,7 @@
     
             {{-- Второе окно --}}
             <div class="second-modal">
-                <label for="b2" class="btnmodalLabel">Отправка из</label>
+                <label for="b2" class="btnmodalLabel"><span>Отправка из</span><span>Откуда</span></label>
                 <button type="button" id="modalButton2" class="btnmodal b2" data-bs-toggle="modal" data-bs-target="#departureModal">
                     Откуда <span>угодно</span>
                     <img class="btnmodalArrow" src="{{ url('storage/GUI/Arrow Down.svg') }}" alt="" />
@@ -136,7 +136,7 @@
     
             {{-- Третье окно --}}
             <div class="third-modal">
-                <label for="b3" class="btnmodalLabel">Отправка в</label>
+                <label for="b3" class="btnmodalLabel"><span>Отправка в</span><span>Дата</span></label>
                 <button type="button" id="modalButton3" class="btnmodal b3" data-bs-toggle="modal" data-bs-target="#dateModal">
                     <span>В любое</span> Время
                     <img class="btnmodalArrow" src="{{ url('storage/GUI/Arrow Down.svg') }}" alt="" />

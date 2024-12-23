@@ -28,7 +28,7 @@
         </svg>
     </div>
     @include('layouts.header')
-    <div class="wrapper mt-5 main-container">
+    <div class="main-container">
         @if ($errors->any())
             <div class="alert alert-danger" style="position: fixed">
                 <ul>
@@ -64,15 +64,33 @@
             </div>
         </div>
     
-<div class="notification d-none" id="customNotification">
-</div>
+<div class="notification d-none" id="customNotification"></div>
         @yield('content')
-        {{-- <footer>
+
+        <button id="backToTop" class="back-to-top"><i class="fa-solid fa-arrow-up fa-lg"></i></button>
+
+        <footer>
             <div class="footer">
-                <img class="footer-svg" src="{{ url('storage/GUI/podval.svg') }}" alt="" title=""
-                style="" />
+                <div class="n">
+                    <div class="container footer-container">
+                        <p class="col-md-4 mb-0 text-body-secondary">© 2024 Superbia Maris, Inc</p>
+                        
+                        <a href="#" class="col-md-4 d-flex align-items-center justify-content-center mb-3 mb-md-0 me-md-auto link-body-emphasis text-decoration-none">
+                            <img src="http://localhost/storage/GUI/Logo Full.svg" alt="" title="" style="width: 40px">
+                        </a>
+                        
+                        <ul class="nav col-md-4 justify-content-end">
+                            <li class="nav-item"><a href="{{ route('about-us') }}" class="nav-link px-2 text-body-secondary">О нас</a></li> 
+                            
+                        </ul>
+                    </div>
+                    
+                    <img class="footer-svg" src="{{ url('storage/GUI/podval.svg') }}" alt="" title=""
+                    style="" />
+                </div>
+
             </div>
-        </footer> --}}
+        </footer>
     </div>
 
 

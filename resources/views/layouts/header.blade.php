@@ -81,8 +81,8 @@
                 </li>
                 </a>
                 <li class="list-group-item">
-                    <button class="btnnav">О НАС<i class="fa-solid fa-circle-info"
-                            style="color: #ffffff; position: relative; left: 5px;"></i></button>
+                    <a href="{{ route('about-us') }}" style="color: white"><button class="btnnav">О НАС<i class="fa-solid fa-circle-info"
+                            style="color: #ffffff; position: relative; left: 5px;"></i></button></a>
                 </li>
             </ul>
         </div>
