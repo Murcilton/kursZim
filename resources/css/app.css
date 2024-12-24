@@ -875,6 +875,11 @@ bottom: 20vh;
 border-radius: 18px;
 }
 
+.modal2-body {
+    max-height: 300px;
+    overflow-y: auto;
+}
+
 .modal2-body button {
 width: auto;
 margin: 10px;

@@ -189,7 +189,7 @@
             <div class="col-md-6 d-flex justify-content-center">
                 <div class="owl-carousel owl-carousel2 owl-theme">
                     <div class="item item1">
-                        <img src="{{ url('storage/img/image.png') }}" alt="" loading="lazy">
+                        <img src="{{ url('storage/img/image.png') }}" alt="" loading="lazy" >
                     </div>
                     <div class="item item2">
                         <img src="{{ url('storage/img/RCI-Icon-of-the-Seas-Exterior-Ship-view-1200x700.jpg') }}"
