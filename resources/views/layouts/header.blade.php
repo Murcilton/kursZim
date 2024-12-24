@@ -28,10 +28,37 @@
         <a href="{{ route('dests') }}"><button class="btnnav" data-toggle="button"
                 aria-pressed="true">ПРИБЫТИЯ</button>
         </a>
-        <a href="{{ route('about-us') }}"><button class="btnnav">О НАС</button></a>
-        <button class="btnnav search-button" onclick="getCart('{{ route('cart.show') }}')"><img
-                src="{{ url('storage/GUI/Search Button.svg') }}" class="SearchButton" alt=""
-                title="" /></button>
+        <a href="{{ route('about-us') }}" style="position: relative; z-index:100"><button class="btnnav">О НАС</button></a>
+
+<div class="dropdown">
+  <input type="checkbox" id="dropdown" class="btnnav search-button">
+
+  <label class="dropdown__face" for="dropdown">
+    <div class="dropdown__text"><img src="{{ url('storage/GUI/Search Button.svg') }}" class="SearchButton" alt="" title="" style="color: #012840"/></div>
+
+  </label>
+
+  <ul class="dropdown__items">
+    <li>
+        <form action="{{ route('search') }}" method="GET">
+            <input type="text" name="query" placeholder="Поиск" class="form-control search-input" placeholder="" aria-label="" aria-describedby="basic-addon1">
+    </li>
+    <li>
+        <button type="submit" class="search-submit"><i class="fa-solid fa-check" style="color: #012840;"></i></button>
+    </form>
+    </li>
+  </ul>
+</div>
+
+<svg>
+  <filter id="goo">
+    <feGaussianBlur in="SourceGraphic" stdDeviation="10" result="blur" />
+    <feColorMatrix in="blur" type="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 18 -7" result="goo" />
+    <feBlend in="SourceGraphic" in2="goo" />
+  </filter>
+</svg>
+
+
         @if (Auth::check())
             <div class="user d-flex align-items-center" style="color: white">
                 <button class="cabinetButton">{{ Auth::user()->name }}</button>
@@ -84,6 +111,15 @@
                     <a href="{{ route('about-us') }}" style="color: white"><button class="btnnav">О НАС<i class="fa-solid fa-circle-info"
                             style="color: #ffffff; position: relative; left: 5px;"></i></button></a>
                 </li>
+
+                {{-- <li class="list-group-item search-form">
+                    <div class="">
+                        <form action="" class="">
+                        <input type="text" placeholder="Поиск2" class="form-control search-input" placeholder="" aria-label="" aria-describedby="basic-addon1">
+                        <button type="submit" class="search-submit"><i class="fa-solid fa-check" style="color: #012840;"></i></button>
+                      </form>
+                    </div>
+                </li> --}}
             </ul>
         </div>
         <style>

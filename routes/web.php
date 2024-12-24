@@ -4,6 +4,7 @@ use App\Http\Controllers\Admin\DataController as AdminDataController;
 use App\Http\Controllers\CartController;
 use App\Http\Controllers\CruiseController;
 use App\Http\Controllers\DataController;
+use App\Http\Controllers\SearchController;
 use App\Http\Controllers\UserController;
 use Illuminate\Foundation\Auth\EmailVerificationRequest;
 use Illuminate\Support\Facades\Route;
@@ -26,6 +27,7 @@ Route::get('/home', function () {
 
 Route::get('/home', [CruiseController::class, 'showBookingForm'])->name('home');
 Route::get('/about-us', [CruiseController::class, 'aboutUs'])->name('about-us');
+Route::get('/search', [SearchController::class, 'index'])->name('search');
 
 Route::get('/booking-form', [CruiseController::class, 'showBookingForm'])->name('booking.form');
 Route::get('/cruise-search', [CruiseController::class, 'searchCruise'])->name('cruise.search');
