@@ -8,6 +8,7 @@ use App\Models\Departure;
 use App\Models\Destination;
 use App\Models\Ship;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class ShowController extends Controller
 {
@@ -18,8 +19,9 @@ class ShowController extends Controller
         $availableDest = Destination::all();
         $availableDep = Departure::all();
         $cruises = CruiseOrder::orderBy("id")->paginate(10);
+        $user = Auth::user();
 
-        return view('cruises', compact('cruises', 'availableDates', 'availableShips', 'availableDest', 'availableDep'));
+        return view('cruises', compact('cruises', 'availableDates', 'availableShips', 'availableDest', 'availableDep', 'user'));
     }
 
     public function showShips() {

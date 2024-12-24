@@ -228,6 +228,7 @@ border-radius: 18px 0px 0px 18px !important;
 }
 
 .SearchButton {
+
     transition: 0.5s ease;
 }
 
@@ -242,8 +243,19 @@ border-radius: 18px 0px 0px 18px !important;
 }
 
 .search-container {
+    position: relative;
+    top: 80px;
+    width: 100%;
     display: flex;
     justify-content: center;
+
+}
+
+.search-results {
+    position: relative;
+    justify-content: center;
+    display: flex;
+    flex-wrap: wrap;
 }
 
 .cabinetButton {
@@ -385,6 +397,10 @@ background-color: #ffffff;
 color: #012840;
 }
 
+.plan-card-search {
+    width: 500px;
+}
+
 .card-body {
 padding: 10px;
 }
@@ -433,7 +449,7 @@ height: 300px;
 }
 
 .plan-card:hover {
-box-shadow: 4px 4px;
+box-shadow: 2px 2px 15px;
 transform: translateY(1px);
 }
 
@@ -462,6 +478,10 @@ max-width: 450px;
     max-width: 1200px;
     background-color: #ffffff;
     color: #012840;
+}
+
+.plan-ship-card .card-title{
+    font-size: 32px !important;
 }
 
 .plan-ship-card:hover .blob{
@@ -530,7 +550,7 @@ top: 38px;
 }
 
 .plan-card.hit:hover {
-box-shadow: 4px 4px rgba(255,0,0,1) !important;
+box-shadow: 2px 2px 15px rgba(255,0,0,1) !important;
 transform: translateY(1px);
 }
 
@@ -608,8 +628,8 @@ justify-content: space-between;
 }
 
 .plan-item-show span {
-position: absolute;
-left: 40%;
+position: relative;
+
 font-weight: 600;
 height: 100%;
 
@@ -1709,7 +1729,6 @@ left: 0px;
 footer {
      position: relative;
      right: 0;
-
      bottom: 0;
      text-align: center; 
      width: 100%;   
@@ -2157,6 +2176,16 @@ grid-column-end: 2;
 
 @media (max-width: 522px) {
 
+    .plan-card-search {
+        width: 400px;
+    }
+
+    .footer-container {
+        scale: 0.8;
+        position: absolute;
+        top: 60px;
+    }
+
     .btnmodalLabel span:nth-child(1) {
         display: none;
     }
@@ -2441,3 +2470,4 @@ cursor: pointer;
 transform: none;
 }
 /* =================================================== */
+

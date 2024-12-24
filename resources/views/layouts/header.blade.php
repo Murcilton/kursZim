@@ -4,12 +4,12 @@
             style="top: -70px; height:220px" />
     @else
         <img class="hbackground" src="{{ url('storage/GUI/Header Background.svg') }}" alt="" title=""
-            style="" />
+            style="" loading="lazy"/>
     @endif
     <div class="headernav d-flex align-items-center">
         <div class="logo-container">
             <a href="{{ route('home') }}"><button class="btn logo"><img src="{{ url('storage/GUI/Logo.svg') }}"
-                        alt="" title="" style="width: 130px" /></button></a>
+                        alt="" title="" style="width: 130px" loading="lazy"/></button></a>
         </div>
         @if (Auth::check() && Auth::user()->is_admin == 1)
             <div class="admin">
@@ -26,7 +26,7 @@
         <a href="{{ route('ships') }}"><button class="btnnav" data-toggle="button" aria-pressed="true">КОРАБЛИ</button>
         </a>
         <a href="{{ route('dests') }}"><button class="btnnav" data-toggle="button"
-                aria-pressed="true">ПРИБЫТИЯ</button>
+                aria-pressed="true">РЕГИОНЫ</button>
         </a>
         <a href="{{ route('about-us') }}" style="position: relative; z-index:100"><button class="btnnav">О НАС</button></a>
 
@@ -34,7 +34,7 @@
   <input type="checkbox" id="dropdown" class="btnnav search-button">
 
   <label class="dropdown__face" for="dropdown">
-    <div class="dropdown__text"><img src="{{ url('storage/GUI/Search Button.svg') }}" class="SearchButton" alt="" title="" style="color: #012840"/></div>
+    <div class="dropdown__text"><img src="{{ url('storage/GUI/Search Button.svg') }}" class="SearchButton" alt="" title="" style="color: #012840" loading="lazy"/></div>
 
   </label>
 

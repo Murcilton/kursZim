@@ -3,13 +3,13 @@
 @section('content')
     <div class="owl-carousel owl-carousel1 owl-theme owl1">
         <div class="item item3">
-            <img src="{{ url('storage/img/Union.png') }}" alt="">
+            <img src="{{ url('storage/img/Union.png') }}" alt="" loading="lazy">
         </div>
         <div class="item item1">
-            <img src="{{ url('storage/img/6d.jpeg') }}" alt="">
+            <img src="{{ url('storage/img/6d.jpeg') }}" alt="" loading="lazy">
         </div>
         <div class="item item2">
-            <img src="{{ url('storage/img/Wonder of the Seas_1645411198_WN22-DroneCadiz218R.webp') }}" alt="">
+            <img src="{{ url('storage/img/Wonder of the Seas_1645411198_WN22-DroneCadiz218R.webp') }}" alt="" loading="lazy">
         </div>
 
     </div>
@@ -20,7 +20,7 @@
                 <div class="col mb-4">
                     <div class="card card-item">
                         <img class="card-img" src="{{ url('storage/img/Screenshot 2024-11-26 174422.png') }}"
-                            alt="Card image">
+                            alt="Card image" loading="lazy">
                         <div class="card-img-overlay">
                             <h5 class="card-title">Европа</h5>
                             <p class="card-text"></p>
@@ -31,7 +31,7 @@
                 <div class="col mb-4">
                     <div class="card card-item">
                         <img class="card-img" src="{{ url('storage/img/Famous-Landmarks-In-Alaska-cover.jpg') }}"
-                            alt="Card image">
+                            alt="Card image" loading="lazy">
                         <div class="card-img-overlay">
                             <h5 class="card-title">Аляска</h5>
                             <p class="card-text"></p>
@@ -43,7 +43,7 @@
                     <div class="card card-item">
                         <img class="card-img"
                             src="{{ url('storage/img/jw-marriott_plant-riverside-savannah-c-credit-jw-marriott-plant-riverside-savannah.jpg') }}"
-                            alt="Card image">
+                            alt="Card image" loading="lazy">
                         <div class="card-img-overlay">
                             <h5 class="card-title">Грузия</h5>
                             <p class="card-text"></p>
@@ -58,7 +58,7 @@
                     <div class="card card4">
                         <img class="card-img"
                             src="{{ url('storage/img/aerial-top-view-beautiful-white-cruise-running-with-contrail-ocean-sea-luxury-cruise-ocean-sea-concept-tourism-relax-travel-holiday-vacation-time_33850-636.jpg') }}"
-                            alt="Card image">
+                            alt="Card image" loading="lazy">
                         <div class="card-img-overlay">
                             <h5 class="card-title">Предложения сезона</h5>
                             <p class="card-text"></p>
@@ -71,7 +71,7 @@
     </div>
 
     <div class="booking-container">
-        <img class="bbackground" src="{{ url('storage/GUI/Booking Background.svg') }}" alt="" title="" />
+        <img class="bbackground" src="{{ url('storage/GUI/Booking Background.svg') }}" alt="" title="" loading="lazy"/>
         <form action="{{ route('cruise.search') }}" method="GET" class="modals">
             @csrf
             {{-- Первое окно --}}
@@ -79,7 +79,7 @@
                 <label for="b1" class="btnmodalLabel"><span>Круиз в</span> <span>Куда</span></label>
                 <button type="button" id="modalButton" class="btnmodal b1" data-bs-toggle="modal" data-bs-target="#destinationModal">
                     Куда <span>угодно</span>
-                    <img class="btnmodalArrow" src="{{ url('storage/GUI/Arrow Down.svg') }}" alt="" />
+                    <img class="btnmodalArrow" src="{{ url('storage/GUI/Arrow Down.svg') }}" alt="" loading="lazy"/>
                 </button>
                 <div class="modal fade" id="destinationModal" tabindex="-1" aria-labelledby="destinationModalLabel" aria-hidden="true">
                     <div class="modal-dialog modal2-dialog modal-dialog-centered">
@@ -109,7 +109,7 @@
                 <label for="b2" class="btnmodalLabel"><span>Отправка из</span><span>Откуда</span></label>
                 <button type="button" id="modalButton2" class="btnmodal b2" data-bs-toggle="modal" data-bs-target="#departureModal">
                     Откуда <span>угодно</span>
-                    <img class="btnmodalArrow" src="{{ url('storage/GUI/Arrow Down.svg') }}" alt="" />
+                    <img class="btnmodalArrow" src="{{ url('storage/GUI/Arrow Down.svg') }}" alt="" loading="lazy"/>
                 </button>
                 <div class="modal fade" id="departureModal" tabindex="-1" aria-labelledby="departureModalLabel" aria-hidden="true">
                     <div class="modal-dialog modal2-dialog modal-dialog-centered">
@@ -139,7 +139,7 @@
                 <label for="b3" class="btnmodalLabel"><span>Отправка в</span><span>Дата</span></label>
                 <button type="button" id="modalButton3" class="btnmodal b3" data-bs-toggle="modal" data-bs-target="#dateModal">
                     <span>В любое</span> Время
-                    <img class="btnmodalArrow" src="{{ url('storage/GUI/Arrow Down.svg') }}" alt="" />
+                    <img class="btnmodalArrow" src="{{ url('storage/GUI/Arrow Down.svg') }}" alt="" loading="lazy"/>
                 </button>
                 <div class="modal fade" id="dateModal" tabindex="-1" aria-labelledby="dateModalLabel" aria-hidden="true">
                     <div class="modal-dialog modal2-dialog modal-dialog-centered">
@@ -171,7 +171,7 @@
 
     <div class="ships-container">
         <img class="sbackground" src="{{ url('storage/GUI/Ships Background.svg') }}" alt="" title=""
-            style="" />
+            style="" loading="lazy"/>
         <div class="row ships-row">
             <div class="col-md-6 d-flex justify-content-center">
                 <div class="ships">
@@ -189,21 +189,21 @@
             <div class="col-md-6 d-flex justify-content-center">
                 <div class="owl-carousel owl-carousel2 owl-theme">
                     <div class="item item1">
-                        <img src="{{ url('storage/img/image.png') }}" alt="">
+                        <img src="{{ url('storage/img/image.png') }}" alt="" loading="lazy">
                     </div>
                     <div class="item item2">
                         <img src="{{ url('storage/img/RCI-Icon-of-the-Seas-Exterior-Ship-view-1200x700.jpg') }}"
-                            alt="">
+                            alt="" loading="lazy">
                     </div>
                     <div class="item item3">
-                        <img src="{{ url('storage/img/image3.png') }}" alt="">
+                        <img src="{{ url('storage/img/image3.png') }}" alt="" loading="lazy">
                     </div>
                     <div class="item item4">
-                        <img src="{{ url('storage/img/a83622c50647cfdd40b092c3aeb23992.jpg') }}" alt="">
+                        <img src="{{ url('storage/img/a83622c50647cfdd40b092c3aeb23992.jpg') }}" alt="" loading="lazy">
                     </div>
                     <div class="item item5">
                         <img src="{{ url('storage/img/low_1701726981_RCI-ST-Aerial-Aft-Night-CGI01-RT-crop-LR.jpg') }}"
-                            alt="">
+                            alt="" loading="lazy">
                     </div>
                 </div>
             </div>
@@ -215,10 +215,10 @@
     <div class="gallery-container">
         <div class="divide">
             <h1>Взгляните на мир с его лучшей стороны</h1>
-            <img class="divideSVG" src="{{ url('storage/GUI/Divide.svg') }}" alt="">
+            <img class="divideSVG" src="{{ url('storage/GUI/Divide.svg') }}" alt="" loading="lazy">
         </div>
 
-        <img class="gbackground" src="{{ url('storage/GUI/Gallery Background.svg') }}" alt="">
+        <img class="gbackground" src="{{ url('storage/GUI/Gallery Background.svg') }}" alt="" loading="lazy">
         <div class="gallery-grid">
             <div id="item-0" class="gallery-item"
                 style="background-image: url('{{ url('storage/img/Italy.png') }}');">

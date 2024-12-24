@@ -13,9 +13,9 @@
                 <div class="row g-0">
                   <div class="col plan-ship-thumb">
                     <div class="blob">
-                        <img class="" src="{{ url('storage/GUI/Blob.svg') }}" alt="" title="" style="" />
+                        <img class="" src="{{ url('storage/GUI/Blob.svg') }}" alt="" title="" style="" loading="lazy"/>
                     </div>
-                    <img src="{{ $ship->getImage() }}" class="img-fluid rounded-start plan-thumb" alt="...">
+                    <img src="{{ $ship->getImage() }}" class="img-fluid rounded-start plan-thumb" alt="..." loading="lazy">
                   </div>
                   
                   <div class="col">

@@ -2,7 +2,7 @@
 
 @section('content')
 
-<div class="container create-container">
+<div style="position: relative; top: 90px;" class="container create-container">
     <h1>Добавить данные</h1>
 
     <form action="{{ route('dates.store') }}" method="POST">
@@ -33,7 +33,7 @@
         </div>
     </form>
 
-    <form action="{{ route('destinations.store') }}" method="POST">
+    <form action="{{ route('destinations.store') }}" method="POST" enctype="multipart/form-data">
         @csrf
         <div class="mb-3 addDest">
             <label for="destination_name" class="">Название пункта назначения<i class="fa-solid fa-location-dot" style="position: relative; left: 1px;"></i></label>
@@ -45,6 +45,8 @@
                     <option value="{{ $ship->id }}">{{ $ship->name }}</option> 
             @endforeach 
         </select> 
+        <label for="description" class="">Описание</label>
+        <textarea class="form-control" id="description" name="description" rows="5" required></textarea>
         <label for="img" class="">Изображение</label>
         <input type="file" class="form-control" id="img" name="img">
         <div class="bt">

@@ -208,7 +208,7 @@ class CruiseController extends Controller
         // Валидация входящих данных
         $request->validate([
             'title' => 'required|string|max:255',
-            'description' => 'required|string|max:255',
+            'description' => 'required|string|max:9999',
             'nights' => 'required|numeric',
             'date_id' => 'required|numeric',
             'ship_id' => 'required|numeric',

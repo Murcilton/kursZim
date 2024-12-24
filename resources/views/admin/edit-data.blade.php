@@ -102,7 +102,7 @@
                         <label for="img" class="form-label">Изображение</label>
                         <input type="file" class="form-control" id="img" name="img">
                         @if($ship->img)
-                        <img src="{{ Storage::url($destination->img) }}" alt="Изображение" style="object-fit: cover; width: 100%; margin-top: 10px; border-radius: 20px;">
+                        <img src="{{ Storage::url($destination->img) }}" alt="Изображение" style="object-fit: cover; width: 100%; margin-top: 10px; border-radius: 20px;" loading="lazy">
                         @endif
                     </div>
                     <button type="submit" class="btnnav ed">Обновить<i class="fa-solid fa-pen-to-square" style="position: relative; left: 6px;"></i></button>
@@ -136,7 +136,7 @@
                         <label for="img" class="form-label">Изображение</label>
                         <input type="file" class="form-control" id="img" name="img">
                         @if($ship->img)
-                        <img src="{{ Storage::url($ship->img) }}" alt="Изображение" style="object-fit: cover; width: 100%; margin-top: 10px; border-radius: 20px;">
+                        <img src="{{ Storage::url($ship->img) }}" alt="Изображение" style="object-fit: cover; width: 100%; margin-top: 10px; border-radius: 20px;" loading="lazy">
                         @endif
                     </div>
                     <button type="submit" class="btnnav ed">Обновить<i class="fa-solid fa-pen-to-square" style="position: relative; left: 6px;"></i></button>

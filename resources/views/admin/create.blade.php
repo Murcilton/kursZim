@@ -2,7 +2,7 @@
 
 @section('content')
 
-<div class="container create-container create-container2">
+<div style="position: relative; top: 90px;" class="container create-container create-container2">
     <h1>Создать круиз</h1>
 
     <form action="{{ route('admin.store') }}" method="POST" enctype="multipart/form-data">

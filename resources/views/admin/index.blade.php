@@ -10,13 +10,13 @@
         <h2>Доступные круизы</h2> 
         <div class="add-container d-flex justify-content-center">
             <a href="{{ route('admin.create') }}">
-                <button class="btnnav add-button"><span>Создать круиз</span><img class="" src="{{ url('storage/GUI/ship-boat-svgrepo-com.svg') }}" alt=""></button>
+                <button class="btnnav add-button"><span>Создать круиз</span><img class="" src="{{ url('storage/GUI/ship-boat-svgrepo-com.svg') }}" alt="" loading="lazy"></button>
             </a> 
             <a href="{{ route('admin.createData') }}">
-                <button class="btnnav add-button"><span>Добавить данные</span><img class="" src="{{ url('storage/GUI/data-2-svgrepo-com.svg') }}" alt=""></button>
+                <button class="btnnav add-button"><span>Добавить данные</span><img class="" src="{{ url('storage/GUI/data-2-svgrepo-com.svg') }}" alt="" loading="lazy"></button>
             </a> 
             <a href="{{ route('admin.editAll') }}">
-                <button class="btnnav add-button"><span>Изменить данные</span><img class="" src="{{ url('storage/GUI/edit-3-svgrepo-com (1).svg') }}" alt=""></button>
+                <button class="btnnav add-button"><span>Изменить данные</span><img class="" src="{{ url('storage/GUI/edit-3-svgrepo-com (1).svg') }}" alt="" loading="lazy"></button>
             </a> 
         </div>
         <div class="atable"> 

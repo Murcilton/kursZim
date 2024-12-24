@@ -25,19 +25,19 @@
     <h2 class="mt-5 mb-4 text-center">Наша команда</h2>
     <div class="row">
         <div class="col-md-4 team-member text-center">
-            <img src="{{ url('storage/img/images.jpeg') }}" alt="Член команды 1">
+            <img src="{{ url('storage/img/images.jpeg') }}" alt="Член команды 1" loading="lazy">
             <h5>Сергей Симонов</h5>
             <p>Генеральный директор</p>
             <p>Серёжа имеет более 10 лет опыта в индустрии круизов и страстно любит путешествовать.</p>
         </div>
         <div class="col-md-4 team-member text-center">
-            <img src="{{ url('storage/img/yavlinsky_faces.jpg.webp') }}" alt="Член команды 2">
+            <img src="{{ url('storage/img/yavlinsky_faces.jpg.webp') }}" alt="Член команды 2" loading="lazy">
             <h5>Григорий Явлинский</h5>
             <p>Менеджер по продажам</p>
             <p>Гришок поможет вам найти идеальный круиз, соответствующий вашим пожеланиям и бюджету.</p>
         </div>
         <div class="col-md-4 team-member text-center">
-            <img src="{{ url('storage/img/16244811421430s.jpg') }}" alt="Член команды 3">
+            <img src="{{ url('storage/img/16244811421430s.jpg') }}" alt="Член команды 3" loading="lazy">
             <h5>Владислав Савельев</h5>
             <p>Специалист по SEO оптимизации</p>
             <p>Влад всегда готов ответить на ваши вопросы и помочь с любыми запросами.</p>

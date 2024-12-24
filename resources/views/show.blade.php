@@ -5,7 +5,7 @@
 <div class="cruises">
     <div class="plan-card-show">
         <div class="plan-thumb-container-show">
-        <img src="{{ $show->getImage() }}" alt="" class="plan-thumb-show">
+        <img src="{{ $show->getImage() }}" alt="" class="plan-thumb-show" loading="lazy">
         
     </div>
         <div class="card-body-show">

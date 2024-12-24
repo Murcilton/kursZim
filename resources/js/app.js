@@ -2,7 +2,9 @@ import './bootstrap';
 
 import 'owl.carousel/dist/assets/owl.carousel.css';
 import 'owl.carousel';
+import Swiper from 'swiper';
 
+// Back To Top =================================================
 
 const backToTopButton = document.getElementById('backToTop');
 
@@ -20,6 +22,8 @@ backToTopButton.onclick = function() {
         behavior: 'smooth'
     });
 };
+
+// ============================================================
 
 document.addEventListener('DOMContentLoaded', () => {
   const burgerMenuContent = document.querySelector('.burger-menu-content');

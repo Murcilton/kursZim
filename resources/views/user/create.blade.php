@@ -16,7 +16,7 @@
     <div class="register-card">
         <div class="register-logo">
             <ul class="register-logo-banner">
-                <li><img src="{{ url('storage/GUI/Logo Auth.svg') }}" alt=""></li>
+                <li><img src="{{ url('storage/GUI/Logo Auth.svg') }}" alt="" loading="lazy"></li>
                 <li><p>Регистрация пользователя <span class="custom">Superbia Maris</span></p></li>
             </ul>
         </div>

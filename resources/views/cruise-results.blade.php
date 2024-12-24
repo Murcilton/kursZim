@@ -21,7 +21,7 @@
             @else
                 @foreach ($cruises as $cruise)
                     <div class="plan-card">
-                        <img src="{{ $cruise->getImage() }}" alt="" class="plan-thumb ">
+                        <img src="{{ $cruise->getImage() }}" alt="" class="plan-thumb " loading="lazy">
                         <div class="card-body">
                             <h5 class="card-title plan-title">{{ $cruise->title }}</h5>
                             <p class="card-text">{{ $cruise->description }}</p>

@@ -12,9 +12,9 @@
                     <div class="row g-0">
                       <div class="col plan-ship-thumb">
                         <div class="blob">
-                            <img class="" src="{{ url('storage/GUI/island-with-a-palm-tree-svgrepo-com.svg') }}" alt="" title="" style="width: 30px" />
+                            <img class="" src="{{ url('storage/GUI/island-with-a-palm-tree-svgrepo-com.svg') }}" alt="" title="" style="width: 30px" loading="lazy"/>
                         </div>
-                        <img src="{{ $ship->getImage() }}" class="img-fluid rounded-start plan-thumb" alt="...">
+                        <img src="{{ $ship->getImage() }}" class="img-fluid rounded-start plan-thumb" alt="..." loading="lazy">
                       </div>
                       
                       <div class="col">
@@ -25,6 +25,9 @@
                       </div>
                     </div>
                   </div>
+
+                  
+
                     {{-- <div class="plan-card plan-ships" style="min-width: 500px">
                         <img src="{{ $ship->getImage() }}" alt="" class="plan-thumb">
                         <div class="card-body">

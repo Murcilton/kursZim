@@ -3,7 +3,7 @@
 @section('content')
     <div class="cruises-container ">
         <div class="booking-container">
-            <img class="bbackground" src="{{ url('storage/GUI/Booking Background.svg') }}" alt="" title="" />
+            <img class="bbackground" src="{{ url('storage/GUI/Booking Background.svg') }}" alt="" title="" loading="lazy"/>
             <form action="{{ route('cruise.search') }}" method="GET" class="modals">
                 @csrf
                 {{-- Первое окно --}}
@@ -12,7 +12,7 @@
                     <button type="button" id="modalButton" class="btnmodal b1" data-bs-toggle="modal"
                         data-bs-target="#destinationModal">
                         Куда <span>угодно</span>
-                        <img class="btnmodalArrow" src="{{ url('storage/GUI/Arrow Down.svg') }}" alt="" />
+                        <img class="btnmodalArrow" src="{{ url('storage/GUI/Arrow Down.svg') }}" alt="" loading="lazy"/>
                     </button>
                     <div class="modal fade" id="destinationModal" tabindex="-1" aria-labelledby="destinationModalLabel"
                         aria-hidden="true">
@@ -46,7 +46,7 @@
                     <button type="button" id="modalButton2" class="btnmodal b2" data-bs-toggle="modal"
                         data-bs-target="#departureModal">
                         Откуда <span>угодно</span>
-                        <img class="btnmodalArrow" src="{{ url('storage/GUI/Arrow Down.svg') }}" alt="" />
+                        <img class="btnmodalArrow" src="{{ url('storage/GUI/Arrow Down.svg') }}" alt="" loading="lazy"/>
                     </button>
                     <div class="modal fade" id="departureModal" tabindex="-1" aria-labelledby="departureModalLabel"
                         aria-hidden="true">
@@ -80,7 +80,7 @@
                     <button type="button" id="modalButton3" class="btnmodal b3" data-bs-toggle="modal"
                         data-bs-target="#dateModal">
                         <span>В любое</span> Время
-                        <img class="btnmodalArrow" src="{{ url('storage/GUI/Arrow Down.svg') }}" alt="" />
+                        <img class="btnmodalArrow" src="{{ url('storage/GUI/Arrow Down.svg') }}" alt="" loading="lazy"/>
                     </button>
                     <div class="modal fade" id="dateModal" tabindex="-1" aria-labelledby="dateModalLabel"
                         aria-hidden="true">
@@ -152,8 +152,14 @@
 
 
                         <div class="card-body">
-                            <h5 class="card-title plan-title"><a class="a-title" href="{{ route('show', ['slug' => $cruise->slug]) }}"
-                                    style="text-decoration: none; color:#012840">{{ $cruise->title }}</a></h5>
+                            <h5 class="card-title plan-title">
+                                <a class="a-title" href="{{ route('show', ['slug' => $cruise->slug]) }}" style="text-decoration: none; color:#012840">
+                                    {{ $cruise->title }}
+                                    @if($user->cruise_order_id == $cruise->id)
+                                    <i class="fa-solid fa-star" style="color: #FFD43B; position: absolute; z-index: -1; left: -5px; bottom: 120px"></i>
+                                    @endif
+                                </a>
+                                </h5>
                             <p class="card-text">{{ $cruise->description }}</p>
                             <ul class="list-group list-group-flush plan-list">
                                 <li class="list-group-item plan-item">Отправка из: {{ $cruise->departure->name }}<i
