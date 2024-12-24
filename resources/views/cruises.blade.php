@@ -155,7 +155,7 @@
                             <h5 class="card-title plan-title">
                                 <a class="a-title" href="{{ route('show', ['slug' => $cruise->slug]) }}" style="text-decoration: none; color:#012840">
                                     {{ $cruise->title }}
-                                    @if($user->cruise_order_id == $cruise->id)
+                                    @if(Auth::user() && $user->cruise_order_id == $cruise->id)
                                     <i class="fa-solid fa-star" style="color: #FFD43B; position: absolute; z-index: -1; left: -5px; bottom: 120px"></i>
                                     @endif
                                 </a>
